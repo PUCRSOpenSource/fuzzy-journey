@@ -1,5 +1,10 @@
 # fuzzy-journey
 
+Grupo 3..4?:
+* [Daniel Amarante](https://github.com/amarantedaniel)
+* [Giovanni Cupertino](https://github.com/GiovanniCuper)
+* [Matthias Nunes](https://github.com/execb5)
+
 ---
 
 # Simulador de B\*
