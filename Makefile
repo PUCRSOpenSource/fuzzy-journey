@@ -23,5 +23,6 @@ run: main
 	./main
 
 clean:
+	rm -f datafile.part
 	rm -f $(ODIR)/*.o 
 	rm -f main
