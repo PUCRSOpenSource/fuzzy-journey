@@ -1,29 +1,31 @@
 #include "datafile.h"
+#include "table_entry.h"
 #include <fstream>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 void print_arruda()
 {
-	string line;
-	ifstream myfile("data/arruda.txt");
+	std::string line;
+	std::ifstream myfile("data/arruda.txt");
 	if (myfile)
 	{
 		while (getline( myfile, line ))
 		{
-			cout << line << endl;
+			std::cout << line << std::endl;
 		}
 		myfile.close();
 	}
 	else
-		cout << "fooey\n" << endl;
+		std::cout << "fooey\n" << std::endl;
 }
 
 
 int main()
 {
 	print_arruda();
-	return Datafile::init();
+	Datafile::init();
+	TableEntry* te = new TableEntry(1, "blabla");
+	std::cout << "Code: " << te->getCode() << std::endl;
+	std::cout << "Description: " << te->getDescription() << std::endl;
 }
