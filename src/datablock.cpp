@@ -14,18 +14,29 @@ DataBlock::~DataBlock() {
 }
 
 void DataBlock::addEntry(TableEntry entry) {
-	saveNewHeader(1, 1);
+	// Get position
+	uint16_t position = 0;
+	uint16_t lastPosition = 0;
+	uint16_t lastSize = 0;
+	if (headerSize > 0) {
+		lastPosition = lastHeaderPosition();
+		lastSize = lastHeaderSize();
+		position = lastPosition + lastSize;
+	}
 
-	uint16_t lastPosition = lastHeaderPosition();
-	uint16_t lastSize = lastHeaderSize();
-//	uint16_t position = lastPosition + lastSize;
+	// Save stuff
+	saveNewHeader(position, entry.size());
 
-	std::cout <<
-	std::bitset<16>(lastPosition) <<
-	std::endl <<
-	std::bitset<16>(lastSize) <<
-	std::endl;
 
+	uint8_t *entryData = entry.toByteArray();
+	uint16_t actualPosition = SIZE - position - entry.size();
+	memcpy(data + actualPosition, entryData, entry.size());
+	free(entryData);
+
+	// Print everything!!
+	for (int i = 0; i < SIZE; ++i) {
+		std::cout << std::bitset<8>(data[i]) << std::endl;
+	}
 }
 
 uint16_t DataBlock::lastHeaderPosition() {
