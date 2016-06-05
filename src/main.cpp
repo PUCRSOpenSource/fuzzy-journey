@@ -1,6 +1,7 @@
 #include "datafile.h"
 #include "table.h"
 #include "table_entry.h"
+#include "datablock.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -24,11 +25,8 @@ void print_arruda()
 
 int main()
 {
-	print_arruda();
-	Datafile::init();
-	Table t;
-	t.newEntry("blabla");
-	t.newEntry("blablabla");
-	t.printMembers(); // For DEBUG.
-	std::cout << "Table class size: " << sizeof(class TableEntry) << std::endl;
+	DataBlock *db = new DataBlock(123);
+	db->findSpace();
+
+	return 0;
 }
