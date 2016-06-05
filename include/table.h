@@ -1,8 +1,6 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-#define DEBUG
-
 #include "table_entry.h"
 #include <cstdint>
 #include <string>
