@@ -9,19 +9,17 @@
 class DataBlock {
 public:
 	DataBlock(uint16_t address);
-
 	~DataBlock();
-
 	void addEntry(TableEntry entry);
-	uint16_t findSpace();
-	uint16_t newHeaderPosition();
-	uint16_t newHeaderSize();
 
 private:
 	int address;
 	int headerSize;
-
 	uint8_t data[SIZE];
+
+	uint16_t lastHeaderPosition();
+	uint16_t lastHeaderSize();
+	void saveNewHeader(uint16_t position, uint16_t size);
 };
 
 #endif //DATABLOCK_H

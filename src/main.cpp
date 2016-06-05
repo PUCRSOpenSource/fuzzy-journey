@@ -25,8 +25,9 @@ void print_arruda()
 
 int main()
 {
+	TableEntry te(1, "Oi td bem");
 	DataBlock *db = new DataBlock(123);
-	db->findSpace();
+	db->addEntry(te);
 
 	return 0;
 }
