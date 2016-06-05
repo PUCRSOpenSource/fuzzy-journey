@@ -3,7 +3,8 @@
 
 #include <cstdint>
 
-#define SIZE 2000
+#define DATA_SIZE 1960
+#define OVERHEAD_SIZE 36
 
 class DataBlock
 {
@@ -13,7 +14,8 @@ public:
 private:
 	uint16_t address;
 	uint16_t nextAddress;
-	uint8_t data[SIZE];
+	uint8_t entryInfo[OVERHEAD_SIZE];
+	uint8_t tableEntries[DATA_SIZE];
 };
 
 #endif //DATABLOCK_H
