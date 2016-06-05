@@ -1,5 +1,6 @@
 #include "datafile.h"
 #include "table.h"
+#include "table_entry.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -29,4 +30,5 @@ int main()
 	t.newEntry("blabla");
 	t.newEntry("blablabla");
 	t.printMembers(); // For DEBUG.
+	std::cout << "Table class size: " << sizeof(class TableEntry) << std::endl;
 }
