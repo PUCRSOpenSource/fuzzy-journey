@@ -25,9 +25,11 @@ void print_arruda()
 
 int main()
 {
-	TableEntry te(1, "Oi td bem");
-	DataBlock *db = new DataBlock(123);
-	db->addEntry(te);
-
+	TableEntry te(1, "Oi td bem com vc");
+	DataBlock db(123);
+	db.addEntry(te);
+	TableEntry te2 = db.getEntry(0);
+	std::cout << te2.getCode() << std::endl;
+	std::cout << te2.getDescription() << std::endl;
 	return 0;
 }

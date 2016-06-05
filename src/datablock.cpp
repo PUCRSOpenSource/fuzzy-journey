@@ -1,5 +1,8 @@
 #include "datablock.h"
 #include <iostream>
+#include <string>
+
+using namespace std;
 
 DataBlock::DataBlock(uint16_t address) {
 	this->address = address;
@@ -33,10 +36,6 @@ void DataBlock::addEntry(TableEntry entry) {
 	memcpy(data + actualPosition, entryData, entry.size());
 	free(entryData);
 
-	// Print everything!!
-	for (int i = 0; i < SIZE; ++i) {
-		std::cout << std::bitset<8>(data[i]) << std::endl;
-	}
 }
 
 uint16_t DataBlock::lastHeaderPosition() {
@@ -55,4 +54,31 @@ void DataBlock::saveNewHeader(uint16_t position, uint16_t size) {
 	memcpy(data + headerSize, &position, sizeof(uint16_t));
 	memcpy(data + headerSize + 2, &size, sizeof(uint16_t));
 	headerSize += 4;
+}
+
+TableEntry DataBlock::getEntry(uint16_t index) {
+	uint32_t entryCode;
+	string entryDescription;
+
+	uint16_t position = getHeaderPosition(index);
+	uint16_t size = getHeaderSize(index);
+
+	uint16_t actualPosition = SIZE - position - size;
+
+	memcpy(&entryCode, data + actualPosition, sizeof(entryCode));
+	memcpy(&entryDescription, data + actualPosition + sizeof(entryCode), size - sizeof(entryCode));
+	TableEntry tb(entryCode, entryDescription);
+	return tb;
+}
+
+uint16_t DataBlock::getHeaderPosition(uint16_t index) {
+	uint16_t position;
+	memcpy(&position, data + 4 * index, sizeof(position));
+	return position;
+}
+
+uint16_t DataBlock::getHeaderSize(uint16_t index) {
+	uint16_t size;
+	memcpy(&size, data + 4 * index + 2, sizeof(size));
+	return size;
 }

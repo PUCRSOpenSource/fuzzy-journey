@@ -11,6 +11,7 @@ public:
 	DataBlock(uint16_t address);
 	~DataBlock();
 	void addEntry(TableEntry entry);
+	TableEntry getEntry(uint16_t index);
 
 private:
 	int address;
@@ -19,6 +20,8 @@ private:
 
 	uint16_t lastHeaderPosition();
 	uint16_t lastHeaderSize();
+	uint16_t getHeaderPosition(uint16_t index);
+	uint16_t getHeaderSize(uint16_t index);
 	void saveNewHeader(uint16_t position, uint16_t size);
 };
 
