@@ -5,10 +5,11 @@ ODIR = ./obj
 CC = g++
 CFLAGS = -std=c++11 -I$(IDIR) -Wall
 
-_DEPS = datafile.h table_entry.h table.h
+_DEPS = datafile.h table_entry.h table.h datablock.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o datafile.o table_entry.o table.o
+_OBJ = main.o datafile.o table_entry.o table.o datablock.o
+
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
