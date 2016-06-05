@@ -1,5 +1,5 @@
 #include "datafile.h"
-#include "table_entry.h"
+#include "table.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -25,7 +25,8 @@ int main()
 {
 	print_arruda();
 	Datafile::init();
-	TableEntry* te = new TableEntry(1, "blabla");
-	std::cout << "Code: " << te->getCode() << std::endl;
-	std::cout << "Description: " << te->getDescription() << std::endl;
+	Table t;
+	t.newEntry("blabla");
+	t.newEntry("blablabla");
+	t.printMembers(); // For DEBUG.
 }
