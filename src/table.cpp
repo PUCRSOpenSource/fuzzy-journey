@@ -22,7 +22,7 @@ void Table::newEntry(std::string description)
 // For DEBUG.
 void Table::printMembers()
 {
-	for (int i = 0; i < entries.size(); i++)
+	for (uint32_t i = 0; i < entries.size(); i++)
 	{
 		std::cout << "Element: " << i << std::endl;
 		std::cout << "Code: " << entries[i].getCode() << std::endl;

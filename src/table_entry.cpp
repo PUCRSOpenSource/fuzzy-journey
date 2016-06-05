@@ -1,6 +1,4 @@
 #include "table_entry.h"
-#include <cstdint>
-#include <string>
 
 TableEntry::TableEntry(uint32_t code, std::string description)
 {
