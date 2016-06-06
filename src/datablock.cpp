@@ -5,6 +5,7 @@
 using namespace std;
 
 DataBlock::DataBlock(uint16_t address) {
+	// TODO: This initialization is not final.
 	this->address = address;
 	for (int i = 0; i < SIZE; i++) {
 		data[i] = 0;
@@ -17,7 +18,8 @@ DataBlock::~DataBlock() {
 }
 
 void DataBlock::addEntry(TableEntry entry) {
-	// Get position
+	// TODO: Check for overflow before adding.
+	// TODO: Return index of value
 	uint16_t position = 0;
 	uint16_t lastPosition = 0;
 	uint16_t lastSize = 0;
