@@ -2,20 +2,28 @@
 #define DATABLOCK_H
 
 #include <cstdint>
+#include "table_entry.h"
 
-#define DATA_SIZE 1960
-#define OVERHEAD_SIZE 36
+#define SIZE 2000
 
-class DataBlock
-{
+class DataBlock {
 public:
 	DataBlock(uint16_t address);
 	~DataBlock();
+	void addEntry(TableEntry entry);
+	TableEntry getEntry(uint16_t index);
+
 private:
-	uint16_t address;
-	uint16_t nextAddress;
-	uint8_t entryInfo[OVERHEAD_SIZE];
-	uint8_t tableEntries[DATA_SIZE];
+	int address;
+	int headerSize;
+	uint8_t data[SIZE];
+
+	uint16_t lastHeaderPosition();
+	uint16_t lastHeaderSize();
+	uint16_t getHeaderPosition(uint16_t index);
+	uint16_t getHeaderSize(uint16_t index);
+	void saveNewHeader(uint16_t position, uint16_t size);
+	void saveNewEntry(uint16_t position, TableEntry entry);
 };
 
 #endif //DATABLOCK_H
