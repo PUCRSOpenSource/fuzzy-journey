@@ -10,7 +10,7 @@ class DataBlock {
 public:
 	DataBlock(uint16_t address);
 	~DataBlock();
-	void addEntry(TableEntry entry);
+	uint16_t addEntry(TableEntry entry);
 	TableEntry getEntry(uint16_t index);
 
 private:

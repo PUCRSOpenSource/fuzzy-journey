@@ -17,29 +17,32 @@ DataBlock::~DataBlock() {
 
 }
 
-void DataBlock::addEntry(TableEntry entry) {
+uint16_t DataBlock::addEntry(TableEntry entry) {
 	// TODO: Check for overflow before adding.
-	// TODO: Return index of value
-	uint16_t position = 0;
-	uint16_t lastPosition = 0;
-	uint16_t lastSize = 0;
-	if (headerSize > 0) {
-		lastPosition = lastHeaderPosition();
-		lastSize = lastHeaderSize();
-		position = lastPosition + lastSize;
-	}
+	
+	uint16_t lastPosition = lastHeaderPosition();;
+	uint16_t lastSize = lastHeaderSize();
+	uint16_t position = lastPosition + lastSize;
 
 	saveNewHeader(position, entry.size());
 	saveNewEntry(SIZE - position - entry.size(), entry);
+
+	return headerSize / 4 - 1;
 }
 
 uint16_t DataBlock::lastHeaderPosition() {
+	if (headerSize <= 0) {
+		return 0;
+	}
 	uint16_t position;
 	memcpy(&position, data + headerSize - 4, sizeof(position));
 	return position;
 }
 
 uint16_t DataBlock::lastHeaderSize() {
+	if (headerSize <= 0) {
+		return 0;
+	}
 	uint16_t size;
 	memcpy(&size, data + headerSize - 2, sizeof(size));
 	return size;

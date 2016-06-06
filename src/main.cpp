@@ -6,14 +6,11 @@
 #include <iostream>
 #include <string>
 
-void print_arruda()
-{
+void print_arruda() {
 	std::string line;
 	std::ifstream myfile("data/arruda.txt");
-	if (myfile)
-	{
-		while (getline( myfile, line ))
-		{
+	if (myfile) {
+		while (getline(myfile, line)) {
 			std::cout << line << std::endl;
 		}
 		myfile.close();
@@ -23,15 +20,14 @@ void print_arruda()
 }
 
 
-int main()
-{
+int main() {
 	TableEntry te(1, "Oi td bem com vc");
 	TableEntry te2(2, "Sim e com vc");
 	DataBlock db(123);
-	db.addEntry(te);
-	db.addEntry(te2);
-	TableEntry te3 = db.getEntry(1);
-	TableEntry te4 = db.getEntry(0);
+	int oi = db.addEntry(te);
+	int tchau = db.addEntry(te2);
+	TableEntry te3 = db.getEntry(oi);
+	TableEntry te4 = db.getEntry(tchau);
 
 	std::cout << te3.getCode() << std::endl;
 	std::cout << te3.getDescription() << std::endl;
