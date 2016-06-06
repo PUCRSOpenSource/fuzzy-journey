@@ -23,6 +23,7 @@ private:
 	uint16_t getHeaderPosition(uint16_t index);
 	uint16_t getHeaderSize(uint16_t index);
 	void saveNewHeader(uint16_t position, uint16_t size);
+	void saveNewEntry(uint16_t position, TableEntry entry);
 };
 
 #endif //DATABLOCK_H

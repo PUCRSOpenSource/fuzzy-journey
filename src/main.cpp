@@ -26,10 +26,16 @@ void print_arruda()
 int main()
 {
 	TableEntry te(1, "Oi td bem com vc");
+	TableEntry te2(2, "Sim e com vc");
 	DataBlock db(123);
 	db.addEntry(te);
-	TableEntry te2 = db.getEntry(0);
-	std::cout << te2.getCode() << std::endl;
-	std::cout << te2.getDescription() << std::endl;
+	db.addEntry(te2);
+	TableEntry te3 = db.getEntry(1);
+	TableEntry te4 = db.getEntry(0);
+
+	std::cout << te3.getCode() << std::endl;
+	std::cout << te3.getDescription() << std::endl;
+	std::cout << te4.getCode() << std::endl;
+	std::cout << te4.getDescription() << std::endl;
 	return 0;
 }

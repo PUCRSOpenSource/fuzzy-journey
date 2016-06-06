@@ -27,15 +27,8 @@ void DataBlock::addEntry(TableEntry entry) {
 		position = lastPosition + lastSize;
 	}
 
-	// Save stuff
 	saveNewHeader(position, entry.size());
-
-
-	uint8_t *entryData = entry.toByteArray();
-	uint16_t actualPosition = SIZE - position - entry.size();
-	memcpy(data + actualPosition, entryData, entry.size());
-	free(entryData);
-
+	saveNewEntry(SIZE - position - entry.size(), entry);
 }
 
 uint16_t DataBlock::lastHeaderPosition() {
@@ -56,6 +49,12 @@ void DataBlock::saveNewHeader(uint16_t position, uint16_t size) {
 	headerSize += 4;
 }
 
+void DataBlock::saveNewEntry(uint16_t position, TableEntry entry) {
+	uint8_t *entryData = entry.toByteArray();
+	memcpy(data + position, entryData, entry.size());
+	free(entryData);
+}
+
 TableEntry DataBlock::getEntry(uint16_t index) {
 	uint32_t entryCode;
 	string entryDescription;
@@ -67,8 +66,8 @@ TableEntry DataBlock::getEntry(uint16_t index) {
 
 	memcpy(&entryCode, data + actualPosition, sizeof(entryCode));
 	memcpy(&entryDescription, data + actualPosition + sizeof(entryCode), size - sizeof(entryCode));
-	TableEntry tb(entryCode, entryDescription);
-	return tb;
+
+	return TableEntry(entryCode, entryDescription);
 }
 
 uint16_t DataBlock::getHeaderPosition(uint16_t index) {
