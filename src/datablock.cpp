@@ -19,8 +19,6 @@ DataBlock::~DataBlock() {
 }
 
 uint16_t DataBlock::addEntry(TableEntry entry) {
-	// TODO: Check for overflow before adding.
-
 	uint16_t lastPosition = lastHeaderPosition();;
 	uint16_t lastSize = lastHeaderSize();
 	uint16_t position = lastPosition + lastSize;
