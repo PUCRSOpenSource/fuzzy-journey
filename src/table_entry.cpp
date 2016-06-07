@@ -38,6 +38,9 @@ uint8_t *TableEntry::toByteArray()
 {
 	uint8_t *array = static_cast<uint8_t *>(malloc(size()));
 	memcpy(array, &code, sizeof(code));
-	memcpy(array + sizeof(code), &description, description.size());
+
+	for (int i = 0; i < description.size(); i++) {
+		array[sizeof(code) + i] = description[i];
+	}
 	return array;
 }
