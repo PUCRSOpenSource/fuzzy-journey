@@ -19,7 +19,7 @@ DataBlock::~DataBlock() {
 
 uint16_t DataBlock::addEntry(TableEntry entry) {
 	// TODO: Check for overflow before adding.
-	
+
 	uint16_t lastPosition = lastHeaderPosition();;
 	uint16_t lastSize = lastHeaderSize();
 	uint16_t position = lastPosition + lastSize;
@@ -61,16 +61,21 @@ void DataBlock::saveNewEntry(uint16_t position, TableEntry entry) {
 }
 
 TableEntry DataBlock::getEntry(uint16_t index) {
-	uint32_t entryCode;
-	string entryDescription;
-
 	uint16_t position = getHeaderPosition(index);
 	uint16_t size = getHeaderSize(index);
+
+	uint32_t entryCode;
+	// initialize string with size.
+	string entryDescription(size - 4, 'x');
 
 	uint16_t actualPosition = SIZE - position - size;
 
 	memcpy(&entryCode, data + actualPosition, sizeof(entryCode));
-	memcpy(&entryDescription, data + actualPosition + sizeof(entryCode), size - sizeof(entryCode));
+
+	// copy string
+	for (int i = 0; i < size - 4; i++) {
+		entryDescription[i] = data[actualPosition + 4 + i];
+	}
 
 	return TableEntry(entryCode, entryDescription);
 }

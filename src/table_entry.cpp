@@ -1,5 +1,4 @@
 #include "table_entry.h"
-#include <stdlib.h>
 #include <iostream>
 
 TableEntry::TableEntry(uint32_t code, std::string description)
