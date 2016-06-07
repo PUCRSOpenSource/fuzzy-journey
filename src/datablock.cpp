@@ -25,8 +25,14 @@ uint16_t DataBlock::addEntry(TableEntry entry) {
 	uint16_t lastSize = lastHeaderSize();
 	uint16_t position = lastPosition + lastSize;
 
+	uint16_t actualPosition = SIZE - position - entry.size();
+
+	if (actualPosition < headerSize) {
+		return -1;
+	}
+
 	saveNewHeader(position, entry.size());
-	saveNewEntry(SIZE - position - entry.size(), entry);
+	saveNewEntry(actualPosition, entry);
 
 	return headerSize / 4 - 1;
 }
