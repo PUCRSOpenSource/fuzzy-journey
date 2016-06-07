@@ -3,7 +3,7 @@ SDIR = ./src
 ODIR = ./obj
 
 CC = g++
-CFLAGS = -std=c++11 -I$(IDIR) -Wall
+CFLAGS = -std=c++11 -I$(IDIR) -Wall -Wpedantic
 
 _DEPS = datafile.h table_entry.h table.h datablock.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))

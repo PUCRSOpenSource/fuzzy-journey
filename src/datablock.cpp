@@ -72,7 +72,7 @@ TableEntry DataBlock::getEntry(uint16_t index) {
 
 	memcpy(&entryCode, data + actualPosition, sizeof(entryCode));
 
-	for (int i = 0; i < size - 4; i++) {
+	for (uint16_t i = 0; i < size - 4; i++) {
 		uint8_t character = data[actualPosition + 4 + i] & 0xFF;
 		entryDescription.push_back(character);
 	}
