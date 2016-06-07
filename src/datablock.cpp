@@ -5,8 +5,13 @@
 
 using namespace std;
 
+// TODO: Initialize datablock receiving data from parameter.
+// TODO: Add remove functionality.
+// TODO: Add update functionality.
+// TODO: Change add entry to be able to write in deleted spaces. (low priority)
+
 DataBlock::DataBlock(uint16_t address) {
-	// TODO: This initialization is not final.
+	// This initialization is not final.
 	this->address = address;
 	for (int i = 0; i < SIZE; i++) {
 		data[i] = 0;
