@@ -61,20 +61,19 @@ void DataBlock::saveNewEntry(uint16_t position, TableEntry entry) {
 }
 
 TableEntry DataBlock::getEntry(uint16_t index) {
+	uint32_t entryCode;
+	string entryDescription;
+
 	uint16_t position = getHeaderPosition(index);
 	uint16_t size = getHeaderSize(index);
-
-	uint32_t entryCode;
-	// initialize string with size.
-	string entryDescription(size - 4, 'x');
 
 	uint16_t actualPosition = SIZE - position - size;
 
 	memcpy(&entryCode, data + actualPosition, sizeof(entryCode));
 
-	// copy string
 	for (int i = 0; i < size - 4; i++) {
-		entryDescription[i] = data[actualPosition + 4 + i];
+		uint8_t character = data[actualPosition + 4 + i] & 0xFF;
+		entryDescription.push_back(character);
 	}
 
 	return TableEntry(entryCode, entryDescription);
