@@ -31,7 +31,7 @@ int16_t DataBlock::addEntry(TableEntry entry) {
 	uint16_t lastSize = lastHeaderSize();
 	uint16_t position = lastPosition + lastSize;
 
-	uint16_t actualPosition = SIZE - position - entry.size();
+	int16_t actualPosition = SIZE - position - entry.size();
 
 	if (actualPosition <= headerSize + 4) {
 		return -1;
