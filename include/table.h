@@ -2,6 +2,8 @@
 #define TABLE_H
 
 #include "table_entry.h"
+#include "buffer.h"
+#include "rowid.h"
 #include <cstdint>
 #include <string>
 #include <vector>
@@ -11,11 +13,12 @@ class Table
 	public:
 		Table();
 		~Table();
-		void newEntry(std::string description);
-		void printMembers(); // For DEBUG.
+		RowID newEntry(std::string description);
+		// This function will probably be a little different:
+		TableEntry getEntry(RowID rowID);
 	private:
 		uint32_t code;
-		std::vector<TableEntry> entries;
+		Buffer buffer;
 };
 
 

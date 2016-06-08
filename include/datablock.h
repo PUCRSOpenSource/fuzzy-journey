@@ -12,9 +12,10 @@ public:
 	~DataBlock();
 	int16_t addEntry(TableEntry entry);
 	TableEntry getEntry(int16_t index);
+	int16_t getAddress();
 
 private:
-	int address;
+	int16_t address;
 	int headerSize;
 	uint8_t data[SIZE];
 

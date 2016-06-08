@@ -12,22 +12,29 @@ Table::~Table()
 
 }
 
-void Table::newEntry(std::string description)
+RowID Table::newEntry(std::string description)
 {
-	TableEntry te(code, description);
-	entries.push_back(te);
+	TableEntry entry(code, description);
+	RowID rowID = buffer.newEntry(entry);
+	std::cout <<
+			"Now I would add to the tree an object with rowID = " <<
+			rowID.getBlockNumber() <<
+			";" <<
+			rowID.getPosition() <<
+			std::endl;
 	code++;
+	return rowID;
 }
 
-// For DEBUG.
-void Table::printMembers()
+TableEntry Table::getEntry(RowID rowID)
 {
-	for (uint32_t i = 0; i < entries.size(); i++)
-	{
-		std::cout << "Element: " << i << std::endl;
-		std::cout << "Code: " << entries[i].getCode() << std::endl;
-		std::cout << "Description: " << entries[i].getDescription() << std::endl;
-		std::cout << std::endl;
-	}
+	TableEntry entry = buffer.getEntry(rowID);
+	std::cout <<
+	"Now I would get an entry with code: " <<
+	entry.getCode() <<
+	" - and description :" <<
+	entry.getDescription() <<
+	std::endl;
+	return entry;
 }
 

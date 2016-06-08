@@ -23,6 +23,10 @@ DataBlock::~DataBlock()
 
 }
 
+int16_t DataBlock::getAddress() {
+	return address;
+}
+
 
 int16_t DataBlock::addEntry(TableEntry entry) {
 	uint16_t lastPosition = lastHeaderPosition();;

@@ -2,6 +2,7 @@
 #include "table.h"
 #include "table_entry.h"
 #include "datablock.h"
+#include "rowid.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -21,20 +22,13 @@ void print_arruda() {
 
 
 int main() {
-	TableEntry te(1, "Oi td bem com vc");
-	TableEntry te2(2, "Sim e com vc");
-	DataBlock db(123);
-	int oi = db.addEntry(te);
-	int tchau = db.addEntry(te2);
-	if (oi == -1 || tchau == -1) {
-		return 0;
-	}
-	TableEntry te3 = db.getEntry(oi);
-	TableEntry te4 = db.getEntry(tchau);
 
-	std::cout << te3.getCode() << std::endl;
-	std::cout << te3.getDescription() << std::endl;
-	std::cout << te4.getCode() << std::endl;
-	std::cout << te4.getDescription() << std::endl;
+	Table table;
+
+	RowID rowid1 = table.newEntry("Oi td bem amg");
+	RowID rowid2 = table.newEntry("Oi td amg e vom vc");
+	table.getEntry(rowid1);
+	table.getEntry(rowid2);
+
 	return 0;
 }
