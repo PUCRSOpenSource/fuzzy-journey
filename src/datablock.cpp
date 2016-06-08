@@ -84,7 +84,7 @@ TableEntry DataBlock::getEntry(int16_t index) {
 	int16_t position = getHeaderPosition(index);
 	int16_t size = getHeaderSize(index);
 
-	if (position == -1 || size == -1) {
+	if (position == -1) {
 		return TableEntry(666, "error!! error!!! thiw was deleted !!!");
 	}
 
@@ -117,7 +117,5 @@ uint16_t DataBlock::getHeaderSize(uint16_t index)
 void DataBlock::remove(int16_t index)
 {
 	int16_t position = -1;
-	int16_t  size = -1;
 	memcpy(data + 4 * index, &position, sizeof(uint16_t));
-	memcpy(data + 4 * index + 2, &size, sizeof(uint16_t));
 }
