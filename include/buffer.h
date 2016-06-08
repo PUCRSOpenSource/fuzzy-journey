@@ -14,6 +14,8 @@ public:
 	~Buffer();
 	RowID newEntry(TableEntry entry);
 	TableEntry getEntry(RowID rowID);
+	void loadDatablock(int16_t index);
+	void saveDatablock(DataBlock datablock);
 
 private:
 	std::vector<DataBlock> datablocks;
