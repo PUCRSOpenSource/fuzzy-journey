@@ -22,6 +22,8 @@ RowID Buffer::newEntry(TableEntry entry)
 		}
 	}
 
+	//If gets here all datablocks are full, Fetch new datablock
+
 	//TODO: handle this better
 	return RowID(-1,-1);
 }
@@ -33,6 +35,8 @@ TableEntry Buffer::getEntry(RowID rowID)
 			return datablock.getEntry(rowID.getPosition());
 		}
 	}
+
+	//If gets here is cache miss, load datablock from memory
 
 	//TODO: handle this better
 	return TableEntry(123, "error");

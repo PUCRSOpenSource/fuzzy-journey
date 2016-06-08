@@ -14,7 +14,7 @@ class Table
 		Table();
 		~Table();
 		RowID newEntry(std::string description);
-		// This function will probably be a little different:
+		// This function will be different, needs to get Entry from key, but needs BTree for that.
 		TableEntry getEntry(RowID rowID);
 	private:
 		uint32_t code;

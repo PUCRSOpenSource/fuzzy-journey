@@ -32,7 +32,7 @@ TableEntry Table::getEntry(RowID rowID)
 	std::cout <<
 	"Now I would get an entry with code: " <<
 	entry.getCode() <<
-	" - and description :" <<
+	" - and description: " <<
 	entry.getDescription() <<
 	std::endl;
 	return entry;
