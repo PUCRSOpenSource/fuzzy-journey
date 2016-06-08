@@ -50,3 +50,20 @@ void Table::remove(RowID rowID)
 	buffer.remove(rowID);
 }
 
+RowID Table::update(RowID rowID, std::string description)
+{
+
+	TableEntry entry = getEntry(rowID);
+
+	std::cout <<
+	"Now I will update an entry with code: " <<
+	entry.getCode() <<
+	" - and description: " <<
+	entry.getDescription() <<
+	std::endl;
+
+	remove(rowID);
+	entry.setDescription(description);
+	RowID newRowID = buffer.newEntry(entry);
+	return newRowID;
+}

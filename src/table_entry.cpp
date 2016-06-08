@@ -22,6 +22,11 @@ std::string TableEntry::getDescription()
 	return description;
 }
 
+void TableEntry::setDescription(std::string description)
+{
+	this->description = description;
+}
+
 uint32_t TableEntry::size()
 {
 	return sizeof(code) + description.size();

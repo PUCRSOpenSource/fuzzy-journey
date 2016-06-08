@@ -12,6 +12,7 @@ class TableEntry
 		~TableEntry();
 		uint32_t getCode();
 		std::string getDescription();
+		void setDescription(std::string description);
 		uint32_t size();
 		uint8_t *toByteArray();
 	private:

@@ -4,8 +4,6 @@
 #include <cstring>
 
 // TODO: Initialize datablock receiving data from parameter with data read from file.
-// TODO: Add remove functionality.
-// TODO: Add update functionality. (low priority)
 // TODO: Change add entry to be able to write in deleted spaces. (low priority)
 
 DataBlock::DataBlock(uint16_t address)

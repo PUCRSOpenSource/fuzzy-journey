@@ -33,6 +33,12 @@ int main() {
 	table.remove(rowid2);
 	table.getEntry(rowid1);
 	table.getEntry(rowid2);
+	RowID rowid3 = table.newEntry("Essa 'e uma nov entry bem loca");
+	table.getEntry(rowid3);
+	RowID rowid4 = table.update(rowid3, "oh noes, fui updateado");
+	table.getEntry(rowid3);
+	table.getEntry(rowid4);
+
 
 	return 0;
 }

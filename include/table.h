@@ -6,6 +6,7 @@
 #include "rowid.h"
 #include <cstdint>
 #include <string>
+#include <cstring>
 #include <vector>
 
 class Table
@@ -14,9 +15,10 @@ class Table
 		Table();
 		~Table();
 		RowID newEntry(std::string description);
-		// This function will be different, needs to get Entry from key, but needs BTree for that.
+		// This functions will be different, needs to get Entry from key, but needs BTree for that.
 		TableEntry getEntry(RowID rowID);
 		void remove(RowID rowID);
+		RowID update(RowID rowID, std::string description);
 	private:
 		uint32_t code;
 		Buffer buffer;
