@@ -9,7 +9,6 @@ class TableEntry
 {
 	public:
 		TableEntry(uint32_t code, std::string description);
-		TableEntry(uint8_t *byteArray, uint16_t size);
 		~TableEntry();
 		uint32_t getCode();
 		std::string getDescription();

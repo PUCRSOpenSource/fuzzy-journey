@@ -7,13 +7,6 @@ TableEntry::TableEntry(uint32_t code, std::string description)
 	this->description = description;
 }
 
-TableEntry::TableEntry(uint8_t *byteArray, uint16_t size)
-{
-	memcpy(&code, byteArray, sizeof(code));
-	memcpy(&description, byteArray + sizeof(code), size - sizeof(code));
-	free(byteArray);
-}
-
 TableEntry::~TableEntry()
 {
 
