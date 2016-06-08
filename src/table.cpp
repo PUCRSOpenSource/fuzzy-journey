@@ -38,3 +38,15 @@ TableEntry Table::getEntry(RowID rowID)
 	return entry;
 }
 
+void Table::remove(RowID rowID)
+{
+	TableEntry entry = buffer.getEntry(rowID);
+	std::cout <<
+	"Now I will remove an entry with code: " <<
+	entry.getCode() <<
+	" - and description: " <<
+	entry.getDescription() <<
+	std::endl;
+	buffer.remove(rowID);
+}
+

@@ -83,10 +83,14 @@ TableEntry DataBlock::getEntry(int16_t index) {
 	uint32_t entryCode;
 	std::string entryDescription;
 
-	uint16_t position = getHeaderPosition(index);
-	uint16_t size = getHeaderSize(index);
+	int16_t position = getHeaderPosition(index);
+	int16_t size = getHeaderSize(index);
 
-	uint16_t actualPosition = SIZE - position - size;
+	if (position == -1 || size == -1) {
+		return TableEntry(666, "error!! error!!! thiw was deleted !!!");
+	}
+
+	int16_t actualPosition = SIZE - position - size;
 
 	memcpy(&entryCode, data + actualPosition, sizeof(entryCode));
 
@@ -110,4 +114,12 @@ uint16_t DataBlock::getHeaderSize(uint16_t index)
 	uint16_t size;
 	memcpy(&size, data + 4 * index + 2, sizeof(size));
 	return size;
+}
+
+void DataBlock::remove(int16_t index)
+{
+	int16_t position = -1;
+	int16_t  size = -1;
+	memcpy(data + 4 * index, &position, sizeof(uint16_t));
+	memcpy(data + 4 * index + 2, &size, sizeof(uint16_t));
 }

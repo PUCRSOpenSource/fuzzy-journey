@@ -29,6 +29,10 @@ int main() {
 	RowID rowid2 = table.newEntry("Oi td amg e vom vc");
 	table.getEntry(rowid1);
 	table.getEntry(rowid2);
+	table.remove(rowid1);
+	table.remove(rowid2);
+	table.getEntry(rowid1);
+	table.getEntry(rowid2);
 
 	return 0;
 }

@@ -12,6 +12,7 @@ public:
 	~DataBlock();
 	int16_t addEntry(TableEntry entry);
 	TableEntry getEntry(int16_t index);
+	void remove(int16_t index);
 	int16_t getAddress();
 
 private:

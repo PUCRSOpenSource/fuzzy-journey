@@ -14,6 +14,7 @@ public:
 	~Buffer();
 	RowID newEntry(TableEntry entry);
 	TableEntry getEntry(RowID rowID);
+	void remove(RowID rowID);
 	void loadDatablock(int16_t index);
 	void saveDatablock(DataBlock datablock);
 

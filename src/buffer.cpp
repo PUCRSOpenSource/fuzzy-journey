@@ -42,6 +42,17 @@ TableEntry Buffer::getEntry(RowID rowID)
 	return TableEntry(123, "error");
 }
 
+void Buffer::remove(RowID rowID)
+{
+	for (auto &datablock : datablocks) {
+		if (datablock.getAddress() == rowID.getBlockNumber()) {
+			datablock.remove(rowID.getPosition());
+		}
+	}
+
+	// If gets here is cache miss, load datablock from memory
+}
+
 void Buffer::loadDatablock(int16_t index)
 {
 	//TODO: load datablock from datafile
