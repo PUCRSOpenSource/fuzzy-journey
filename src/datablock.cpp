@@ -23,15 +23,15 @@ DataBlock::~DataBlock()
 
 }
 
-uint16_t DataBlock::addEntry(TableEntry entry)
-{
+
+int16_t DataBlock::addEntry(TableEntry entry) {
 	uint16_t lastPosition = lastHeaderPosition();;
 	uint16_t lastSize = lastHeaderSize();
 	uint16_t position = lastPosition + lastSize;
 
 	uint16_t actualPosition = SIZE - position - entry.size();
 
-	if (actualPosition < headerSize) {
+	if (actualPosition <= headerSize + 4) {
 		return -1;
 	}
 
@@ -75,8 +75,7 @@ void DataBlock::saveNewEntry(uint16_t position, TableEntry entry)
 	free(entryData);
 }
 
-TableEntry DataBlock::getEntry(uint16_t index)
-{
+TableEntry DataBlock::getEntry(int16_t index) {
 	uint32_t entryCode;
 	std::string entryDescription;
 

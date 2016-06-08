@@ -26,6 +26,9 @@ int main() {
 	DataBlock db(123);
 	int oi = db.addEntry(te);
 	int tchau = db.addEntry(te2);
+	if (oi == -1 || tchau == -1) {
+		return 0;
+	}
 	TableEntry te3 = db.getEntry(oi);
 	TableEntry te4 = db.getEntry(tchau);
 
