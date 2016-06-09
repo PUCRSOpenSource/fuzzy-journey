@@ -126,3 +126,13 @@ void DataBlock::remove(int16_t index)
 	int16_t position = -1;
 	memcpy(data + 4 * index, &position, sizeof(uint16_t));
 }
+
+int DataBlock::getHeaderSize()
+{
+	return headerSize;
+}
+
+uint8_t* DataBlock::getData()
+{
+	return data;
+}

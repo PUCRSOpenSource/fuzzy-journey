@@ -15,6 +15,8 @@ public:
 	TableEntry getEntry(int16_t index);
 	void remove(int16_t index);
 	int16_t getAddress();
+	int getHeaderSize();
+	uint8_t* getData();
 
 private:
 	int16_t address;

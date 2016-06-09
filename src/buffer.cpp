@@ -27,6 +27,7 @@ RowID Buffer::newEntry(TableEntry entry)
 
 TableEntry Buffer::getEntry(RowID rowID)
 {
+	saveDatablock(datablocks[0]);
 	for (auto &datablock : datablocks) {
 		if (datablock.getAddress() == rowID.getBlockNumber()) {
 			return datablock.getEntry(rowID.getPosition());
@@ -68,4 +69,14 @@ void Buffer::saveDatablock(DataBlock datablock)
 {
 	// This will only happen when a datablock is removed from vector
 	// Or when we tell it to, idk
+	
+	FILE* ptr_myDataBlock = fopen("datafile.part", "rb");
+	fseek(ptr_myDataBlock, datablock.getAddress() * DATABLOCK_SIZE, SEEK_SET);
+	int16_t addr_aux = datablock.getAddress();
+	int header_size_aux = datablock.getHeaderSize();
+	uint8_t* data_aux = datablock.getData();
+	fwrite(&addr_aux, sizeof(int16_t), 1, ptr_myDataBlock);
+	fwrite(&header_size_aux, sizeof(int), 1, ptr_myDataBlock);
+	fwrite(data_aux, SIZE, 1, ptr_myDataBlock);
+	fclose(ptr_myDataBlock);
 }
