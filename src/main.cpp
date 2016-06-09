@@ -23,6 +23,7 @@ void print_arruda() {
 
 int main() {
 
+	Datafile::init();
 	Table table;
 
 	RowID rowid1 = table.newEntry("Oi td bem amg");

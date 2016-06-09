@@ -7,6 +7,8 @@
 #include "table_entry.h"
 #include "rowid.h"
 
+#define DATABLOCK_SIZE 2000
+
 class Buffer
 {
 public:

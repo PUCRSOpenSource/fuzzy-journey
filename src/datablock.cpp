@@ -16,6 +16,13 @@ DataBlock::DataBlock(uint16_t address)
 	headerSize = 0;
 }
 
+DataBlock::DataBlock(uint16_t address, int headerSize, uint8_t data[SIZE])
+{
+	this->address = address;
+	this->headerSize = headerSize;
+	memcpy(this->data, data, SIZE);
+}
+
 DataBlock::~DataBlock()
 {
 

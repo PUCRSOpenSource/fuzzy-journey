@@ -2,10 +2,7 @@
 
 Buffer::Buffer()
 {
-	// Fake initialization, remove when fetch from file is done:
-	DataBlock datablock(0);
-	datablocks.push_back(datablock);
-
+	loadDatablock(0);
 }
 
 Buffer::~Buffer()
@@ -55,17 +52,16 @@ void Buffer::remove(RowID rowID)
 
 void Buffer::loadDatablock(int16_t index)
 {
-	//TODO: load datablock from datafile
-	// datablock consists of 2000 bytes.
-	// first 4 bytes go to variable address.
-	// Important: address needs to match position in datablock(it will be 0, set it manually)
-	// (eg. first 2000 bytes address 0, next 2000 bytes address 1, etc)
-	// next 4 bytes go to variable headerSize.
-	// rest goes to data variable.
-	// After that add datafile to vector.
-	// If vector is full(see capacity at github) remove the first one that was added.
-	// When this is ready remove code from initializer xD
-
+	FILE* ptr_myDataBlock = fopen("datafile.part", "rb");
+	fseek(ptr_myDataBlock, index * DATABLOCK_SIZE, SEEK_SET);
+	int16_t addr_aux;
+	int header_size_aux;
+	uint8_t* data_aux = static_cast<uint8_t*>(malloc(SIZE));
+	fread(&addr_aux, sizeof(int16_t), 1, ptr_myDataBlock);
+	fread(&header_size_aux, sizeof(int), 1, ptr_myDataBlock);
+	fread(data_aux, SIZE, 1, ptr_myDataBlock);
+	datablocks.push_back(DataBlock(addr_aux, header_size_aux, data_aux));
+	fclose(ptr_myDataBlock);
 }
 
 void Buffer::saveDatablock(DataBlock datablock)
