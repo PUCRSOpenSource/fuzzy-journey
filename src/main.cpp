@@ -23,11 +23,14 @@ void print_arruda() {
 
 int main() {
 
-	Datafile::init();
+	std::ifstream ifile("datafile.part");
+	if (!ifile)
+		Datafile::init();
 
 	Table table;
 
-	RowID rowid1 = table.newEntry("Oi td bem amg");
+	//RowID rowid1 = table.newEntry("Oi td bem amg");
+	RowID rowid1(0,0);
 	//RowID rowid2 = table.newEntry("Oi td amg e vom vc");
 	table.getEntry(rowid1);
 	//table.getEntry(rowid2);

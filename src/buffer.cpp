@@ -53,23 +53,20 @@ void Buffer::remove(RowID rowID)
 
 void Buffer::loadDatablock(int16_t index)
 {
-	FILE* ptr_myDataBlock = fopen("datafile.part", "r");
+	FILE* ptr_myDataBlock = fopen("datafile.part", "r+b");
 	fseek(ptr_myDataBlock, index * DATABLOCK_SIZE, SEEK_SET);
 	int16_t addr_aux;
 	int header_size_aux;
 	uint8_t* data_aux = static_cast<uint8_t*>(malloc(SIZE));
 	fread(&addr_aux, sizeof(int16_t), 1, ptr_myDataBlock);
 	fread(&header_size_aux, sizeof(int), 1, ptr_myDataBlock);
-	fread(data_aux, SIZE, 1, ptr_myDataBlock);
+	fread(data_aux, sizeof(uint8_t), SIZE, ptr_myDataBlock);
 	datablocks.push_back(DataBlock(addr_aux, header_size_aux, data_aux));
 	fclose(ptr_myDataBlock);
 }
 
 void Buffer::saveDatablock(DataBlock datablock)
 {
-	// This will only happen when a datablock is removed from vector
-	// Or when we tell it to, idk
-	
 	FILE* ptr_myDataBlock = fopen("datafile.part", "r+");
 	fseek(ptr_myDataBlock, datablock.getAddress() * DATABLOCK_SIZE, SEEK_SET);
 	int16_t addr_aux = datablock.getAddress();
@@ -77,6 +74,6 @@ void Buffer::saveDatablock(DataBlock datablock)
 	uint8_t* data_aux = datablock.getData();
 	fwrite(&addr_aux, sizeof(int16_t), 1, ptr_myDataBlock);
 	fwrite(&header_size_aux, sizeof(int), 1, ptr_myDataBlock);
-	fwrite(data_aux, SIZE, 1, ptr_myDataBlock);
+	fwrite(data_aux, sizeof(uint8_t), SIZE, ptr_myDataBlock);
 	fclose(ptr_myDataBlock);
 }
