@@ -25,5 +25,6 @@ run: main
 
 clean:
 	rm -f datafile.part
+	rm -f tabledata.bin
 	rm -f $(ODIR)/*.o 
 	rm -f main
