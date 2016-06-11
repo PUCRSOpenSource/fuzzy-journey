@@ -72,21 +72,29 @@ RowID Table::update(RowID rowID, std::string description)
 	return newRowID;
 }
 
-void Table::loadCode() {
+void Table::loadCode()
+{
 	FILE* dataPointer = fopen("tabledata.bin", "r+b");
 	fread(&code, sizeof(uint32_t), 1, dataPointer);
 	fclose(dataPointer);
 }
 
-void Table::saveCode() {
+void Table::saveCode()
+{
 	FILE* dataPointer = fopen("tabledata.bin", "r+");
 	fwrite(&code, sizeof(uint32_t), 1, dataPointer);
 	fclose(dataPointer);
 }
 
-void Table::initCode() {
+void Table::initCode()
+{
 	code = 0;
 	FILE* dataPointer = fopen("tabledata.bin", "wb+");
 	fwrite(&code, sizeof(uint32_t), 1, dataPointer);
 	fclose(dataPointer);
+}
+
+void Table::saveData() {
+	saveCode();
+	buffer.saveData();
 }

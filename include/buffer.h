@@ -20,6 +20,7 @@ public:
 	void remove(RowID rowID);
 	void loadDatablock(int16_t index);
 	void saveDatablock(DataBlock datablock);
+	void saveData();
 
 private:
 	std::vector<DataBlock> datablocks;

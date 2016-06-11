@@ -28,7 +28,6 @@ RowID Buffer::newEntry(TableEntry entry)
 TableEntry Buffer::getEntry(RowID rowID)
 {
 	for (auto &datablock : datablocks) {
-		saveDatablock(datablock);
 		if (datablock.getAddress() == rowID.getBlockNumber()) {
 			return datablock.getEntry(rowID.getPosition());
 		}
@@ -76,4 +75,10 @@ void Buffer::saveDatablock(DataBlock datablock)
 	fwrite(&header_size_aux, sizeof(int), 1, ptr_myDataBlock);
 	fwrite(data_aux, sizeof(uint8_t), SIZE, ptr_myDataBlock);
 	fclose(ptr_myDataBlock);
+}
+
+void Buffer::saveData() {
+	for (auto &datablock : datablocks) {
+		saveDatablock(datablock);
+	}
 }

@@ -19,13 +19,15 @@ class Table
 		TableEntry getEntry(RowID rowID);
 		void remove(RowID rowID);
 		RowID update(RowID rowID, std::string description);
-		void loadCode();
-		void saveCode();
-		void initCode();
+
+		void saveData();
 
 	private:
 		uint32_t code;
 		Buffer buffer;
+		void loadCode();
+		void saveCode();
+		void initCode();
 };
 
 
