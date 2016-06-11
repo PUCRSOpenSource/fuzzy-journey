@@ -1,10 +1,14 @@
 #include "table.h"
 #include "table_entry.h"
 #include <iostream>
+#include <fstream>
 
 Table::Table()
 {
-	code = 0;
+	std::ifstream ifile("tabledata.bin");
+	if (!ifile)
+		initCode();
+	loadCode();
 }
 
 Table::~Table()
@@ -66,4 +70,23 @@ RowID Table::update(RowID rowID, std::string description)
 	entry.setDescription(description);
 	RowID newRowID = buffer.newEntry(entry);
 	return newRowID;
+}
+
+void Table::loadCode() {
+	FILE* dataPointer = fopen("tabledata.bin", "r+b");
+	fread(&code, sizeof(uint32_t), 1, dataPointer);
+	fclose(dataPointer);
+}
+
+void Table::saveCode() {
+	FILE* dataPointer = fopen("tabledata.bin", "r+");
+	fwrite(&code, sizeof(uint32_t), 1, dataPointer);
+	fclose(dataPointer);
+}
+
+void Table::initCode() {
+	code = 0;
+	FILE* dataPointer = fopen("tabledata.bin", "wb+");
+	fwrite(&code, sizeof(uint32_t), 1, dataPointer);
+	fclose(dataPointer);
 }

@@ -29,20 +29,10 @@ int main() {
 
 	Table table;
 
-	//RowID rowid1 = table.newEntry("Oi td bem amg");
-	RowID rowid1(0,0);
-	//RowID rowid2 = table.newEntry("Oi td amg e vom vc");
+	RowID rowid1 = table.newEntry("Oi td bem amg");
 	table.getEntry(rowid1);
-	//table.getEntry(rowid2);
-	//table.remove(rowid1);
-	//table.remove(rowid2);
-	//table.getEntry(rowid1);
-	//table.getEntry(rowid2);
-	//RowID rowid3 = table.newEntry("Essa 'e uma nov entry bem loca");
-	//table.getEntry(rowid3);
-	//RowID rowid4 = table.update(rowid3, "oh noes, fui updateado");
-	//table.getEntry(rowid3);
-	//table.getEntry(rowid4);
+	
+	table.saveCode();
 
 	return 0;
 }

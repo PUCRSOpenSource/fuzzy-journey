@@ -2,6 +2,7 @@
 #define BUFFER_H
 
 #include <cstdint>
+#include <cstdlib>
 #include <vector>
 #include "datablock.h"
 #include "table_entry.h"
