@@ -31,7 +31,7 @@ int main() {
 
 	RowID rowid1 = table.newEntry("Oi td bem amg");
 	table.getEntry(rowid1);
-	
+
 	table.saveCode();
 
 	return 0;
