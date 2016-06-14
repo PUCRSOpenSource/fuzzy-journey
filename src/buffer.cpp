@@ -53,14 +53,12 @@ void Buffer::remove(RowID rowID)
 void Buffer::loadDatablock(int16_t index)
 {
 	FILE* ptr_myDataBlock = fopen("datafile.part", "r+b");
-	fseek(ptr_myDataBlock, index * DATABLOCK_SIZE, SEEK_SET);
-	int16_t addr_aux;
+	fseek(ptr_myDataBlock, index * DATABLOCK_SIZE + sizeof(int16_t), SEEK_SET);
 	int header_size_aux;
 	uint8_t* data_aux = static_cast<uint8_t*>(malloc(SIZE));
-	fread(&addr_aux, sizeof(int16_t), 1, ptr_myDataBlock);
 	fread(&header_size_aux, sizeof(int), 1, ptr_myDataBlock);
 	fread(data_aux, sizeof(uint8_t), SIZE, ptr_myDataBlock);
-	datablocks.push_back(DataBlock(addr_aux, header_size_aux, data_aux));
+	datablocks.push_back(DataBlock(index, header_size_aux, data_aux));
 	fclose(ptr_myDataBlock);
 }
 

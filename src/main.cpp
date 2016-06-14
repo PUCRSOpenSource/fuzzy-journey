@@ -29,8 +29,8 @@ int main() {
 
 	Table table;
 
-	RowID rowid1 = table.newEntry("Oi td bem amg");
-	table.getEntry(rowid1);
+	RowID rowid1 = table.newEntry("matthias gay");
+	table.getEntry(RowID(0,0));
 
 	table.saveData();
 
