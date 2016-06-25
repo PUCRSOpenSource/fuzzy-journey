@@ -1,21 +1,21 @@
 #include "leaf.h"
 #include <iostream>
 
-bool Leaf::insert(uint32_t index, RowID rowID)
+Node* Leaf::insert(uint32_t index, RowID rowID)
 {
 	for(size_t i = 0; i < block.size(); i++)
 	{
 		if (index == block[i].getIndex())
-			return false;
+			return this;
 
 		if (index > block[i].getIndex())
 		{
 			block.insert(block.begin() + i, LData(index, rowID));
-			return true;
+			return this;
 		}
 	}
 	block.push_back(LData(index, rowID));
-	return true;
+	return this;
 }
 
 RowID Leaf::select(uint32_t index)

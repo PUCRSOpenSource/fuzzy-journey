@@ -1,7 +1,7 @@
 #include "branch.h"
 #include <iostream>
 
-bool Branch::insert(uint32_t index, RowID ri)
+Node* Branch::insert(uint32_t index, RowID ri)
 {
 	for (unsigned int i = 0; i < block.size(); i++)
 	{
@@ -12,7 +12,7 @@ bool Branch::insert(uint32_t index, RowID ri)
 			return block[i].getRight()->insert(index,ri);
 	}
 
-	return false;
+	return this;
 }
 
 RowID Branch::select(uint32_t index)

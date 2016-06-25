@@ -10,7 +10,7 @@
 class Leaf : public Node
 {
 	public:
-		virtual bool insert(uint32_t index, RowID rowID);
+		virtual Node* insert(uint32_t index, RowID rowID);
 		virtual RowID select(uint32_t index);
 
 	private:
