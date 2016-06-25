@@ -10,7 +10,8 @@ DataBlock::DataBlock(uint16_t address)
 {
 	// This initialization is not final remove when fetch from file is done.
 	this->address = address;
-	for (int i = 0; i < SIZE; i++) {
+	for (int i = 0; i < SIZE; i++)
+	{
 		data[i] = 0;
 	}
 	headerSize = 0;
@@ -28,19 +29,22 @@ DataBlock::~DataBlock()
 
 }
 
-int16_t DataBlock::getAddress() {
+int16_t DataBlock::getAddress()
+{
 	return address;
 }
 
 
-int16_t DataBlock::addEntry(TableEntry entry) {
+int16_t DataBlock::addEntry(TableEntry entry)
+{
 	uint16_t lastPosition = lastHeaderPosition();;
 	uint16_t lastSize = lastHeaderSize();
 	uint16_t position = lastPosition + lastSize;
 
 	int16_t actualPosition = SIZE - position - entry.size();
 
-	if (actualPosition <= headerSize + 4) {
+	if (actualPosition <= headerSize + 4)
+	{
 		return -1;
 	}
 
@@ -52,7 +56,8 @@ int16_t DataBlock::addEntry(TableEntry entry) {
 
 uint16_t DataBlock::lastHeaderPosition()
 {
-	if (headerSize <= 0) {
+	if (headerSize <= 0)
+	{
 		return 0;
 	}
 	uint16_t position;
@@ -62,7 +67,8 @@ uint16_t DataBlock::lastHeaderPosition()
 
 uint16_t DataBlock::lastHeaderSize()
 {
-	if (headerSize <= 0) {
+	if (headerSize <= 0)
+	{
 		return 0;
 	}
 	uint16_t size;
@@ -84,14 +90,16 @@ void DataBlock::saveNewEntry(uint16_t position, TableEntry entry)
 	free(entryData);
 }
 
-TableEntry DataBlock::getEntry(int16_t index) {
+TableEntry DataBlock::getEntry(int16_t index)
+{
 	uint32_t entryCode;
 	std::string entryDescription;
 
 	int16_t position = getHeaderPosition(index);
 	int16_t size = getHeaderSize(index);
 
-	if (position == -1) {
+	if (position == -1)
+	{
 		return TableEntry(666, "error!! error!!! thiw was deleted !!!");
 	}
 
@@ -99,7 +107,8 @@ TableEntry DataBlock::getEntry(int16_t index) {
 
 	memcpy(&entryCode, data + actualPosition, sizeof(entryCode));
 
-	for (uint16_t i = 0; i < size - 4; i++) {
+	for (uint16_t i = 0; i < size - 4; i++)
+	{
 		uint8_t character = data[actualPosition + 4 + i] & 0xFF;
 		entryDescription.push_back(character);
 	}

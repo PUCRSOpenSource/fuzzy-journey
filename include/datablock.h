@@ -6,7 +6,8 @@
 
 #define SIZE 1994 // 2000 - sizeof(address) + sizeof(headerSize);
 
-class DataBlock {
+class DataBlock
+{
 public:
 	DataBlock(uint16_t address);
 	DataBlock(uint16_t address, int headerSize, uint8_t data[SIZE]);

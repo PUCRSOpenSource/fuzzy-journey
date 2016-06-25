@@ -7,11 +7,14 @@
 #include <iostream>
 #include <string>
 
-void print_arruda() {
+void print_arruda()
+{
 	std::string line;
 	std::ifstream myfile("data/arruda.txt");
-	if (myfile) {
-		while (getline(myfile, line)) {
+	if (myfile)
+	{
+		while (getline(myfile, line))
+		{
 			std::cout << line << std::endl;
 		}
 		myfile.close();
@@ -21,7 +24,8 @@ void print_arruda() {
 }
 
 
-int main() {
+int main()
+{
 
 	std::ifstream ifile("datafile.part");
 	if (!ifile)

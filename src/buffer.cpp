@@ -13,9 +13,11 @@ Buffer::~Buffer()
 
 RowID Buffer::newEntry(TableEntry entry)
 {
-	for (auto &datablock : datablocks) {
+	for (auto &datablock : datablocks)
+	{
 		int16_t result = datablock.addEntry(entry);
-		if (result >= 0) {
+		if (result >= 0)
+		{
 			loadingIterator = 0;
 			return RowID(datablock.getAddress(), result);
 		}
@@ -28,8 +30,10 @@ RowID Buffer::newEntry(TableEntry entry)
 
 TableEntry Buffer::getEntry(RowID rowID)
 {
-	for (auto &datablock : datablocks) {
-		if (datablock.getAddress() == rowID.getBlockNumber()) {
+	for (auto &datablock : datablocks)
+	{
+		if (datablock.getAddress() == rowID.getBlockNumber())
+		{
 			return datablock.getEntry(rowID.getPosition());
 		}
 	}
@@ -40,8 +44,10 @@ TableEntry Buffer::getEntry(RowID rowID)
 
 void Buffer::remove(RowID rowID)
 {
-	for (auto &datablock : datablocks) {
-		if (datablock.getAddress() == rowID.getBlockNumber()) {
+	for (auto &datablock : datablocks)
+	{
+		if (datablock.getAddress() == rowID.getBlockNumber())
+		{
 			datablock.remove(rowID.getPosition());
 			return;
 		}
@@ -92,8 +98,10 @@ void Buffer::saveData()
 
 int16_t Buffer::chooseDatablock()
 {
-	while (loadingIterator < DATABLOCKS_TOTAL) {
-		if (!isLoaded(loadingIterator)) {
+	while (loadingIterator < DATABLOCKS_TOTAL)
+	{
+		if (!isLoaded(loadingIterator))
+		{
 			return loadingIterator;
 		}
 		loadingIterator++;
@@ -103,8 +111,10 @@ int16_t Buffer::chooseDatablock()
 
 bool Buffer::isLoaded(uint16_t index)
 {
-	for (auto &datablock : datablocks) {
-		if (datablock.getAddress() == index) {
+	for (auto &datablock : datablocks)
+	{
+		if (datablock.getAddress() == index)
+		{
 			return true;
 		}
 	}

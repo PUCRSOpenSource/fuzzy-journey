@@ -94,7 +94,8 @@ void Table::initCode()
 	fclose(dataPointer);
 }
 
-void Table::saveData() {
+void Table::saveData()
+{
 	saveCode();
 	buffer.saveData();
 }
