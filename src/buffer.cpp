@@ -41,6 +41,7 @@ void Buffer::remove(RowID rowID)
 	for (auto &datablock : datablocks) {
 		if (datablock.getAddress() == rowID.getBlockNumber()) {
 			datablock.remove(rowID.getPosition());
+			return;
 		}
 	}
 
