@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="ldata_8h" kind="file" language="C++">
+    <compoundname>ldata.h</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes refid="rowid_8h" local="yes">rowid.h</includes>
+    <includedby refid="leaf_8h" local="yes">include/leaf.h</includedby>
+    <includedby refid="ldata_8cpp" local="yes">src/ldata.cpp</includedby>
+    <incdepgraph>
+      <node id="57">
+        <label>cstdint</label>
+      </node>
+      <node id="56">
+        <label>include/ldata.h</label>
+        <link refid="ldata.h"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>rowid.h</label>
+        <link refid="rowid_8h"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="62">
+        <label>src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="60">
+        <label>include/leaf.h</label>
+        <link refid="leaf_8h"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>include/ldata.h</label>
+        <link refid="ldata.h"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>src/ldata.cpp</label>
+        <link refid="ldata_8cpp"/>
+      </node>
+      <node id="61">
+        <label>src/leaf.cpp</label>
+        <link refid="leaf_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_l_data" prot="public">LData</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>LDATA_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LDATA_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rowid_8h" kindref="compound">rowid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_l_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_data" kindref="compound">LData</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_data_1a608b4c87ce1055b3c99a8e15483509a5" kindref="member">LData</ref>(uint32_t<sp/>index,<sp/><ref refid="class_row_i_d" kindref="compound">RowID</ref><sp/>rowID);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_data_1a3f155645b811477659167162efa2ea7e" kindref="member">~LData</ref>();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="class_l_data_1ac7ed406b09f4930ddaf6e0c79823809f" kindref="member">getIndex</ref>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_row_i_d" kindref="compound">RowID</ref><sp/><ref refid="class_l_data_1a7dc207683c3b301390f5b7a07ceae2c5" kindref="member">getRowID</ref>();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>index;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_row_i_d" kindref="compound">RowID</ref><sp/>rowID;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//LDATA_H</highlight></codeline>
+    </programlisting>
+    <location file="include/ldata.h"/>
+  </compounddef>
+</doxygen>

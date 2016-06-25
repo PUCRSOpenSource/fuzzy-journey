@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="rowid_8h" kind="file" language="C++">
+    <compoundname>rowid.h</compoundname>
+    <includes local="no">cstdint</includes>
+    <includedby refid="node_8h" local="yes">include/node.h</includedby>
+    <includedby refid="branch_8h" local="yes">include/branch.h</includedby>
+    <includedby refid="btree_8h" local="yes">include/btree.h</includedby>
+    <includedby refid="buffer_8h" local="yes">include/buffer.h</includedby>
+    <includedby refid="ldata_8h" local="yes">include/ldata.h</includedby>
+    <includedby refid="leaf_8h" local="yes">include/leaf.h</includedby>
+    <includedby refid="table_8h" local="yes">include/table.h</includedby>
+    <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
+    <includedby refid="rowid_8cpp" local="yes">src/rowid.cpp</includedby>
+    <incdepgraph>
+      <node id="87">
+        <label>cstdint</label>
+      </node>
+      <node id="86">
+        <label>include/rowid.h</label>
+        <link refid="rowid.h"/>
+        <childnode refid="87" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="90">
+        <label>include/bdata.h</label>
+        <link refid="bdata_8h"/>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="97">
+        <label>include/leaf.h</label>
+        <link refid="leaf_8h"/>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>src/branch.cpp</label>
+        <link refid="branch_8cpp"/>
+      </node>
+      <node id="91">
+        <label>include/branch.h</label>
+        <link refid="branch_8h"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>include/buffer.h</label>
+        <link refid="buffer_8h"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+      </node>
+      <node id="101">
+        <label>src/table.cpp</label>
+        <link refid="table_8cpp"/>
+      </node>
+      <node id="95">
+        <label>include/btree.h</label>
+        <link refid="btree_8h"/>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>include/table.h</label>
+        <link refid="table_8h"/>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+      </node>
+      <node id="94">
+        <label>src/bdata.cpp</label>
+        <link refid="bdata_8cpp"/>
+      </node>
+      <node id="103">
+        <label>include/ldata.h</label>
+        <link refid="ldata_8h"/>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>src/rowid.cpp</label>
+        <link refid="rowid_8cpp"/>
+      </node>
+      <node id="104">
+        <label>src/ldata.cpp</label>
+        <link refid="ldata_8cpp"/>
+      </node>
+      <node id="89">
+        <label>include/node.h</label>
+        <link refid="node_8h"/>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>src/buffer.cpp</label>
+        <link refid="buffer_8cpp"/>
+      </node>
+      <node id="96">
+        <label>src/btree.cpp</label>
+        <link refid="btree_8cpp"/>
+      </node>
+      <node id="98">
+        <label>src/leaf.cpp</label>
+        <link refid="leaf_8cpp"/>
+      </node>
+      <node id="88">
+        <label>include/rowid.h</label>
+        <link refid="rowid.h"/>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_row_i_d" prot="public">RowID</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>ROWID_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ROWID_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_row_i_d" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_row_i_d" kindref="compound">RowID</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_row_i_d_1afbc93c18604094aea2bd292b80a9c44f" kindref="member">RowID</ref>(int16_t<sp/>blockNumber,<sp/>int16_t<sp/>position);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_row_i_d_1afbc93c18604094aea2bd292b80a9c44f" kindref="member">RowID</ref>();</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_row_i_d_1af4f7963e2dc62f09d4b4c6860d5117a1" kindref="member">~RowID</ref>();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="class_row_i_d_1ac50dc7c3da49be36846ea2fa14e72d49" kindref="member">getBlockNumber</ref>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="class_row_i_d_1afe76dc7120b0571593cce44e9d3e1341" kindref="member">getPosition</ref>();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/>blockNumber;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/>position;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//ROWID_H</highlight></codeline>
+    </programlisting>
+    <location file="include/rowid.h"/>
+  </compounddef>
+</doxygen>

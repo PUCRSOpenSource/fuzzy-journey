@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="md_README" kind="page">
+    <compoundname>md_README</compoundname>
+    <title>fuzzy-journey</title>
+    <detaileddescription>
+<para>Grupo:<itemizedlist>
+<listitem><para><ulink url="https://github.com/amarantedaniel">Daniel Amarante</ulink></para></listitem><listitem><para><ulink url="https://github.com/GiovanniCuper">Giovanni Cupertino</ulink></para></listitem><listitem><para><ulink url="https://github.com/execb5">Matthias Nunes</ulink> <hruler/>
+</para></listitem></itemizedlist>
+</para><para><heading level="1">Simulador de B*</heading>
+</para><para><heading level="3">Objetivo</heading>
+</para><para>Construir um simulador de árvores B*(B*Tree), conforme algoritmo visto em aula e definido em [KNUTH, 1998].</para><para>Todo o desenvolvimento, desde a análise e o projeto até a implementação, deverá ser realizado empregando orientação a objetos.</para><para>Será tolerada a utilização de qualquer linguagem de programação baseada em objetos (Java, C++, C#, etc.), recomendando fortemente que seja utilizado C++ ou Java.</para><para><heading level="3">Requisitos</heading>
+</para><para><orderedlist>
+<listitem><para>**_Datafile_**<orderedlist>
+<listitem><para>Tamanho total de 32MB</para></listitem><listitem><para>Deve ser alocado previamente, completando com fillers (zeros)</para></listitem><listitem><para>Deve, obviamente, garantir a persistência dos dados entre as execuções do simulador</para></listitem></orderedlist>
+</para></listitem><listitem><para><bold>Tabela</bold><orderedlist>
+<listitem><para>O simulador deverá suportar somente uma tabela de dados com a seguinte estrutura:<orderedlist>
+<listitem><para>Código (PK) = 4B</para></listitem><listitem><para>Descrição = até 200 caracteres</para></listitem></orderedlist>
+</para></listitem><listitem><para>O código é único: inserção de registros com código duplicado sinaliza erro</para></listitem></orderedlist>
+</para></listitem><listitem><para>**_Datablocks_**<orderedlist>
+<listitem><para>Tamanho = 2KB</para></listitem><listitem><para>Total de 16.384 datablocks no datafile, endereçados de 0 a 16.383 (endereços seriam de 14 bits, mas podem ser arredondados para 2B)</para></listitem></orderedlist>
+</para></listitem><listitem><para>**_Datablocks_ da tabela**<orderedlist>
+<listitem><para>Deverão possuir uma tabela de endereçamento dos registros em seu header</para></listitem><listitem><para>Cada entrada da tabela de endereçamento deverá indicar:<orderedlist>
+<listitem><para>Posição inicial do registro: 2B</para></listitem><listitem><para>Tamanho do registro: 2B</para></listitem></orderedlist>
+</para></listitem></orderedlist>
+</para></listitem><listitem><para>**_RowId_ dos registros de dados**<orderedlist>
+<listitem><para>RowId = [endereço do datablock] + [endereço do registro] = 2B + 2B = 4B</para></listitem></orderedlist>
+</para></listitem><listitem><para><bold>B*Tree</bold><orderedlist>
+<listitem><para>Sobre a tabela de dados deverá ser implementado um índice secundário B*Tree externa</para></listitem><listitem><para>A chave de busca (k) da B*Tree deve ser a coluna código de registro de dados = 4B</para></listitem><listitem><para>Conforme o algoritmo B*Tree, a ocupação mínima de cada nó deverá ser de 2/3 (66%)</para></listitem></orderedlist>
+</para></listitem><listitem><para>**_Buffer_**<orderedlist>
+<listitem><para>256 <emphasis>frames</emphasis> (1.024KB)</para></listitem><listitem><para>Seleção de vítimas via algoritmo FIFO</para></listitem><listitem><para>Operar com write-back cache: se o conteúdo do <emphasis>datablock</emphasis> tiver sido alterado, quando ele for escolhido como vítima pelo FIFO, seu conteúdo deve ser salvo no <emphasis>datafile</emphasis> (<emphasis>flush</emphasis>)</para></listitem></orderedlist>
+</para></listitem><listitem><para><bold>Operações suportadas</bold><orderedlist>
+<listitem><para>insert(código, descrição)</para></listitem><listitem><para>insert(n): insere n registros com valores aleatórios para código e descrição</para></listitem><listitem><para>select(código)</para></listitem><listitem><para>select(descrição)</para></listitem><listitem><para>update(chave, nova_descrição)</para></listitem><listitem><para>delete(chave)</para></listitem></orderedlist>
+</para></listitem></orderedlist>
+</para><para><heading level="3">Entregáveis</heading>
+</para><para>Deverá ser entregue obrigatoriamente documentação digital composta por:</para><para><orderedlist>
+<listitem><para>Documentação de análise e projeto em UML. Os diagramas a serem entregues são: Diagrama de Classes (incluindo a representação de atributos e métodos) e Diagramas de Seqüência.</para></listitem><listitem><para>Código fonte comentado.</para></listitem><listitem><para>Instruções detalhadas para instalação e teste.</para></listitem></orderedlist>
+</para><para><heading level="3">Critérios de avaliação</heading>
+</para><para><orderedlist>
+<listitem><para>Modelagem: 0,5<orderedlist>
+<listitem><para>Diagrama de Classes</para></listitem><listitem><para>Diagrama de Seqüência</para></listitem></orderedlist>
+</para></listitem><listitem><para><ref refid="class_datafile" kindref="compound">Datafile</ref>: 0,5</para></listitem><listitem><para>Datablocks: 0,5</para></listitem><listitem><para><ref refid="class_buffer" kindref="compound">Buffer</ref>: 0,5</para></listitem><listitem><para>Operações:<orderedlist>
+<listitem><para>insert(código, descrição): 2,0</para></listitem><listitem><para>insert(n): insere n registros com valores aleatórios para código e descrição: 0,5</para></listitem><listitem><para>select(código): 1,0</para></listitem><listitem><para>select(descrição): 0,5</para></listitem><listitem><para>update(chave, nova_descrição): 0,5</para></listitem><listitem><para>delete(chave): 2,0</para></listitem></orderedlist>
+</para></listitem><listitem><para>Código fonte comentado: 0,5</para></listitem><listitem><para>Apresentação: 1,0</para></listitem><listitem><para>Interface <bold>gráfica</bold> que mostre a árvore: +1,0</para></listitem></orderedlist>
+</para><para><heading level="3">Observações</heading>
+</para><para>Todos os integrantes do grupo deverão apresentar o trabalho no laboratório em data a ser definida pelo professor.</para><para>Em caso de plágio da web, de semestres anteriores ou de outra turma, cuja comprovação será realizada pelo professor junto ao grupo, também será atribuída nota ZERO!</para><para><heading level="3">Referência</heading>
+</para><para>[KNUTH, 1998] Knuth, Donald (1998), Sorting and Searching, The Art of Computer Programming, Volume 3 (Second ed.), Addison-Wesley, ISBN 0-201-89685-0. Section 6.2.4: Multiway Trees, pp. 481–491. Also, pp. 476–477 of section 6.2.3 (Balanced Trees) discusses 2-3 trees. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

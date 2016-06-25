@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_buffer" kind="class" language="C++" prot="public">
+    <compoundname>Buffer</compoundname>
+    <includes refid="buffer_8h" local="no">buffer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_buffer_1ab05de40fc84ec3ac90c7c3aadaf2f56d" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; <ref refid="class_data_block" kindref="compound">DataBlock</ref> &gt;</type>
+        <definition>std::deque&lt;DataBlock&gt; Buffer::datablocks</definition>
+        <argsstring></argsstring>
+        <name>datablocks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="31" column="1" bodyfile="include/buffer.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_buffer_1a138b7c7d5a9cbd0d5144918d7afbfd38" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Buffer::loadingIterator</definition>
+        <argsstring></argsstring>
+        <name>loadingIterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="32" column="1" bodyfile="include/buffer.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_buffer_1ae7ef2cd201190fde551dcb902627112b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Buffer::Buffer</definition>
+        <argsstring>()</argsstring>
+        <name>Buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="19" column="1" bodyfile="src/buffer.cpp" bodystart="3" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_buffer_1a59b8743e4a5f731bdd0c4185c9ef263b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Buffer::~Buffer</definition>
+        <argsstring>()</argsstring>
+        <name>~Buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="20" column="1" bodyfile="src/buffer.cpp" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_buffer_1a250bdf03a7f6ecbce45ad73649f33d90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_row_i_d" kindref="compound">RowID</ref></type>
+        <definition>RowID Buffer::newEntry</definition>
+        <argsstring>(TableEntry entry)</argsstring>
+        <name>newEntry</name>
+        <param>
+          <type><ref refid="class_table_entry" kindref="compound">TableEntry</ref></type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="21" column="1" bodyfile="src/buffer.cpp" bodystart="14" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_buffer_1aefa0831d62778a61ba8b1f66195033d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_table_entry" kindref="compound">TableEntry</ref></type>
+        <definition>TableEntry Buffer::getEntry</definition>
+        <argsstring>(RowID rowID)</argsstring>
+        <name>getEntry</name>
+        <param>
+          <type><ref refid="class_row_i_d" kindref="compound">RowID</ref></type>
+          <declname>rowID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="22" column="1" bodyfile="src/buffer.cpp" bodystart="31" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_buffer_1a31772044a1fad7bd9d259cd38ae5d3c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Buffer::remove</definition>
+        <argsstring>(RowID rowID)</argsstring>
+        <name>remove</name>
+        <param>
+          <type><ref refid="class_row_i_d" kindref="compound">RowID</ref></type>
+          <declname>rowID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="23" column="1" bodyfile="src/buffer.cpp" bodystart="45" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_buffer_1ac1e530265ea573e202c04c17497a62d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Buffer::loadDatablock</definition>
+        <argsstring>(int16_t index)</argsstring>
+        <name>loadDatablock</name>
+        <param>
+          <type>int16_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="24" column="1" bodyfile="src/buffer.cpp" bodystart="60" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_buffer_1aae197d113dc4d8826af7c5233df81677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Buffer::saveDatablock</definition>
+        <argsstring>(DataBlock datablock)</argsstring>
+        <name>saveDatablock</name>
+        <param>
+          <type><ref refid="class_data_block" kindref="compound">DataBlock</ref></type>
+          <declname>datablock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="25" column="1" bodyfile="src/buffer.cpp" bodystart="78" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_buffer_1a47a8a3546a8c632e78f3a32e39ea9a18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Buffer::saveData</definition>
+        <argsstring>()</argsstring>
+        <name>saveData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="26" column="1" bodyfile="src/buffer.cpp" bodystart="91" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_buffer_1a8bf19f648814eeae6132492ae279b124" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t Buffer::chooseDatablock</definition>
+        <argsstring>()</argsstring>
+        <name>chooseDatablock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="27" column="1" bodyfile="src/buffer.cpp" bodystart="99" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_buffer_1a7f10a8dbeb40b007788afb25228584d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Buffer::isLoaded</definition>
+        <argsstring>(uint16_t index)</argsstring>
+        <name>isLoaded</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/buffer.h" line="28" column="1" bodyfile="src/buffer.cpp" bodystart="112" bodyend="122"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/buffer.h" line="17" column="1" bodyfile="include/buffer.h" bodystart="16" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_buffer_1ae7ef2cd201190fde551dcb902627112b" prot="public" virt="non-virtual"><scope>Buffer</scope><name>Buffer</name></member>
+      <member refid="class_buffer_1a8bf19f648814eeae6132492ae279b124" prot="public" virt="non-virtual"><scope>Buffer</scope><name>chooseDatablock</name></member>
+      <member refid="class_buffer_1ab05de40fc84ec3ac90c7c3aadaf2f56d" prot="private" virt="non-virtual"><scope>Buffer</scope><name>datablocks</name></member>
+      <member refid="class_buffer_1aefa0831d62778a61ba8b1f66195033d0" prot="public" virt="non-virtual"><scope>Buffer</scope><name>getEntry</name></member>
+      <member refid="class_buffer_1a7f10a8dbeb40b007788afb25228584d3" prot="public" virt="non-virtual"><scope>Buffer</scope><name>isLoaded</name></member>
+      <member refid="class_buffer_1ac1e530265ea573e202c04c17497a62d8" prot="public" virt="non-virtual"><scope>Buffer</scope><name>loadDatablock</name></member>
+      <member refid="class_buffer_1a138b7c7d5a9cbd0d5144918d7afbfd38" prot="private" virt="non-virtual"><scope>Buffer</scope><name>loadingIterator</name></member>
+      <member refid="class_buffer_1a250bdf03a7f6ecbce45ad73649f33d90" prot="public" virt="non-virtual"><scope>Buffer</scope><name>newEntry</name></member>
+      <member refid="class_buffer_1a31772044a1fad7bd9d259cd38ae5d3c3" prot="public" virt="non-virtual"><scope>Buffer</scope><name>remove</name></member>
+      <member refid="class_buffer_1a47a8a3546a8c632e78f3a32e39ea9a18" prot="public" virt="non-virtual"><scope>Buffer</scope><name>saveData</name></member>
+      <member refid="class_buffer_1aae197d113dc4d8826af7c5233df81677" prot="public" virt="non-virtual"><scope>Buffer</scope><name>saveDatablock</name></member>
+      <member refid="class_buffer_1a59b8743e4a5f731bdd0c4185c9ef263b" prot="public" virt="non-virtual"><scope>Buffer</scope><name>~Buffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

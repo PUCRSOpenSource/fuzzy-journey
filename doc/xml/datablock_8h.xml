@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="datablock_8h" kind="file" language="C++">
+    <compoundname>datablock.h</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes refid="table__entry_8h" local="yes">table_entry.h</includes>
+    <includedby refid="buffer_8h" local="yes">include/buffer.h</includedby>
+    <includedby refid="datablock_8cpp" local="yes">src/datablock.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">src/main.cpp</includedby>
+    <incdepgraph>
+      <node id="41">
+        <label>cstdint</label>
+      </node>
+      <node id="43">
+        <label>string</label>
+      </node>
+      <node id="40">
+        <label>include/datablock.h</label>
+        <link refid="datablock.h"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>table_entry.h</label>
+        <link refid="table__entry_8h"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>cstring</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="48">
+        <label>src/main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="46">
+        <label>include/buffer.h</label>
+        <link refid="buffer_8h"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>src/table.cpp</label>
+        <link refid="table_8cpp"/>
+      </node>
+      <node id="45">
+        <label>include/datablock.h</label>
+        <link refid="datablock.h"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>include/table.h</label>
+        <link refid="table_8h"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>src/buffer.cpp</label>
+        <link refid="buffer_8cpp"/>
+      </node>
+      <node id="51">
+        <label>src/datablock.cpp</label>
+        <link refid="datablock_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_data_block" prot="public">DataBlock</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="datablock_8h_1a70ed59adcb4159ac551058053e649640" prot="public" static="no">
+        <name>SIZE</name>
+        <initializer>1994</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="7" column="9" bodyfile="include/datablock.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>DATABLOCK_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATABLOCK_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="table__entry_8h" kindref="compound">table_entry.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="datablock_8h_1a70ed59adcb4159ac551058053e649640" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIZE<sp/>1994<sp/>//<sp/>2000<sp/>-<sp/>sizeof(address)<sp/>+<sp/>sizeof(headerSize);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_data_block" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_data_block" kindref="compound">DataBlock</ref></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_data_block_1aab18e2f412b90bc0310c901a8fd5f89a" kindref="member">DataBlock</ref>(uint16_t<sp/>address);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_data_block_1aab18e2f412b90bc0310c901a8fd5f89a" kindref="member">DataBlock</ref>(uint16_t<sp/>address,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>headerSize,<sp/>uint8_t<sp/>data[<ref refid="datablock_8h_1a70ed59adcb4159ac551058053e649640" kindref="member">SIZE</ref>]);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_data_block_1a57af8af3d61a5bdfbddd9f7baeabd5ae" kindref="member">~DataBlock</ref>();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="class_data_block_1a6e3a79c5adb78af11e1e19bc771a9533" kindref="member">addEntry</ref>(<ref refid="class_table_entry" kindref="compound">TableEntry</ref><sp/>entry);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_table_entry" kindref="compound">TableEntry</ref><sp/><ref refid="class_data_block_1ae65a0ed5f74390f3b2904b936fe8dc8c" kindref="member">getEntry</ref>(int16_t<sp/>index);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">remove</highlight><highlight class="normal">(int16_t<sp/>index);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/><ref refid="class_data_block_1a2e3ffb4ff7b6728c5a6e716d5a4b9cd1" kindref="member">getAddress</ref>();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_data_block_1a3f709eb20cef623efdbc75390d1f1772" kindref="member">getHeaderSize</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t*<sp/><ref refid="class_data_block_1a902c8d48bb298652f6ca6280f1045496" kindref="member">getData</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int16_t<sp/>address;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>headerSize;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>data[<ref refid="datablock_8h_1a70ed59adcb4159ac551058053e649640" kindref="member">SIZE</ref>];</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>lastHeaderPosition();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>lastHeaderSize();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>getHeaderPosition(uint16_t<sp/>index);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="class_data_block_1a3f709eb20cef623efdbc75390d1f1772" kindref="member">getHeaderSize</ref>(uint16_t<sp/>index);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>saveNewHeader(uint16_t<sp/>position,<sp/>uint16_t<sp/>size);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>saveNewEntry(uint16_t<sp/>position,<sp/><ref refid="class_table_entry" kindref="compound">TableEntry</ref><sp/>entry);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//DATABLOCK_H</highlight></codeline>
+    </programlisting>
+    <location file="include/datablock.h"/>
+  </compounddef>
+</doxygen>

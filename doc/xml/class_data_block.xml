@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_data_block" kind="class" language="C++" prot="public">
+    <compoundname>DataBlock</compoundname>
+    <includes refid="datablock_8h" local="no">datablock.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_data_block_1a5b9d9e81ef0d248ab9fc057898089b03" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t DataBlock::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="23" column="1" bodyfile="include/datablock.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_block_1a70f2c04cca1f308b5d4169539fe9fadb" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int DataBlock::headerSize</definition>
+        <argsstring></argsstring>
+        <name>headerSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="24" column="1" bodyfile="include/datablock.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_block_1a09bdd75da8d6d0d3bbe1040cccb27976" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t DataBlock::data[1994]</definition>
+        <argsstring>[1994]</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="25" column="1" bodyfile="include/datablock.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_block_1aab18e2f412b90bc0310c901a8fd5f89a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DataBlock::DataBlock</definition>
+        <argsstring>(uint16_t address)</argsstring>
+        <name>DataBlock</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="12" column="1" bodyfile="src/datablock.cpp" bodystart="9" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1ae458b04cd54fe45f7f68a4934fdb57df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DataBlock::DataBlock</definition>
+        <argsstring>(uint16_t address, int headerSize, uint8_t data[1994])</argsstring>
+        <name>DataBlock</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>headerSize</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>data</declname>
+          <array>[1994]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="13" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1a57af8af3d61a5bdfbddd9f7baeabd5ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DataBlock::~DataBlock</definition>
+        <argsstring>()</argsstring>
+        <name>~DataBlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="14" column="1" bodyfile="src/datablock.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1a6e3a79c5adb78af11e1e19bc771a9533" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t DataBlock::addEntry</definition>
+        <argsstring>(TableEntry entry)</argsstring>
+        <name>addEntry</name>
+        <param>
+          <type><ref refid="class_table_entry" kindref="compound">TableEntry</ref></type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="15" column="1" bodyfile="src/datablock.cpp" bodystart="38" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1ae65a0ed5f74390f3b2904b936fe8dc8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_table_entry" kindref="compound">TableEntry</ref></type>
+        <definition>TableEntry DataBlock::getEntry</definition>
+        <argsstring>(int16_t index)</argsstring>
+        <name>getEntry</name>
+        <param>
+          <type>int16_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="16" column="1" bodyfile="src/datablock.cpp" bodystart="93" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1ae029a500e9ba5eda9605ab97f2c36199" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataBlock::remove</definition>
+        <argsstring>(int16_t index)</argsstring>
+        <name>remove</name>
+        <param>
+          <type>int16_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="17" column="1" bodyfile="src/datablock.cpp" bodystart="133" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1a2e3ffb4ff7b6728c5a6e716d5a4b9cd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t DataBlock::getAddress</definition>
+        <argsstring>()</argsstring>
+        <name>getAddress</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="18" column="1" bodyfile="src/datablock.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1a3f709eb20cef623efdbc75390d1f1772" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int DataBlock::getHeaderSize</definition>
+        <argsstring>()</argsstring>
+        <name>getHeaderSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="19" column="1" bodyfile="src/datablock.cpp" bodystart="139" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1a902c8d48bb298652f6ca6280f1045496" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t * DataBlock::getData</definition>
+        <argsstring>()</argsstring>
+        <name>getData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="20" column="1" bodyfile="src/datablock.cpp" bodystart="144" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_data_block_1a09b9e1287a1572438ec3764178616aef" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t DataBlock::lastHeaderPosition</definition>
+        <argsstring>()</argsstring>
+        <name>lastHeaderPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="27" column="1" bodyfile="src/datablock.cpp" bodystart="57" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1a450db816400f58e77f9bfd27541988e2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t DataBlock::lastHeaderSize</definition>
+        <argsstring>()</argsstring>
+        <name>lastHeaderSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="28" column="1" bodyfile="src/datablock.cpp" bodystart="68" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1a20c1e087eacdb42e575a5dc0162a9b85" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t DataBlock::getHeaderPosition</definition>
+        <argsstring>(uint16_t index)</argsstring>
+        <name>getHeaderPosition</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="29" column="1" bodyfile="src/datablock.cpp" bodystart="119" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1af34d2eca87468e33ab1d597f8e6552c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t DataBlock::getHeaderSize</definition>
+        <argsstring>(uint16_t index)</argsstring>
+        <name>getHeaderSize</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="30" column="1" bodyfile="src/datablock.cpp" bodystart="126" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1aaf390d10b2ced185528c19f29f28e160" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataBlock::saveNewHeader</definition>
+        <argsstring>(uint16_t position, uint16_t size)</argsstring>
+        <name>saveNewHeader</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="31" column="1" bodyfile="src/datablock.cpp" bodystart="79" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_data_block_1ab7fd2ba66f7cb7b06f2da4bbbec63149" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DataBlock::saveNewEntry</definition>
+        <argsstring>(uint16_t position, TableEntry entry)</argsstring>
+        <name>saveNewEntry</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type><ref refid="class_table_entry" kindref="compound">TableEntry</ref></type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/datablock.h" line="32" column="1" bodyfile="src/datablock.cpp" bodystart="86" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/datablock.h" line="10" column="1" bodyfile="include/datablock.h" bodystart="9" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_data_block_1a6e3a79c5adb78af11e1e19bc771a9533" prot="public" virt="non-virtual"><scope>DataBlock</scope><name>addEntry</name></member>
+      <member refid="class_data_block_1a5b9d9e81ef0d248ab9fc057898089b03" prot="private" virt="non-virtual"><scope>DataBlock</scope><name>address</name></member>
+      <member refid="class_data_block_1a09bdd75da8d6d0d3bbe1040cccb27976" prot="private" virt="non-virtual"><scope>DataBlock</scope><name>data</name></member>
+      <member refid="class_data_block_1aab18e2f412b90bc0310c901a8fd5f89a" prot="public" virt="non-virtual"><scope>DataBlock</scope><name>DataBlock</name></member>
+      <member refid="class_data_block_1ae458b04cd54fe45f7f68a4934fdb57df" prot="public" virt="non-virtual"><scope>DataBlock</scope><name>DataBlock</name></member>
+      <member refid="class_data_block_1a2e3ffb4ff7b6728c5a6e716d5a4b9cd1" prot="public" virt="non-virtual"><scope>DataBlock</scope><name>getAddress</name></member>
+      <member refid="class_data_block_1a902c8d48bb298652f6ca6280f1045496" prot="public" virt="non-virtual"><scope>DataBlock</scope><name>getData</name></member>
+      <member refid="class_data_block_1ae65a0ed5f74390f3b2904b936fe8dc8c" prot="public" virt="non-virtual"><scope>DataBlock</scope><name>getEntry</name></member>
+      <member refid="class_data_block_1a20c1e087eacdb42e575a5dc0162a9b85" prot="private" virt="non-virtual"><scope>DataBlock</scope><name>getHeaderPosition</name></member>
+      <member refid="class_data_block_1a3f709eb20cef623efdbc75390d1f1772" prot="public" virt="non-virtual"><scope>DataBlock</scope><name>getHeaderSize</name></member>
+      <member refid="class_data_block_1af34d2eca87468e33ab1d597f8e6552c7" prot="private" virt="non-virtual"><scope>DataBlock</scope><name>getHeaderSize</name></member>
+      <member refid="class_data_block_1a70f2c04cca1f308b5d4169539fe9fadb" prot="private" virt="non-virtual"><scope>DataBlock</scope><name>headerSize</name></member>
+      <member refid="class_data_block_1a09b9e1287a1572438ec3764178616aef" prot="private" virt="non-virtual"><scope>DataBlock</scope><name>lastHeaderPosition</name></member>
+      <member refid="class_data_block_1a450db816400f58e77f9bfd27541988e2" prot="private" virt="non-virtual"><scope>DataBlock</scope><name>lastHeaderSize</name></member>
+      <member refid="class_data_block_1ae029a500e9ba5eda9605ab97f2c36199" prot="public" virt="non-virtual"><scope>DataBlock</scope><name>remove</name></member>
+      <member refid="class_data_block_1ab7fd2ba66f7cb7b06f2da4bbbec63149" prot="private" virt="non-virtual"><scope>DataBlock</scope><name>saveNewEntry</name></member>
+      <member refid="class_data_block_1aaf390d10b2ced185528c19f29f28e160" prot="private" virt="non-virtual"><scope>DataBlock</scope><name>saveNewHeader</name></member>
+      <member refid="class_data_block_1a57af8af3d61a5bdfbddd9f7baeabd5ae" prot="public" virt="non-virtual"><scope>DataBlock</scope><name>~DataBlock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

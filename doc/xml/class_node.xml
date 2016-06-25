@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_node" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Node</compoundname>
+    <derivedcompoundref refid="class_branch" prot="public" virt="non-virtual">Branch</derivedcompoundref>
+    <derivedcompoundref refid="class_leaf" prot="public" virt="non-virtual">Leaf</derivedcompoundref>
+    <includes refid="node_8h" local="no">node.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_node_1af5e3fa79300bf5f3f2f3ecae6e795a94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual Node::~Node</definition>
+        <argsstring>()</argsstring>
+        <name>~Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/node.h" line="10" column="1" bodyfile="include/node.h" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_node_1a23e5fa93a2f48f76d8ea1906cfbf26ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool Node::insert</definition>
+        <argsstring>(uint32_t index, RowID ri)=0</argsstring>
+        <name>insert</name>
+        <reimplementedby refid="class_leaf_1a8cd9c3538ae102152e62efc325a74637">insert</reimplementedby>
+        <reimplementedby refid="class_branch_1a800fb28b1be0e9820c071d03530ad355">insert</reimplementedby>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="class_row_i_d" kindref="compound">RowID</ref></type>
+          <declname>ri</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/node.h" line="11" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_node_1af8ef0fa4ec7751a78213d91ec796a5e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="class_row_i_d" kindref="compound">RowID</ref></type>
+        <definition>virtual RowID Node::select</definition>
+        <argsstring>(uint32_t index)=0</argsstring>
+        <name>select</name>
+        <reimplementedby refid="class_leaf_1a4b793e9a2aaa1c5a6f3a1b2778ed8516">select</reimplementedby>
+        <reimplementedby refid="class_branch_1af110d6f853616685a7a9be8b5e156963">select</reimplementedby>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/node.h" line="12" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="20">
+        <label>Node</label>
+        <link refid="class_node"/>
+      </node>
+      <node id="21">
+        <label>Branch</label>
+        <link refid="class_branch"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Leaf</label>
+        <link refid="class_leaf"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="include/node.h" line="8" column="1" bodyfile="include/node.h" bodystart="7" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_node_1a23e5fa93a2f48f76d8ea1906cfbf26ee" prot="public" virt="pure-virtual"><scope>Node</scope><name>insert</name></member>
+      <member refid="class_node_1af8ef0fa4ec7751a78213d91ec796a5e6" prot="public" virt="pure-virtual"><scope>Node</scope><name>select</name></member>
+      <member refid="class_node_1af5e3fa79300bf5f3f2f3ecae6e795a94" prot="public" virt="virtual"><scope>Node</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

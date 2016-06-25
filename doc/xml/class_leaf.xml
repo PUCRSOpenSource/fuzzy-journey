@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_leaf" kind="class" language="C++" prot="public">
+    <compoundname>Leaf</compoundname>
+    <basecompoundref refid="class_node" prot="public" virt="non-virtual">Node</basecompoundref>
+    <includes refid="leaf_8h" local="no">leaf.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_leaf_1ae81dda79e1baf1ceac8669c476d76a3e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_l_data" kindref="compound">LData</ref> &gt;</type>
+        <definition>std::vector&lt;LData&gt; Leaf::block</definition>
+        <argsstring></argsstring>
+        <name>block</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/leaf.h" line="17" column="1" bodyfile="include/leaf.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_leaf_1a8cd9c3538ae102152e62efc325a74637" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool Leaf::insert</definition>
+        <argsstring>(uint32_t index, RowID rowID)</argsstring>
+        <name>insert</name>
+        <reimplements refid="class_node_1a23e5fa93a2f48f76d8ea1906cfbf26ee">insert</reimplements>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="class_row_i_d" kindref="compound">RowID</ref></type>
+          <declname>rowID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/leaf.h" line="13" column="1" bodyfile="src/leaf.cpp" bodystart="4" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_leaf_1a4b793e9a2aaa1c5a6f3a1b2778ed8516" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="class_row_i_d" kindref="compound">RowID</ref></type>
+        <definition>RowID Leaf::select</definition>
+        <argsstring>(uint32_t index)</argsstring>
+        <name>select</name>
+        <reimplements refid="class_node_1af8ef0fa4ec7751a78213d91ec796a5e6">select</reimplements>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/leaf.h" line="14" column="1" bodyfile="src/leaf.cpp" bodystart="21" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="17">
+        <label>Node</label>
+        <link refid="class_node"/>
+      </node>
+      <node id="16">
+        <label>Leaf</label>
+        <link refid="class_leaf"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="19">
+        <label>Node</label>
+        <link refid="class_node"/>
+      </node>
+      <node id="18">
+        <label>Leaf</label>
+        <link refid="class_leaf"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/leaf.h" line="11" column="1" bodyfile="include/leaf.h" bodystart="10" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_leaf_1ae81dda79e1baf1ceac8669c476d76a3e" prot="private" virt="non-virtual"><scope>Leaf</scope><name>block</name></member>
+      <member refid="class_leaf_1a8cd9c3538ae102152e62efc325a74637" prot="public" virt="virtual"><scope>Leaf</scope><name>insert</name></member>
+      <member refid="class_leaf_1a4b793e9a2aaa1c5a6f3a1b2778ed8516" prot="public" virt="virtual"><scope>Leaf</scope><name>select</name></member>
+      <member refid="class_node_1af5e3fa79300bf5f3f2f3ecae6e795a94" prot="public" virt="virtual"><scope>Leaf</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

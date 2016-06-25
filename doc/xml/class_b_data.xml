@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_b_data" kind="class" language="C++" prot="public">
+    <compoundname>BData</compoundname>
+    <includes refid="bdata_8h" local="no">bdata.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_data_1a5539c2c17cffec298ab65dbc456498dc" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t BData::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/bdata.h" line="16" column="1" bodyfile="include/bdata.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_data_1adc71442b19e7ab279e86a43c46df7348" prot="private" static="no" mutable="no">
+        <type><ref refid="class_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* BData::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/bdata.h" line="17" column="1" bodyfile="include/bdata.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_data_1a32459a1e4163aa63320b8bebcca06b2a" prot="private" static="no" mutable="no">
+        <type><ref refid="class_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* BData::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/bdata.h" line="18" column="1" bodyfile="include/bdata.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_data_1ac617b2a02cae62765b154647750041a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BData::BData</definition>
+        <argsstring>(uint32_t index, Node *left, Node *right)</argsstring>
+        <name>BData</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="class_node" kindref="compound">Node</ref> *</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type><ref refid="class_node" kindref="compound">Node</ref> *</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/bdata.h" line="10" column="1" bodyfile="src/bdata.cpp" bodystart="3" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_data_1a32923ce510580833d5094f52ce1b7f7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BData::~BData</definition>
+        <argsstring>()</argsstring>
+        <name>~BData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/bdata.h" line="11" column="1" bodyfile="src/bdata.cpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_data_1a975ef964002f2b15142c4e5072d1dc67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t BData::getIndex</definition>
+        <argsstring>()</argsstring>
+        <name>getIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/bdata.h" line="12" column="1" bodyfile="src/bdata.cpp" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_data_1a87e694c5fcc3c6fced6912bc8b6be615" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_node" kindref="compound">Node</ref> *</type>
+        <definition>Node * BData::getLeft</definition>
+        <argsstring>()</argsstring>
+        <name>getLeft</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/bdata.h" line="13" column="1" bodyfile="src/bdata.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_data_1a7de38567867480eceee753a274ad98d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_node" kindref="compound">Node</ref> *</type>
+        <definition>Node * BData::getRight</definition>
+        <argsstring>()</argsstring>
+        <name>getRight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/bdata.h" line="14" column="1" bodyfile="src/bdata.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/bdata.h" line="8" column="1" bodyfile="include/bdata.h" bodystart="7" bodyend="19"/>
+    <listofallmembers>
+      <member refid="class_b_data_1ac617b2a02cae62765b154647750041a4" prot="public" virt="non-virtual"><scope>BData</scope><name>BData</name></member>
+      <member refid="class_b_data_1a975ef964002f2b15142c4e5072d1dc67" prot="public" virt="non-virtual"><scope>BData</scope><name>getIndex</name></member>
+      <member refid="class_b_data_1a87e694c5fcc3c6fced6912bc8b6be615" prot="public" virt="non-virtual"><scope>BData</scope><name>getLeft</name></member>
+      <member refid="class_b_data_1a7de38567867480eceee753a274ad98d8" prot="public" virt="non-virtual"><scope>BData</scope><name>getRight</name></member>
+      <member refid="class_b_data_1a5539c2c17cffec298ab65dbc456498dc" prot="private" virt="non-virtual"><scope>BData</scope><name>index</name></member>
+      <member refid="class_b_data_1adc71442b19e7ab279e86a43c46df7348" prot="private" virt="non-virtual"><scope>BData</scope><name>left</name></member>
+      <member refid="class_b_data_1a32459a1e4163aa63320b8bebcca06b2a" prot="private" virt="non-virtual"><scope>BData</scope><name>right</name></member>
+      <member refid="class_b_data_1a32923ce510580833d5094f52ce1b7f7b" prot="public" virt="non-virtual"><scope>BData</scope><name>~BData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

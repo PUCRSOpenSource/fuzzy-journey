@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_table_entry" kind="class" language="C++" prot="public">
+    <compoundname>TableEntry</compoundname>
+    <includes refid="table__entry_8h" local="no">table_entry.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_table_entry_1a577cb49b0bebe4ca9767211e0d748b25" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TableEntry::code</definition>
+        <argsstring></argsstring>
+        <name>code</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/table_entry.h" line="19" column="1" bodyfile="include/table_entry.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_table_entry_1a3e6b39ad16a31f737092e2f41aaea8d5" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string TableEntry::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/table_entry.h" line="20" column="1" bodyfile="include/table_entry.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_table_entry_1a4165c312baa8b56943c01c91615ccfb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TableEntry::TableEntry</definition>
+        <argsstring>(uint32_t code, std::string description)</argsstring>
+        <name>TableEntry</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/table_entry.h" line="11" column="1" bodyfile="src/table_entry.cpp" bodystart="4" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_table_entry_1ad06e13b743d2e893f748f2faf57958fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TableEntry::~TableEntry</definition>
+        <argsstring>()</argsstring>
+        <name>~TableEntry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/table_entry.h" line="12" column="1" bodyfile="src/table_entry.cpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_table_entry_1ad6e4e6ebe4a89f54c3abe7228d4a0d29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TableEntry::getCode</definition>
+        <argsstring>()</argsstring>
+        <name>getCode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/table_entry.h" line="13" column="1" bodyfile="src/table_entry.cpp" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_table_entry_1abe2bf9764de2a27c4e4ec5d99d35454c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string TableEntry::getDescription</definition>
+        <argsstring>()</argsstring>
+        <name>getDescription</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/table_entry.h" line="14" column="1" bodyfile="src/table_entry.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_table_entry_1a61b93722100d923c0e7460cff154b5f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TableEntry::setDescription</definition>
+        <argsstring>(std::string description)</argsstring>
+        <name>setDescription</name>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/table_entry.h" line="15" column="1" bodyfile="src/table_entry.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_table_entry_1aa744cf7907406ec0b99c0b631bbff57a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TableEntry::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/table_entry.h" line="16" column="1" bodyfile="src/table_entry.cpp" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_table_entry_1a6e241a3ee6ab61a0583cd78415094d31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t * TableEntry::toByteArray</definition>
+        <argsstring>()</argsstring>
+        <name>toByteArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/table_entry.h" line="17" column="1" bodyfile="src/table_entry.cpp" bodystart="35" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/table_entry.h" line="9" column="1" bodyfile="include/table_entry.h" bodystart="8" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_table_entry_1a577cb49b0bebe4ca9767211e0d748b25" prot="private" virt="non-virtual"><scope>TableEntry</scope><name>code</name></member>
+      <member refid="class_table_entry_1a3e6b39ad16a31f737092e2f41aaea8d5" prot="private" virt="non-virtual"><scope>TableEntry</scope><name>description</name></member>
+      <member refid="class_table_entry_1ad6e4e6ebe4a89f54c3abe7228d4a0d29" prot="public" virt="non-virtual"><scope>TableEntry</scope><name>getCode</name></member>
+      <member refid="class_table_entry_1abe2bf9764de2a27c4e4ec5d99d35454c" prot="public" virt="non-virtual"><scope>TableEntry</scope><name>getDescription</name></member>
+      <member refid="class_table_entry_1a61b93722100d923c0e7460cff154b5f6" prot="public" virt="non-virtual"><scope>TableEntry</scope><name>setDescription</name></member>
+      <member refid="class_table_entry_1aa744cf7907406ec0b99c0b631bbff57a" prot="public" virt="non-virtual"><scope>TableEntry</scope><name>size</name></member>
+      <member refid="class_table_entry_1a4165c312baa8b56943c01c91615ccfb1" prot="public" virt="non-virtual"><scope>TableEntry</scope><name>TableEntry</name></member>
+      <member refid="class_table_entry_1a6e241a3ee6ab61a0583cd78415094d31" prot="public" virt="non-virtual"><scope>TableEntry</scope><name>toByteArray</name></member>
+      <member refid="class_table_entry_1ad06e13b743d2e893f748f2faf57958fe" prot="public" virt="non-virtual"><scope>TableEntry</scope><name>~TableEntry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
