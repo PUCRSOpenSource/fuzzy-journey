@@ -60,6 +60,12 @@ void Buffer::loadDatablock(int16_t index)
 	fread(data_aux, sizeof(uint8_t), SIZE, ptr_myDataBlock);
 	datablocks.push_back(DataBlock(index, header_size_aux, data_aux));
 	fclose(ptr_myDataBlock);
+	if (datablocks.size() > FRAMES)
+	{
+		DataBlock last = datablocks.front();
+		saveDatablock(last);
+		datablocks.pop_front();
+	}
 }
 
 void Buffer::saveDatablock(DataBlock datablock)
@@ -75,8 +81,10 @@ void Buffer::saveDatablock(DataBlock datablock)
 	fclose(ptr_myDataBlock);
 }
 
-void Buffer::saveData() {
-	for (auto &datablock : datablocks) {
+void Buffer::saveData()
+{
+	for (auto &datablock : datablocks)
+	{
 		saveDatablock(datablock);
 	}
 }

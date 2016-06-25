@@ -10,7 +10,7 @@
 #include "rowid.h"
 
 #define DATABLOCK_SIZE 2000
-#define FRAMES 256
+#define FRAMES 2
 
 class Buffer
 {
