@@ -10,6 +10,9 @@ class Node
 		virtual ~Node() {}
 		virtual bool insert(uint32_t index, RowID ri) = 0;
 		virtual RowID select(uint32_t index) = 0;
+
+	private:
+		int max_size;
 };
 
 #endif /* NODE_H */
