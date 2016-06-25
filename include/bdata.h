@@ -2,19 +2,20 @@
 #define BDATA_H
 
 #include <cstdint>
+#include "node.h"
 
 class BData
 {
 	public:
-		BData(uint32_t index, uint16_t left, uint16_t right);
+		BData(uint32_t index, Node* left, Node* right);
 		~BData();
 		uint32_t getIndex();
-		uint16_t getLeft();
-		uint16_t getRight();
+		Node* getLeft();
+		Node* getRight();
 	private:
 		uint32_t index;
-		uint16_t left;
-		uint16_t right;
+		Node* left;
+		Node* right;
 };
 
 #endif //BDATA_H

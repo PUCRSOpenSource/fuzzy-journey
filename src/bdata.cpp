@@ -1,6 +1,6 @@
 #include "bdata.h"
 
-BData::BData(uint32_t index, uint16_t left, uint16_t right)
+BData::BData(uint32_t index, Node* left, Node* right)
 {
 	this->index = index;
 	this->left = left;
@@ -17,12 +17,12 @@ uint32_t BData::getIndex()
 	return index;
 }
 
-uint16_t BData::getLeft()
+Node* BData::getLeft()
 {
 	return left;
 }
 
-uint16_t BData::getRight()
+Node* BData::getRight()
 {
 	return right;
 }
