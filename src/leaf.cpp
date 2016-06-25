@@ -5,10 +5,11 @@ bool Leaf::insert(uint32_t index, RowID rowID)
 {
 	for(size_t i = 0; i < block.size(); i++)
 	{
-		if (index == block[i].getIndex()) {
+		if (index == block[i].getIndex())
 			return false;
-		}
-		if (index > block[i].getIndex()) {
+
+		if (index > block[i].getIndex())
+		{
 			block.insert(block.begin() + i, LData(index, rowID));
 			return true;
 		}
@@ -19,5 +20,11 @@ bool Leaf::insert(uint32_t index, RowID rowID)
 
 RowID Leaf::select(uint32_t index)
 {
-	return RowID();
+	for(size_t i = 0; i < block.size(); i++)
+	{
+		if (index == block[i].getIndex()) {
+			return block[i].getRowID();
+		}
+	}
+	return RowID(-1, -1);
 }
