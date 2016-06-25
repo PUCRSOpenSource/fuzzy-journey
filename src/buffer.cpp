@@ -19,10 +19,9 @@ RowID Buffer::newEntry(TableEntry entry)
 		}
 	}
 
-	//If gets here all datablocks are full, Fetch new datablock
-
-	//TODO: handle this better
-	return RowID(-1,-1);
+	uint16_t index = chooseDatablock();
+	loadDatablock(index);
+	return newEntry(entry);
 }
 
 TableEntry Buffer::getEntry(RowID rowID)
