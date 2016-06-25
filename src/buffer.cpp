@@ -2,7 +2,7 @@
 
 Buffer::Buffer()
 {
-	loadDatablock(0);
+
 }
 
 Buffer::~Buffer()
@@ -19,10 +19,9 @@ RowID Buffer::newEntry(TableEntry entry)
 		}
 	}
 
-	//If gets here all datablocks are full, Fetch new datablock
-
-	//TODO: handle this better
-	return RowID(-1,-1);
+	uint16_t index = chooseDatablock();
+	loadDatablock(index);
+	return newEntry(entry);
 }
 
 TableEntry Buffer::getEntry(RowID rowID)
@@ -33,10 +32,8 @@ TableEntry Buffer::getEntry(RowID rowID)
 		}
 	}
 
-	//If gets here is cache miss, load datablock from memory
-
-	//TODO: handle this better
-	return TableEntry(123, "error");
+	loadDatablock(rowID.getBlockNumber());
+	return getEntry(rowID);
 }
 
 void Buffer::remove(RowID rowID)
@@ -47,7 +44,8 @@ void Buffer::remove(RowID rowID)
 		}
 	}
 
-	// If gets here is cache miss, load datablock from memory
+	loadDatablock(rowID.getBlockNumber());
+	remove(rowID);
 }
 
 void Buffer::loadDatablock(int16_t index)
@@ -87,4 +85,24 @@ void Buffer::saveData()
 	{
 		saveDatablock(datablock);
 	}
+}
+
+int16_t Buffer::chooseDatablock()
+{
+	for (uint16_t i = 0; i < DATABLOCKS_TOTAL; i++) {
+		if (!isLoaded(i)) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+bool Buffer::isLoaded(uint16_t index)
+{
+	for (auto &datablock : datablocks) {
+		if (datablock.getAddress() == index) {
+			return true;
+		}
+	}
+	return false;
 }

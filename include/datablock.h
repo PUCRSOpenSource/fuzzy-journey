@@ -4,7 +4,7 @@
 #include <cstdint>
 #include "table_entry.h"
 
-#define SIZE 1994 // 2000 - sizeof(address) = sizeof(headerSize);
+#define SIZE 1994 // 2000 - sizeof(address) + sizeof(headerSize);
 
 class DataBlock {
 public:
