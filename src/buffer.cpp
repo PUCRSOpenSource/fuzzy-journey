@@ -2,6 +2,7 @@
 
 Buffer::Buffer()
 {
+	loadingIterator = 0;
 
 }
 
@@ -15,6 +16,7 @@ RowID Buffer::newEntry(TableEntry entry)
 	for (auto &datablock : datablocks) {
 		int16_t result = datablock.addEntry(entry);
 		if (result >= 0) {
+			loadingIterator = 0;
 			return RowID(datablock.getAddress(), result);
 		}
 	}
@@ -90,10 +92,11 @@ void Buffer::saveData()
 
 int16_t Buffer::chooseDatablock()
 {
-	for (uint16_t i = 0; i < DATABLOCKS_TOTAL; i++) {
-		if (!isLoaded(i)) {
-			return i;
+	while (loadingIterator < DATABLOCKS_TOTAL) {
+		if (!isLoaded(loadingIterator)) {
+			return loadingIterator;
 		}
+		loadingIterator++;
 	}
 	return -1;
 }

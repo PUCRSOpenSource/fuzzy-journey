@@ -30,7 +30,6 @@ int main() {
 	Table table;
 
 	RowID rowid1 = table.newEntry("matthias gay");
-	table.getEntry(RowID(0,10));
 
 	table.saveData();
 

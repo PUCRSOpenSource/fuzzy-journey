@@ -29,6 +29,7 @@ public:
 
 private:
 	std::deque<DataBlock> datablocks;
+	uint16_t loadingIterator;
 };
 
 #endif //BUFFER_H
