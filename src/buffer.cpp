@@ -88,3 +88,23 @@ void Buffer::saveData()
 		saveDatablock(datablock);
 	}
 }
+
+int16_t Buffer::chooseDatablock()
+{
+	for (uint16_t i = 0; i < DATABLOCKS_TOTAL; i++) {
+		if (!isLoaded(i)) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+bool Buffer::isLoaded(uint16_t index)
+{
+	for (auto &datablock : datablocks) {
+		if (datablock.getAddress() == index) {
+			return true;
+		}
+	}
+	return false;
+}

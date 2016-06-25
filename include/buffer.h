@@ -11,6 +11,7 @@
 
 #define DATABLOCK_SIZE 2000
 #define FRAMES 2
+#define DATABLOCKS_TOTAL 16384
 
 class Buffer
 {
@@ -23,6 +24,8 @@ public:
 	void loadDatablock(int16_t index);
 	void saveDatablock(DataBlock datablock);
 	void saveData();
+	int16_t chooseDatablock();
+	bool isLoaded(uint16_t index);
 
 private:
 	std::deque<DataBlock> datablocks;
