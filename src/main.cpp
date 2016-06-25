@@ -45,7 +45,9 @@ int main()
 	l.insert(32, rowid1);
 
 	BTree btree(new Leaf());
-	btree.insert(32, rowid1);
+	std::cout << btree.insert(32, rowid1) << std::endl;
+	RowID id = btree.select(32);
+	std::cout << id.getBlockNumber() << " " << id.getPosition() << std::endl;
 
 	return 0;
 }
