@@ -4,11 +4,13 @@
 #include <cstdint>
 #include <cstdlib>
 #include <vector>
+#include <deque>
 #include "datablock.h"
 #include "table_entry.h"
 #include "rowid.h"
 
 #define DATABLOCK_SIZE 2000
+#define FRAMES 256
 
 class Buffer
 {
@@ -23,7 +25,7 @@ public:
 	void saveData();
 
 private:
-	std::vector<DataBlock> datablocks;
+	std::deque<DataBlock> datablocks;
 };
 
 #endif //BUFFER_H
