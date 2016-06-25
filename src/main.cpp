@@ -5,6 +5,7 @@
 #include "rowid.h"
 #include "leaf.h"
 #include "branch.h"
+#include "btree.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -25,7 +26,6 @@ void print_arruda()
 		std::cout << "fooey\n" << std::endl;
 }
 
-
 int main()
 {
 
@@ -43,6 +43,9 @@ int main()
 	Leaf l;
 	b.insert(32, rowid1);
 	l.insert(32, rowid1);
+
+	BTree btree(new Leaf());
+	btree.insert(32, rowid1);
 
 	return 0;
 }
