@@ -7,7 +7,7 @@ BTree::BTree(Node* root)
 
 BTree::~BTree()
 {
-
+	delete root;
 }
 
 bool BTree::insert(uint32_t index, RowID rowID)
