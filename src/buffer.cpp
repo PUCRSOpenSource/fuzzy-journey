@@ -2,7 +2,7 @@
 
 Buffer::Buffer()
 {
-	loadDatablock(0);
+
 }
 
 Buffer::~Buffer()
@@ -32,10 +32,8 @@ TableEntry Buffer::getEntry(RowID rowID)
 		}
 	}
 
-	//If gets here is cache miss, load datablock from memory
-
-	//TODO: handle this better
-	return TableEntry(123, "error");
+	loadDatablock(rowID.getBlockNumber());
+	return getEntry(rowID);
 }
 
 void Buffer::remove(RowID rowID)
@@ -46,7 +44,8 @@ void Buffer::remove(RowID rowID)
 		}
 	}
 
-	// If gets here is cache miss, load datablock from memory
+	loadDatablock(rowID.getBlockNumber());
+	remove(rowID);
 }
 
 void Buffer::loadDatablock(int16_t index)
