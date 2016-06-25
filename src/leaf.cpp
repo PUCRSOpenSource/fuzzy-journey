@@ -11,10 +11,18 @@ Node* Leaf::insert(uint32_t index, RowID rowID)
 		if (index > block[i].getIndex())
 		{
 			block.insert(block.begin() + i, LData(index, rowID));
+			if (block.size() > max_size)
+			{
+				return split();
+			}
 			return this;
 		}
 	}
 	block.push_back(LData(index, rowID));
+	if (block.size() > max_size)
+	{
+		return split();
+	}
 	return this;
 }
 
@@ -27,4 +35,10 @@ RowID Leaf::select(uint32_t index)
 		}
 	}
 	return RowID(-1, -1);
+}
+
+Node* Leaf::split()
+{
+
+	return this;
 }
