@@ -3,6 +3,8 @@
 #include "table_entry.h"
 #include "datablock.h"
 #include "rowid.h"
+#include "leaf.h"
+#include "branch.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -36,6 +38,11 @@ int main()
 	RowID rowid1 = table.newEntry("matthias gay");
 
 	table.saveData();
+
+	Branch b;
+	Leaf l;
+	b.insert(32, rowid1);
+	l.insert(32, rowid1);
 
 	return 0;
 }
