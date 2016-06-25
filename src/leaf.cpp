@@ -14,8 +14,8 @@ bool Leaf::insert(uint32_t index, RowID rowID)
 			return true;
 		}
 	}
-
-	return false;
+	block.push_back(LData(index, rowID));
+	return true;
 }
 
 RowID Leaf::select(uint32_t index)

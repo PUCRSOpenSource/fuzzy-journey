@@ -12,7 +12,7 @@ class Node
 		virtual RowID select(uint32_t index) = 0;
 
 	private:
-		int max_size;
+//		int max_size;
 };
 
 #endif /* NODE_H */
