@@ -1,6 +1,5 @@
 #include "bdata.h"
 
-
 BData::BData(uint32_t index, uint16_t left, uint16_t right)
 {
 	this->index = index;

@@ -7,6 +7,7 @@ class RowID
 {
 	public:
 		RowID(int16_t blockNumber, int16_t position);
+		RowID();
 		~RowID();
 		int16_t getBlockNumber();
 		int16_t getPosition();

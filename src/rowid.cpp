@@ -6,6 +6,11 @@ RowID::RowID(int16_t blockNumber, int16_t position)
 	this->position = position;
 }
 
+RowID::RowID()
+{
+
+}
+
 RowID::~RowID()
 {
 
