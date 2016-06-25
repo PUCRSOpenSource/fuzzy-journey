@@ -15,21 +15,21 @@
 
 class Buffer
 {
-public:
-	Buffer();
-	~Buffer();
-	RowID newEntry(TableEntry entry);
-	TableEntry getEntry(RowID rowID);
-	void remove(RowID rowID);
-	void loadDatablock(int16_t index);
-	void saveDatablock(DataBlock datablock);
-	void saveData();
-	int16_t chooseDatablock();
-	bool isLoaded(uint16_t index);
+	public:
+		Buffer();
+		~Buffer();
+		RowID newEntry(TableEntry entry);
+		TableEntry getEntry(RowID rowID);
+		void remove(RowID rowID);
+		void loadDatablock(int16_t index);
+		void saveDatablock(DataBlock datablock);
+		void saveData();
+		int16_t chooseDatablock();
+		bool isLoaded(uint16_t index);
 
-private:
-	std::deque<DataBlock> datablocks;
-	uint16_t loadingIterator;
+	private:
+		std::deque<DataBlock> datablocks;
+		uint16_t loadingIterator;
 };
 
 #endif //BUFFER_H
