@@ -128,7 +128,11 @@ void saveTableData(void* table)
 
 void selectTable(void* table, uint32_t code)
 {
-	TableEntry te = ((Table*)table)->select(code);
-	std::cout << "Code: " << te.getCode() << std::endl;
-	std::cout << "Description: " << te.getDescription() << std::endl;
+	try {
+		TableEntry te = ((Table*)table)->select(code);
+		std::cout << "Code: " << te.getCode() << std::endl;
+		std::cout << "Description: " << te.getDescription() << std::endl;
+	} catch(const std::exception & ex) {
+		std::cerr << ex.what() << std::endl;
+	}
 }
