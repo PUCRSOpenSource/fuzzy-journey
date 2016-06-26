@@ -53,3 +53,8 @@ void Table::saveData()
 {
 	buffer.saveData();
 }
+
+void Table::printBTree()
+{
+	btree->print();
+}

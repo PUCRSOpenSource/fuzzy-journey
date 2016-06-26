@@ -19,6 +19,7 @@ class Table
 		TableEntry getEntry(uint32_t code);
 		void remove(uint32_t code);
 		RowID update(uint32_t code, std::string description);
+		void printBTree();
 
 		void saveData();
 
