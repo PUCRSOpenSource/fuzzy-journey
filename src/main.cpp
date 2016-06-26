@@ -73,6 +73,8 @@ int main()
 
 	BTree btree(new Leaf());
 
+	RowID rowid1;
+
 	for (int i = 0; i < 20; i++) {
 		std::cout << "=========" << std::endl;
 		std::cout << "=========" << std::endl;
