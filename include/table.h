@@ -23,12 +23,8 @@ class Table
 		void saveData();
 
 	private:
-		uint32_t code;
 		Buffer buffer;
 		BTree* btree;
-		void loadCode();
-		void saveCode();
-		void initCode();
 };
 
 
