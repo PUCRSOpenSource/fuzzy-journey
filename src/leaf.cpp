@@ -50,7 +50,7 @@ Node* Leaf::split()
 	block = left_block;
 
 	Leaf* newLeaf = new Leaf();
-	newLeaf->block = right_block;
+	newLeaf->setBlock(right_block);
 
 	uint32_t index = right_block.front().getIndex();
 
@@ -73,8 +73,12 @@ int Leaf::myClass()
 	return 2;
 }
 
-void Leaf::print(std::string level)
+void Leaf::setBlock(std::vector<LData> block)
 {
+	this->block = block;
+}
+
+void Leaf::print(std::string level) {
 	std::cout << level << "Leaf" << std::endl;
 	level += "  ";
 	for (auto &ld : block)
