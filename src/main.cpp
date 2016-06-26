@@ -40,7 +40,7 @@ int main()
 		std::cout << "=========" << std::endl;
 		std::cout << "Insert " << i <<  std::endl;
 		std::cout << "---------" << std::endl;
-		table->newEntry(i, "udshfusdf");
+		table->newEntry(i, "Ta saindo da jaula o monstro porra");
 		table->printBTree();
 		std::cout << "=========" << std::endl;
 	}
