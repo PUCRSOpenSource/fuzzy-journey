@@ -5,7 +5,7 @@ Node* Branch::insert(uint32_t index, RowID ri)
 {
 	for (unsigned int i = 0; i < block.size(); i++)
 	{
-		if (block[i].getIndex() >= index)
+		if (index < block[i].getIndex())
 		{
 			block[i].setLeft(block[i].getLeft()->insert(index, ri));
 			return this;
