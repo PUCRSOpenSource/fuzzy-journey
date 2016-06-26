@@ -1,14 +1,12 @@
 #include "table.h"
 #include "table_entry.h"
+#include <stdexcept>
 #include <iostream>
 #include <fstream>
 
-Table::Table()
+Table::Table(BTree* btree)
 {
-	std::ifstream ifile("tabledata.bin");
-	if (!ifile)
-		initCode();
-	loadCode();
+	this->btree = btree;
 }
 
 Table::~Table()
@@ -16,86 +14,42 @@ Table::~Table()
 
 }
 
-RowID Table::newEntry(std::string description)
+RowID Table::newEntry(uint32_t code, std::string description)
 {
+	if (btree->hasIndex(code)) {
+		throw std::runtime_error( "Primary key already exists" );
+	}
 	TableEntry entry(code, description);
 	RowID rowID = buffer.newEntry(entry);
-	std::cout <<
-			"Now I would add to the tree an object with rowID = " <<
-			rowID.getBlockNumber() <<
-			";" <<
-			rowID.getPosition() <<
-			std::endl;
+	btree->insert(code, rowID);
 	code++;
 	return rowID;
 }
 
-TableEntry Table::getEntry(RowID rowID)
+TableEntry Table::getEntry(uint32_t code)
 {
+	RowID rowID = btree->select(code);
 	TableEntry entry = buffer.getEntry(rowID);
-	std::cout <<
-	"Now I would get an entry with code: " <<
-	entry.getCode() <<
-	" - and description: " <<
-	entry.getDescription() <<
-	std::endl;
 	return entry;
 }
 
-void Table::remove(RowID rowID)
+void Table::remove(uint32_t code)
 {
+	RowID rowID = btree->select(code);
 	TableEntry entry = buffer.getEntry(rowID);
-	std::cout <<
-	"Now I will remove an entry with code: " <<
-	entry.getCode() <<
-	" - and description: " <<
-	entry.getDescription() <<
-	std::endl;
 	buffer.remove(rowID);
 }
 
-RowID Table::update(RowID rowID, std::string description)
+RowID Table::update(uint32_t code, std::string description)
 {
-
-	TableEntry entry = getEntry(rowID);
-
-	std::cout <<
-	"Now I will update an entry with code: " <<
-	entry.getCode() <<
-	" - and description: " <<
-	entry.getDescription() <<
-	std::endl;
-
-	remove(rowID);
+	TableEntry entry = getEntry(code);
+	remove(code);
 	entry.setDescription(description);
 	RowID newRowID = buffer.newEntry(entry);
 	return newRowID;
 }
 
-void Table::loadCode()
-{
-	FILE* dataPointer = fopen("tabledata.bin", "r+b");
-	fread(&code, sizeof(uint32_t), 1, dataPointer);
-	fclose(dataPointer);
-}
-
-void Table::saveCode()
-{
-	FILE* dataPointer = fopen("tabledata.bin", "r+");
-	fwrite(&code, sizeof(uint32_t), 1, dataPointer);
-	fclose(dataPointer);
-}
-
-void Table::initCode()
-{
-	code = 0;
-	FILE* dataPointer = fopen("tabledata.bin", "wb+");
-	fwrite(&code, sizeof(uint32_t), 1, dataPointer);
-	fclose(dataPointer);
-}
-
 void Table::saveData()
 {
-	saveCode();
 	buffer.saveData();
 }

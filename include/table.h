@@ -4,6 +4,7 @@
 #include "table_entry.h"
 #include "buffer.h"
 #include "rowid.h"
+#include "btree.h"
 #include <cstdint>
 #include <string>
 #include <cstring>
@@ -12,22 +13,18 @@
 class Table
 {
 	public:
-		Table();
+		Table(BTree* btree);
 		~Table();
-		RowID newEntry(std::string description);
-		// This functions will be different, needs to get Entry from key, but needs BTree for that.
-		TableEntry getEntry(RowID rowID);
-		void remove(RowID rowID);
-		RowID update(RowID rowID, std::string description);
+		RowID newEntry(uint32_t code, std::string description);
+		TableEntry getEntry(uint32_t code);
+		void remove(uint32_t code);
+		RowID update(uint32_t code, std::string description);
 
 		void saveData();
 
 	private:
-		uint32_t code;
 		Buffer buffer;
-		void loadCode();
-		void saveCode();
-		void initCode();
+		BTree* btree;
 };
 
 

@@ -24,7 +24,14 @@ Node* Branch::insert(uint32_t index, RowID ri)
 
 RowID Branch::select(uint32_t index)
 {
+	//TODO: implement this
 	return RowID();
+}
+
+bool Branch::hasIndex(uint32_t index)
+{
+	//TODO: implement this
+	return false;
 }
 
 void Branch::addToBlock(BData data)

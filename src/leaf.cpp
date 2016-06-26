@@ -2,13 +2,14 @@
 #include "bdata.h"
 #include "branch.h"
 #include <iostream>
+#include <stdexcept>
 
 Node* Leaf::insert(uint32_t index, RowID rowID)
 {
 	for(size_t i = 0; i < block.size(); i++)
 	{
 		if (index == block[i].getIndex())
-			return this;
+			throw std::runtime_error( "Index already exists" );
 
 		if (index < block[i].getIndex())
 		{
@@ -36,7 +37,18 @@ RowID Leaf::select(uint32_t index)
 			return block[i].getRowID();
 		}
 	}
-	return RowID(-1, -1);
+	throw std::runtime_error( "Index not found" );
+}
+
+bool Leaf::hasIndex(uint32_t index)
+{
+	for(size_t i = 0; i < block.size(); i++)
+	{
+		if (index == block[i].getIndex()) {
+			return true;
+		}
+	}
+	return false;
 }
 
 Node* Leaf::split()

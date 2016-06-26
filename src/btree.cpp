@@ -21,6 +21,11 @@ RowID BTree::select(uint32_t index)
 	return root->select(index);
 }
 
+bool BTree::hasIndex(uint32_t index)
+{
+	return root->hasIndex(index);
+}
+
 Node* BTree::getRoot()
 {
 	return root;
