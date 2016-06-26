@@ -9,19 +9,22 @@ int msh_cd(char** args);
 int msh_help(char** args);
 int msh_exit(char** args);
 int msh_print_tree(char** args);
+int msh_insert(char** args);
 
 char* builtin_str[] = {
 	"cd",
 	"help",
 	"exit",
-	"print_tree"
+	"print_tree",
+	"insert"
 };
 
 int (*builtin_func[]) (char**) = {
 	&msh_cd,
 	&msh_help,
 	&msh_exit,
-	&msh_print_tree
+	&msh_print_tree,
+	&msh_insert
 };
 
 int msh_num_builtins(void)
@@ -33,6 +36,21 @@ int msh_print_tree(char** args)
 {
 	void* table = getTable();
 	printTableTree(table);
+	return 1;
+}
+
+int msh_insert(char** args)
+{
+	if (args[1] == NULL)
+	{
+		fprintf(stderr, "msh: expected argument to \"insert\"\n");
+	}
+	else
+	{
+		void* table = getTable();
+		insertTable(table, atoi(args[1]), args[2]);
+	}
+	return 1;
 }
 
 int msh_cd(char** args)
@@ -68,6 +86,8 @@ int msh_help(char** args)
 
 int msh_exit(char** args)
 {
+	void* table = getTable();
+	saveTableData(table);
 	return 0;
 }
 
