@@ -171,3 +171,13 @@ void insertNTable(void* table, uint32_t n)
 		}
 	}
 }
+
+void updateTable(void* table, uint32_t code, char* description)
+{
+	try {
+		std::string str(description);
+		((Table*)table)->update(code, str);
+	} catch(const std::exception & ex) {
+		std::cerr << ex.what() << std::endl;
+	}
+}
