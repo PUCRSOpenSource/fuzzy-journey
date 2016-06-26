@@ -60,6 +60,34 @@ int main()
 	btree.insert(33, rowid1);
 	btree.print();
 	std::cout << "=========" << std::endl;
+	std::cout << "=========" << std::endl;
+	std::cout << "Insert 35" << std::endl;
+	std::cout << "---------" << std::endl;
+	btree.insert(35, rowid1);
+	btree.print();
+	std::cout << "=========" << std::endl;
+	std::cout << "=========" << std::endl;
+	std::cout << "=========" << std::endl;
+	std::cout << "Insert 36" << std::endl;
+	std::cout << "---------" << std::endl;
+	btree.insert(36, rowid1);
+	btree.print();
+	std::cout << "=========" << std::endl;
+	std::cout << "=========" << std::endl;
+	std::cout << "=========" << std::endl;
+	std::cout << "Insert 37" << std::endl;
+	std::cout << "---------" << std::endl;
+	btree.insert(37, rowid1);
+	btree.print();
+	std::cout << "=========" << std::endl;
+	std::cout << "=========" << std::endl;
+	std::cout << "=========" << std::endl;
+	std::cout << "=========" << std::endl;
+	std::cout << "Insert 37" << std::endl;
+	std::cout << "---------" << std::endl;
+	btree.insert(38, rowid1);
+	btree.print();
+	std::cout << "=========" << std::endl;
 
 	return 0;
 }

@@ -16,6 +16,7 @@ class Leaf : public Node
 		Node* split();
 		void setBlock(std::vector<LData> block);
 		void setParent(Node *parent);
+		Node* getParent();
 		virtual void print(std::string level);
 
 
