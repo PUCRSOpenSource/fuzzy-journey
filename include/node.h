@@ -16,7 +16,7 @@ class Node
 
 	protected:
 		Node* parent = nullptr;
-		int max_size = 4;
+		uint32_t max_size = 4;
 };
 
 #endif /* NODE_H */

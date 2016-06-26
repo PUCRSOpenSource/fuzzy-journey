@@ -3,8 +3,6 @@
 #include "branch.h"
 #include <iostream>
 
-using std::vector;
-
 Node* Leaf::insert(uint32_t index, RowID rowID)
 {
 	for(size_t i = 0; i < block.size(); i++)
@@ -44,8 +42,8 @@ RowID Leaf::select(uint32_t index)
 Node* Leaf::split()
 {
 	size_t const half_size = block.size() / 2;
-	vector<LData> left_block(block.begin(), block.begin() + half_size);
-	vector<LData> right_block(block.begin() + half_size, block.end());
+	std::vector<LData> left_block(block.begin(), block.begin() + half_size);
+	std::vector<LData> right_block(block.begin() + half_size, block.end());
 
 	setBlock(left_block);
 
