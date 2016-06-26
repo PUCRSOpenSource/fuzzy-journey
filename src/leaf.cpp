@@ -1,5 +1,9 @@
 #include "leaf.h"
+#include "bdata.h"
+#include "branch.h"
 #include <iostream>
+
+using std::vector;
 
 Node* Leaf::insert(uint32_t index, RowID rowID)
 {
@@ -39,6 +43,31 @@ RowID Leaf::select(uint32_t index)
 
 Node* Leaf::split()
 {
+	size_t const half_size = block.size() / 2;
+	vector<LData> left_block(block.begin(), block.begin() + half_size);
+	vector<LData> right_block(block.begin() + half_size, block.end());
 
+	block = left_block;
+
+	Leaf* newLeaf = new Leaf();
+	newLeaf->block = right_block;
+
+	uint32_t index = right_block.front().getIndex();
+
+	BData bData(index, this, newLeaf);
+
+	Branch* parentBranch;
+	if (!parent) {
+		parent = new Branch();
+		parentBranch = (Branch*) parent;
+		parentBranch->addToBlock(bData);
+		return parent;
+	}
+	parentBranch = (Branch*) parent;
+	parentBranch->addToBlock(bData);
 	return this;
+}
+
+int Leaf::myClass() {
+	return 2;
 }

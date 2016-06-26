@@ -20,3 +20,8 @@ RowID BTree::select(uint32_t index)
 {
 	return root->select(index);
 }
+
+Node* BTree::getRoot()
+{
+	return root;
+}

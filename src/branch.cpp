@@ -19,3 +19,12 @@ RowID Branch::select(uint32_t index)
 {
 	return RowID();
 }
+
+void Branch::addToBlock(BData data)
+{
+	block.push_back(data);
+}
+
+int Branch::myClass() {
+	return 1;
+}
