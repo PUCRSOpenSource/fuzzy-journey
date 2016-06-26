@@ -36,15 +36,37 @@ int main()
 	BTree* btree = new BTree(new Leaf());
 	Table* table = new Table(btree);
 
-	table->newEntry("Ta saindo da jaula o monstro porra!");
+	try {
+		table->newEntry(0, "Ta saindo da jaula o monstro porra!");
+	}
+	catch( const std::runtime_error& ex ) {
+		std::cerr << ex.what() << std::endl;
+	}
+
+	try {
+		table->newEntry(0, "Ta entrando na jaula o monstro porra!");
+	}
+	catch( const std::runtime_error& ex ) {
+		std::cerr << ex.what() << std::endl;
+	}
+
+	try {
+		TableEntry entry = table->getEntry(0);
+		std::cout << entry.getDescription() << std::endl;
+	}
+	catch( const std::runtime_error& ex ) {
+		std::cerr << ex.what() << std::endl;
+	}
 
 	try {
 		TableEntry entry = table->getEntry(50);
 		std::cout << entry.getDescription() << std::endl;
 	}
-	catch( const std::runtime_error& e ) {
-		std::cout << "Your code was not found" << std::endl;
+	catch( const std::runtime_error& ex ) {
+		std::cerr << ex.what() << std::endl;
 	}
+
+
 
 	return 0;
 }

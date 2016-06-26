@@ -1,5 +1,6 @@
 #include "table.h"
 #include "table_entry.h"
+#include <stdexcept>
 #include <iostream>
 #include <fstream>
 
@@ -17,9 +18,11 @@ Table::~Table()
 
 }
 
-RowID Table::newEntry(std::string description)
+RowID Table::newEntry(uint32_t code, std::string description)
 {
-
+	if (btree->hasIndex(code)) {
+		throw std::runtime_error( "Primary key already exists" );
+	}
 	TableEntry entry(code, description);
 	RowID rowID = buffer.newEntry(entry);
 	btree->insert(code, rowID);
