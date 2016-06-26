@@ -39,6 +39,17 @@ void Branch::addToBlock(BData data)
 	}
 
 	block.push_back(data);
+
+	if (block.size() > max_size)
+	{
+		split();
+	}
+}
+
+Node* Branch::split()
+{
+	std::cout << "PRECISO DE SPLIT SCORR" << std::endl;
+	return nullptr;
 }
 
 int Branch::myClass()
