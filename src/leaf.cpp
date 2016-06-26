@@ -9,7 +9,7 @@ Node* Leaf::insert(uint32_t index, RowID rowID)
 	for(size_t i = 0; i < block.size(); i++)
 	{
 		if (index == block[i].getIndex())
-			return this;
+			throw std::runtime_error( "Index already exists" );
 
 		if (index < block[i].getIndex())
 		{
