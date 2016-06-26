@@ -113,8 +113,12 @@ void printTableTree(void* table)
 
 void insertTable(void* table, uint32_t code, char* description)
 {
-	std::string str(description);
-	((Table*)table)->insert(code, str);
+	try {
+		std::string str(description);
+		((Table*)table)->insert(code, str);
+	} catch(const std::exception & ex) {
+		std::cerr << ex.what() << std::endl;
+	}
 }
 
 void saveTableData(void* table)
