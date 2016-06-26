@@ -19,6 +19,7 @@ Table::~Table()
 
 RowID Table::newEntry(std::string description)
 {
+
 	TableEntry entry(code, description);
 	RowID rowID = buffer.newEntry(entry);
 	btree->insert(code, rowID);

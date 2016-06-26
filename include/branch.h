@@ -12,6 +12,7 @@ class Branch : public Node
 	public:
 		virtual Node* insert(uint32_t index, RowID ri);
 		virtual RowID select(uint32_t index);
+		virtual bool hasIndex(uint32_t index);
 		void addToBlock(BData data);
 		void setBlock(std::vector<BData> block);
 		virtual int myClass();

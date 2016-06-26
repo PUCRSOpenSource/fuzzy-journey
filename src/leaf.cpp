@@ -40,6 +40,17 @@ RowID Leaf::select(uint32_t index)
 	throw std::runtime_error( "Index not found" );
 }
 
+bool Leaf::hasIndex(uint32_t index)
+{
+	for(size_t i = 0; i < block.size(); i++)
+	{
+		if (index == block[i].getIndex()) {
+			return true;
+		}
+	}
+	return false;
+}
+
 Node* Leaf::split()
 {
 	size_t const half_size = block.size() / 2;
