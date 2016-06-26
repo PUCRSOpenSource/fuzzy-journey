@@ -1,3 +1,4 @@
+#include "table_c.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,22 +8,83 @@
 int msh_cd(char** args);
 int msh_help(char** args);
 int msh_exit(char** args);
+int msh_print_tree(char** args);
+int msh_insert(char** args);
+int msh_select(char** args);
+int msh_arruda(char** args);
 
 char* builtin_str[] = {
 	"cd",
 	"help",
-	"exit"
+	"exit",
+	"print_tree",
+	"insert",
+	"select",
+	"arruda"
 };
 
 int (*builtin_func[]) (char**) = {
 	&msh_cd,
 	&msh_help,
-	&msh_exit
+	&msh_exit,
+	&msh_print_tree,
+	&msh_insert,
+	&msh_select,
+	&msh_arruda
 };
 
 int msh_num_builtins(void)
 {
 	return sizeof(builtin_str) / sizeof(char*);
+}
+
+int msh_arruda(char** args)
+{
+	char const* const fileName = "data/arruda.txt";
+	FILE* file = fopen(fileName, "r");
+	char line[256];
+
+	while (fgets(line, sizeof(line), file))
+		printf("%s", line);
+
+	fclose(file);
+
+	return 1;
+}
+
+int msh_print_tree(char** args)
+{
+	void* table = getTable();
+	printTableTree(table);
+	return 1;
+}
+
+int msh_insert(char** args)
+{
+	if (args[1] == NULL)
+	{
+		fprintf(stderr, "msh: expected argument to \"insert\"\n");
+	}
+	else
+	{
+		void* table = getTable();
+		insertTable(table, atoi(args[1]), args[2]);
+	}
+	return 1;
+}
+
+int msh_select(char** args)
+{
+	if (args[1] == NULL)
+	{
+		fprintf(stderr, "msh: expected argument to \"select\"\n");
+	}
+	else
+	{
+		void* table = getTable();
+		selectTable(table, atoi(args[1]));
+	}
+	return 1;
 }
 
 int msh_cd(char** args)
@@ -58,6 +120,8 @@ int msh_help(char** args)
 
 int msh_exit(char** args)
 {
+	void* table = getTable();
+	saveTableData(table);
 	return 0;
 }
 

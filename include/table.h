@@ -32,5 +32,4 @@ class Table
 		static Table* t_Instance;
 };
 
-
 #endif /* TABLE_H */

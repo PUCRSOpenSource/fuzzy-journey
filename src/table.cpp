@@ -1,7 +1,9 @@
 #include "table.h"
+#include "table_c.h"
 #include "table_entry.h"
 #include "leaf.h"
 #include "btree.h"
+#include "datafile.h"
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
@@ -18,6 +20,10 @@ Table* Table::getInstance()
 
 Table::Table()
 {
+	std::ifstream ifile("datafile.part");
+	if (!ifile)
+		Datafile::init();
+
 	btree = new BTree(new Leaf());
 	loadBTreeData();
 }
@@ -92,4 +98,32 @@ TableEntry Table::select(std::string description)
 			return entry;
 	}
 	throw std::runtime_error( "Not found" );
+}
+
+void* getTable()
+{
+	return (void*) Table::getInstance();
+}
+
+void printTableTree(void* table)
+{
+	((Table*)table)->printBTree();
+}
+
+void insertTable(void* table, uint32_t code, char* description)
+{
+	std::string str(description);
+	((Table*)table)->insert(code, str);
+}
+
+void saveTableData(void* table)
+{
+	((Table*)table)->saveData();
+}
+
+void selectTable(void* table, uint32_t code)
+{
+	TableEntry te = ((Table*)table)->select(code);
+	std::cout << "Code: " << te.getCode() << std::endl;
+	std::cout << "Description: " << te.getDescription() << std::endl;
 }
