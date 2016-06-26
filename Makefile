@@ -11,7 +11,7 @@ _DEPS = datafile.h table_entry.h table.h datablock.h rowid.h buffer.h btree.h no
 
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o datafile.o table_entry.o table.o datablock.o rowid.o buffer.o btree.o bdata.o ldata.o branch.o leaf.o msh.o
+_OBJ = datafile.o table_entry.o table.o datablock.o rowid.o buffer.o btree.o bdata.o ldata.o branch.o leaf.o msh.o
 
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
