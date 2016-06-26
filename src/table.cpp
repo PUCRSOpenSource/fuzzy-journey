@@ -15,7 +15,7 @@ Table::~Table()
 
 }
 
-RowID Table::newEntry(uint32_t code, std::string description)
+RowID Table::insert(uint32_t code, std::string description)
 {
 	if (btree->hasIndex(code)) {
 		throw std::runtime_error( "Primary key already exists" );
@@ -26,7 +26,7 @@ RowID Table::newEntry(uint32_t code, std::string description)
 	return rowID;
 }
 
-TableEntry Table::getEntry(uint32_t code)
+TableEntry Table::select(uint32_t code)
 {
 	RowID rowID = btree->select(code);
 	TableEntry entry = buffer.getEntry(rowID);

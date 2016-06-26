@@ -16,8 +16,8 @@ class Table
 	public:
 		Table(BTree* btree);
 		~Table();
-		RowID newEntry(uint32_t code, std::string description);
-		TableEntry getEntry(uint32_t code);
+		RowID insert(uint32_t code, std::string description);
+		TableEntry select(uint32_t code);
 		void remove(uint32_t code);
 		void update(uint32_t code, std::string description);
 		void printBTree();
