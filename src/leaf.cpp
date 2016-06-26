@@ -55,7 +55,8 @@ Node* Leaf::split()
 	BData bData(index, this, newLeaf);
 
 	Branch* parentBranch;
-	if (!parent) {
+	if (!parent)
+	{
 		parent = new Branch();
 		newLeaf->setParent(parent);
 		parentBranch = (Branch*) parent;
@@ -86,11 +87,12 @@ void Leaf::print(std::string level) {
 		std::cout << level << ld.getIndex() << std::endl;
 }
 
-void Leaf::setParent(Node* block)
+void Leaf::setParent(Node* parent)
 {
-	this->parent = block;
+	this->parent = parent;
 }
 
-Node* Leaf::getParent() {
+Node* Leaf::getParent()
+{
 	return parent;
 }

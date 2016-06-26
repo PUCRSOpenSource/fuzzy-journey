@@ -13,6 +13,8 @@ class Node
 		virtual RowID select(uint32_t index) = 0;
 		virtual int myClass() = 0;
 		virtual void print(std::string level) = 0;
+		virtual void setParent(Node *parent) = 0;
+		virtual Node* getParent() = 0;
 
 	protected:
 		Node* parent = nullptr;
