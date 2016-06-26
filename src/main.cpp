@@ -33,8 +33,7 @@ int main()
 	if (!ifile)
 		Datafile::init();
 
-	BTree* btree = new BTree(new Leaf());
-	Table* table = new Table(btree);
+	Table* table = Table::getInstance();
 
 	for (int i = 0; i < 20; i++) {
 		std::cout << "=========" << std::endl;

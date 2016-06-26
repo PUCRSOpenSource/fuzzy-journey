@@ -1,12 +1,24 @@
 #include "table.h"
 #include "table_entry.h"
+#include "leaf.h"
+#include "btree.h"
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
 
-Table::Table(BTree* btree)
+Table* Table::t_Instance;
+
+Table* Table::getInstance()
 {
-	this->btree = btree;
+	if (!t_Instance)
+		t_Instance = new Table;
+
+	return t_Instance;
+}
+
+Table::Table()
+{
+	btree = new BTree(new Leaf());
 }
 
 Table::~Table()
