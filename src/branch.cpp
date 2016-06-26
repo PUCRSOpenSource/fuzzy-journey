@@ -79,7 +79,6 @@ void Branch::addToBlock(BData data)
 
 void Branch::split()
 {
-	std::cout << "PRECISO DE SPLIT SCORR" << std::endl;
 	size_t const half_size = block.size() / 2;
 	std::vector<BData> left_block(block.begin(), block.begin() + half_size);
 	std::vector<BData> right_block(block.begin() + half_size, block.end());
