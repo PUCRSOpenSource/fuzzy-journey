@@ -50,14 +50,14 @@ int main()
 	btree.insert(32, rowid1);
 	btree.print();
 	std::cout << "=========" << std::endl;
-	std::cout << "Insert 33" << std::endl;
-	std::cout << "---------" << std::endl;
-	btree.insert(33, rowid1);
-	btree.print();
-	std::cout << "=========" << std::endl;
 	std::cout << "Insert 34" << std::endl;
 	std::cout << "---------" << std::endl;
 	btree.insert(34, rowid1);
+	btree.print();
+	std::cout << "=========" << std::endl;
+	std::cout << "Insert 33" << std::endl;
+	std::cout << "---------" << std::endl;
+	btree.insert(33, rowid1);
 	btree.print();
 	std::cout << "=========" << std::endl;
 
