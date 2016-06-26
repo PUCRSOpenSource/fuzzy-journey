@@ -31,7 +31,7 @@ RowID Branch::select(uint32_t index)
 			return block[i].getLeft()->select(index);
 		}
 	}
-	return block.front().getRight()->select(index);
+	return block.back().getRight()->select(index);
 }
 
 bool Branch::hasIndex(uint32_t index)
