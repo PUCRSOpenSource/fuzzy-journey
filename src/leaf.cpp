@@ -14,7 +14,7 @@ Node* Leaf::insert(uint32_t index, RowID rowID)
 
 		if (index > block[i].getIndex())
 		{
-			block.insert(block.begin() + i, LData(index, rowID));
+			block.insert(block.begin() + i + 1, LData(index, rowID));
 			if (block.size() > max_size)
 			{
 				return split();
