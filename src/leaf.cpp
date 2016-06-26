@@ -2,6 +2,7 @@
 #include "bdata.h"
 #include "branch.h"
 #include <iostream>
+#include <stdexcept>
 
 Node* Leaf::insert(uint32_t index, RowID rowID)
 {
@@ -36,7 +37,7 @@ RowID Leaf::select(uint32_t index)
 			return block[i].getRowID();
 		}
 	}
-	return RowID(-1, -1);
+	throw std::runtime_error( "Index not found" );
 }
 
 Node* Leaf::split()

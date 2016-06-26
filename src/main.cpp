@@ -37,9 +37,14 @@ int main()
 	Table* table = new Table(btree);
 
 	table->newEntry("Ta saindo da jaula o monstro porra!");
-	TableEntry entry = table->getEntry(0);
 
-	std::cout << entry.getDescription() << std::endl;
+	try {
+		TableEntry entry = table->getEntry(50);
+		std::cout << entry.getDescription() << std::endl;
+	}
+	catch( const std::runtime_error& e ) {
+		std::cout << "Your code was not found" << std::endl;
+	}
 
 	return 0;
 }
