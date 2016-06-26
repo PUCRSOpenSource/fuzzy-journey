@@ -5,11 +5,18 @@ Node* Branch::insert(uint32_t index, RowID ri)
 {
 	for (unsigned int i = 0; i < block.size(); i++)
 	{
-		if (block[i].getIndex() >= index)
-			return block[i].getLeft()->insert(index, ri);
+		if (index < block[i].getIndex())
+		{
+			block[i].setLeft(block[i].getLeft()->insert(index, ri));
+			return this;
+		}
 
 		if (i == block.size() - 1) // If last and not grater or equal
-			return block[i].getRight()->insert(index,ri);
+		{
+			block[i].setRight(block[i].getRight()->insert(index,ri));
+			return this;
+		}
+
 	}
 
 	return this;
@@ -22,6 +29,15 @@ RowID Branch::select(uint32_t index)
 
 void Branch::addToBlock(BData data)
 {
+
+	for(size_t i = 0; i < block.size(); i++)
+	{
+		if (i > block[i].getIndex())
+		{
+			block.insert(block.begin() + i, data);
+		}
+	}
+
 	block.push_back(data);
 }
 

@@ -12,7 +12,7 @@ Node* Leaf::insert(uint32_t index, RowID rowID)
 		if (index == block[i].getIndex())
 			return this;
 
-		if (index > block[i].getIndex())
+		if (index < block[i].getIndex())
 		{
 			block.insert(block.begin() + i, LData(index, rowID));
 			if (block.size() > max_size)
@@ -47,22 +47,25 @@ Node* Leaf::split()
 	vector<LData> left_block(block.begin(), block.begin() + half_size);
 	vector<LData> right_block(block.begin() + half_size, block.end());
 
-	block = left_block;
+	setBlock(left_block);
 
 	Leaf* newLeaf = new Leaf();
-	newLeaf->block = right_block;
+	newLeaf->setBlock(right_block);
+	newLeaf->setParent(parent);
 
 	uint32_t index = right_block.front().getIndex();
-
 	BData bData(index, this, newLeaf);
 
 	Branch* parentBranch;
 	if (!parent) {
 		parent = new Branch();
+		newLeaf->setParent(parent);
 		parentBranch = (Branch*) parent;
 		parentBranch->addToBlock(bData);
+
 		return parent;
 	}
+
 	parentBranch = (Branch*) parent;
 	parentBranch->addToBlock(bData);
 	return this;
@@ -73,10 +76,23 @@ int Leaf::myClass()
 	return 2;
 }
 
-void Leaf::print(std::string level)
+void Leaf::setBlock(std::vector<LData> block)
 {
+	this->block = block;
+}
+
+void Leaf::print(std::string level) {
 	std::cout << level << "Leaf" << std::endl;
 	level += "  ";
 	for (auto &ld : block)
 		std::cout << level << ld.getIndex() << std::endl;
+}
+
+void Leaf::setParent(Node* block)
+{
+	this->parent = block;
+}
+
+Node* Leaf::getParent() {
+	return parent;
 }

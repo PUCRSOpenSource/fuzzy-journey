@@ -26,3 +26,13 @@ Node* BData::getRight()
 {
 	return right;
 }
+
+void BData::setRight(Node* node)
+{
+	right = node;
+}
+
+void BData::setLeft(Node* node)
+{
+	left = node;
+}
