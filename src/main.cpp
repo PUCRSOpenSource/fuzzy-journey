@@ -26,13 +26,8 @@ void print_arruda()
 		std::cout << "fooey\n" << std::endl;
 }
 
-int main()
+void testTable()
 {
-
-	std::ifstream ifile("datafile.part");
-	if (!ifile)
-		Datafile::init();
-	
 	BTree* btree = new BTree(new Leaf());
 	Table* table = new Table(btree);
 
@@ -65,8 +60,16 @@ int main()
 	catch( const std::runtime_error& ex ) {
 		std::cerr << ex.what() << std::endl;
 	}
+}
 
+int main()
+{
 
+	std::ifstream ifile("datafile.part");
+	if (!ifile)
+		Datafile::init();
+	
+	testTable();
 
 	return 0;
 }
