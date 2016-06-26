@@ -7,6 +7,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <fstream>
+#include <ctime>
 
 Table* Table::t_Instance;
 
@@ -23,6 +24,8 @@ Table::Table()
 	std::ifstream ifile("datafile.part");
 	if (!ifile)
 		Datafile::init();
+
+	srand(time(0));
 
 	btree = new BTree(new Leaf());
 	loadBTreeData();
@@ -101,6 +104,24 @@ TableEntry Table::select(std::string description)
 	throw std::runtime_error( "Not found." );
 }
 
+static const char alphanum[] =
+"0123456789"
+"!@#$%^&*"
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+"abcdefghijklmnopqrstuvwxyz";
+
+static int stringLength = sizeof(alphanum) - 1;
+
+static std::string genRandomStr()
+{
+	std::string str;
+	for (uint32_t i = 0; i < 15; i++)
+	{
+		str += alphanum[rand() % stringLength];
+	}
+	return str;
+}
+
 void* getTable()
 {
 	return (void*) Table::getInstance();
@@ -134,5 +155,19 @@ void selectTable(void* table, uint32_t code)
 		std::cout << "Description: " << te.getDescription() << std::endl;
 	} catch(const std::exception & ex) {
 		std::cerr << ex.what() << std::endl;
+	}
+}
+
+
+
+void insertNTable(void* table, uint32_t n)
+{
+	for (uint32_t i = 0; i < n; i++)
+	{
+		try {
+			((Table*)table)->insert(i, genRandomStr());
+		} catch(const std::exception & ex) {
+			n++;
+		}
 	}
 }
