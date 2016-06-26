@@ -71,5 +71,17 @@ int main()
 	
 	testTable();
 
+	BTree btree(new Leaf());
+
+	for (int i = 0; i < 20; i++) {
+		std::cout << "=========" << std::endl;
+		std::cout << "=========" << std::endl;
+		std::cout << "Insert " << i <<  std::endl;
+		std::cout << "---------" << std::endl;
+		btree.insert(i, rowid1);
+		btree.print();
+		std::cout << "=========" << std::endl;
+	}
+
 	return 0;
 }
