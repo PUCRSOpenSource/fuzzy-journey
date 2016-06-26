@@ -26,43 +26,24 @@ RowID Table::newEntry(std::string description)
 	return rowID;
 }
 
-TableEntry Table::getEntry(RowID rowID)
+TableEntry Table::getEntry(uint32_t code)
 {
+	RowID rowID = btree->select(code);
 	TableEntry entry = buffer.getEntry(rowID);
-	std::cout <<
-	"Now I would get an entry with code: " <<
-	entry.getCode() <<
-	" - and description: " <<
-	entry.getDescription() <<
-	std::endl;
 	return entry;
 }
 
-void Table::remove(RowID rowID)
+void Table::remove(uint32_t code)
 {
+	RowID rowID = btree->select(code);
 	TableEntry entry = buffer.getEntry(rowID);
-	std::cout <<
-	"Now I will remove an entry with code: " <<
-	entry.getCode() <<
-	" - and description: " <<
-	entry.getDescription() <<
-	std::endl;
 	buffer.remove(rowID);
 }
 
-RowID Table::update(RowID rowID, std::string description)
+RowID Table::update(uint32_t code, std::string description)
 {
-
-	TableEntry entry = getEntry(rowID);
-
-	std::cout <<
-	"Now I will update an entry with code: " <<
-	entry.getCode() <<
-	" - and description: " <<
-	entry.getDescription() <<
-	std::endl;
-
-	remove(rowID);
+	TableEntry entry = getEntry(code);
+	remove(code);
 	entry.setDescription(description);
 	RowID newRowID = buffer.newEntry(entry);
 	return newRowID;
