@@ -22,6 +22,15 @@ RowID Branch::select(uint32_t index)
 
 void Branch::addToBlock(BData data)
 {
+
+	for(size_t i = 0; i < block.size(); i++)
+	{
+		if (i > block[i].getIndex())
+		{
+			block.insert(block.begin() + i, data);
+		}
+	}
+
 	block.push_back(data);
 }
 
