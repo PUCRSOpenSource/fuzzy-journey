@@ -124,7 +124,7 @@ Node* Leaf::getParent()
 std::vector<RowID> Leaf::selectAll()
 {
 	std::vector<RowID> rowIds;
-	for (int i = 0; i < block.size(); i++) {
+	for (size_t i = 0; i < block.size(); i++) {
 		rowIds.push_back(block[i].getRowID());
 	}
 	return rowIds;
