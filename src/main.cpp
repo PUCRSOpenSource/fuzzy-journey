@@ -36,12 +36,23 @@ int main()
 	BTree* btree = new BTree(new Leaf());
 	Table* table = new Table(btree);
 
-	for (int i = 0; i < 20; i++) {
+	int max = 5;
+
+	for (int i = 0; i < max; i++) {
 		std::cout << "=========" << std::endl;
 		std::cout << "Insert " << i <<  std::endl;
 		std::cout << "---------" << std::endl;
 		table->newEntry(i, "Ta saindo da jaula o monstro porra");
 		table->printBTree();
+		std::cout << "=========" << std::endl;
+	}
+
+	for (int i = 0; i < max; i++) {
+		std::cout << "=========" << std::endl;
+		std::cout << "Select " << i <<  std::endl;
+		std::cout << "---------" << std::endl;
+		TableEntry entry = table->getEntry(i);
+		std::cout << "selecting element " << entry.getCode() << " - " << entry.getDescription() << std::endl;
 		std::cout << "=========" << std::endl;
 	}
 
