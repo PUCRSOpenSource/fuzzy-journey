@@ -3,20 +3,6 @@
 #include <string>
 #include <cstring>
 
-// TODO: Initialize datablock receiving data from parameter with data read from file.
-// TODO: Change add entry to be able to write in deleted spaces. (low priority)
-
-DataBlock::DataBlock(uint16_t address)
-{
-	// This initialization is not final remove when fetch from file is done.
-	this->address = address;
-	for (int i = 0; i < SIZE; i++)
-	{
-		data[i] = 0;
-	}
-	headerSize = 0;
-}
-
 DataBlock::DataBlock(uint16_t address, int headerSize, uint8_t data[SIZE])
 {
 	this->address = address;

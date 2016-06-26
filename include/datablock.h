@@ -9,7 +9,6 @@
 class DataBlock
 {
 	public:
-		DataBlock(uint16_t address);
 		DataBlock(uint16_t address, int headerSize, uint8_t data[SIZE]);
 		~DataBlock();
 		int16_t addEntry(TableEntry entry);
