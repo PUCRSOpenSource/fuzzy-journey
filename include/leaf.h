@@ -20,6 +20,7 @@ class Leaf : public Node
 		virtual void setParent(Node *parent);
 		virtual Node* getParent();
 		virtual void print(std::string level);
+		virtual std::vector<RowID> selectAll();
 
 
 	private:

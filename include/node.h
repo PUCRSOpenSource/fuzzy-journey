@@ -4,6 +4,7 @@
 #include "rowid.h"
 #include <cstdint>
 #include <string>
+#include <vector>
 
 class Node
 {
@@ -17,6 +18,7 @@ class Node
 		virtual void print(std::string level) = 0;
 		virtual void setParent(Node *parent) = 0;
 		virtual Node* getParent() = 0;
+		virtual std::vector<RowID> selectAll() = 0;
 
 	protected:
 		Node* parent = nullptr;

@@ -22,6 +22,7 @@ class Branch : public Node
 		virtual void setParent(Node *parent);
 		virtual Node* getParent();
 		void changeChildParent(Node* parent);
+		virtual std::vector<RowID> selectAll();
 
 	private:
 		std::vector<BData> block;

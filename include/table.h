@@ -17,6 +17,7 @@ class Table
 		~Table();
 		RowID insert(uint32_t code, std::string description);
 		TableEntry select(uint32_t code);
+		TableEntry select(std::string description);
 		void remove(uint32_t code);
 		void update(uint32_t code, std::string description);
 		void printBTree();

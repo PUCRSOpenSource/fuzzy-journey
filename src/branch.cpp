@@ -168,3 +168,19 @@ void Branch::print(std::string level)
 			block[i].getRight()->print(level);
 	}
 }
+
+std::vector<RowID> Branch::selectAll()
+{
+	std::vector<RowID> rowIds;
+	for (int i = 0; i < block.size(); i++) {
+		std::vector<RowID> leftIds = block[i].getLeft()->selectAll();
+		rowIds.insert(rowIds.end(), leftIds.begin(), leftIds.end());
+		if(i == block.size() - 1)
+		{
+			std::vector<RowID> rightIds = block[i].getRight()->selectAll();
+			rowIds.insert(rowIds.end(), rightIds.begin(), rightIds.end());
+		}
+	}
+	return rowIds;
+
+}

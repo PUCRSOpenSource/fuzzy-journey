@@ -40,3 +40,8 @@ void BTree::print()
 {
 	root->print("");
 }
+
+std::vector<RowID> BTree::selectAll()
+{
+	return root->selectAll();
+}

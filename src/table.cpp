@@ -81,3 +81,15 @@ void Table::loadBTreeData()
 	}
 
 }
+
+TableEntry Table::select(std::string description)
+{
+	std::vector<RowID> rowIDs = btree->selectAll();
+
+	for (int i = 0; i < rowIDs.size(); i++) {
+		TableEntry entry = buffer.getEntry(rowIDs[i]);
+		if (entry.getDescription().compare(description) == 0)
+			return entry;
+	}
+	throw std::runtime_error( "Not found" );
+}
