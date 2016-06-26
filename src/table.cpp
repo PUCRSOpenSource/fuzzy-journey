@@ -19,6 +19,7 @@ Table* Table::getInstance()
 Table::Table()
 {
 	btree = new BTree(new Leaf());
+	loadBTreeData();
 }
 
 Table::~Table()
@@ -26,7 +27,7 @@ Table::~Table()
 
 }
 
-RowID Table::newEntry(uint32_t code, std::string description)
+RowID Table::insert(uint32_t code, std::string description)
 {
 	if (btree->hasIndex(code)) {
 		throw std::runtime_error( "Primary key already exists" );
@@ -34,11 +35,10 @@ RowID Table::newEntry(uint32_t code, std::string description)
 	TableEntry entry(code, description);
 	RowID rowID = buffer.newEntry(entry);
 	btree->insert(code, rowID);
-	code++;
 	return rowID;
 }
 
-TableEntry Table::getEntry(uint32_t code)
+TableEntry Table::select(uint32_t code)
 {
 	RowID rowID = btree->select(code);
 	TableEntry entry = buffer.getEntry(rowID);
@@ -52,13 +52,12 @@ void Table::remove(uint32_t code)
 	buffer.remove(rowID);
 }
 
-RowID Table::update(uint32_t code, std::string description)
+void Table::update(uint32_t code, std::string description)
 {
-	TableEntry entry = getEntry(code);
-	remove(code);
-	entry.setDescription(description);
-	RowID newRowID = buffer.newEntry(entry);
-	return newRowID;
+
+	TableEntry entry(code, description);
+	RowID rowID = buffer.newEntry(entry);
+	btree->update(code, rowID);
 }
 
 void Table::saveData()
@@ -69,4 +68,16 @@ void Table::saveData()
 void Table::printBTree()
 {
 	btree->print();
+}
+
+void Table::loadBTreeData()
+{
+	std::vector<LData> entries = buffer.allEntries();
+	for(size_t i = 0; i < entries.size(); i++)
+	{
+		uint32_t index = entries[i].getIndex();
+		RowID id = entries[i].getRowID();
+		btree->insert(index, id);
+	}
+
 }

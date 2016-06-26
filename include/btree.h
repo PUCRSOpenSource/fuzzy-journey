@@ -14,6 +14,7 @@ class BTree
 		bool hasIndex(uint32_t index);
 		Node* getRoot();
 		void print();
+		bool update(uint32_t index, RowID rowID);
 	private:
 		Node* root;
 };

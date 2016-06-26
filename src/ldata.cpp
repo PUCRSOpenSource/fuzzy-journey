@@ -20,3 +20,8 @@ RowID LData::getRowID()
 {
 	return rowID;
 }
+
+void LData::setRowID(RowID rowID)
+{
+	this->rowID = rowID;
+}

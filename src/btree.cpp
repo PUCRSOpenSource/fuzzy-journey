@@ -26,6 +26,11 @@ bool BTree::hasIndex(uint32_t index)
 	return root->hasIndex(index);
 }
 
+bool BTree::update(uint32_t index, RowID rowID)
+{
+	return root->update(index, rowID);
+}
+
 Node* BTree::getRoot()
 {
 	return root;

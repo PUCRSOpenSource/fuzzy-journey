@@ -12,6 +12,7 @@ class Node
 		virtual Node* insert(uint32_t index, RowID ri) = 0;
 		virtual RowID select(uint32_t index) = 0;
 		virtual bool hasIndex(uint32_t index) = 0;
+		virtual bool update(uint32_t index, RowID rowID) = 0;
 		virtual int myClass() = 0;
 		virtual void print(std::string level) = 0;
 		virtual void setParent(Node *parent) = 0;
