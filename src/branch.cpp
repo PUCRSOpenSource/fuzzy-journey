@@ -59,9 +59,11 @@ void Branch::split()
 
 	Branch* newBranchLeft = new Branch();
 	newBranchLeft->setBlock(left_block);
+	newBranchLeft->changeChildParent(newBranchLeft);
 
 	Branch* newBranchRight = new Branch();
 	newBranchRight->setBlock(right_block);
+	newBranchRight->changeChildParent(newBranchRight);
 
 	if (!parent)
 	{
@@ -87,6 +89,19 @@ void Branch::split()
 		p->addToBlock(bData);
 	}
 
+}
+
+void Branch::changeChildParent(Node* parent)
+{
+	for (unsigned int i = 0; i < block.size(); i++)
+	{
+		block[i].getLeft()->setParent(parent);
+
+		if (i == block.size() - 1) // If last and not grater or equal
+		{
+			block[i].getRight()->setParent(parent);
+		}
+	}
 }
 
 void Branch::setParent(Node* parent)

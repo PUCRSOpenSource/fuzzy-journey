@@ -46,7 +46,7 @@ int main()
 
 	BTree btree(new Leaf());
 
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < 15; i++) {
 		std::cout << "=========" << std::endl;
 		std::cout << "=========" << std::endl;
 		std::cout << "Insert " << i <<  std::endl;

@@ -19,6 +19,7 @@ class Branch : public Node
 		virtual void print(std::string level);
 		virtual void setParent(Node *parent);
 		virtual Node* getParent();
+		void changeChildParent(Node* parent);
 
 	private:
 		std::vector<BData> block;
