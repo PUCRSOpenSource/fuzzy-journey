@@ -1,4 +1,5 @@
 #include "table.h"
+#include "table_c.h"
 #include "table_entry.h"
 #include "leaf.h"
 #include "btree.h"

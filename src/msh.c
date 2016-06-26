@@ -1,3 +1,4 @@
+#include "table_c.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,22 +8,31 @@
 int msh_cd(char** args);
 int msh_help(char** args);
 int msh_exit(char** args);
+int msh_print_tree(char** args);
 
 char* builtin_str[] = {
 	"cd",
 	"help",
-	"exit"
+	"exit",
+	"print_tree"
 };
 
 int (*builtin_func[]) (char**) = {
 	&msh_cd,
 	&msh_help,
-	&msh_exit
+	&msh_exit,
+	&msh_print_tree
 };
 
 int msh_num_builtins(void)
 {
 	return sizeof(builtin_str) / sizeof(char*);
+}
+
+int msh_print_tree(char** args)
+{
+	void* table = getTable();
+	printTableTree(table);
 }
 
 int msh_cd(char** args)

@@ -26,44 +26,44 @@ void print_arruda()
 		std::cout << "fooey\n" << std::endl;
 }
 
-int main()
-{
+//int main()
+//{
 
-	std::ifstream ifile("datafile.part");
-	if (!ifile)
-		Datafile::init();
+	//std::ifstream ifile("datafile.part");
+	//if (!ifile)
+		//Datafile::init();
 
-	Table* table = Table::getInstance();
+	//Table* table = Table::getInstance();
 
-//	table->insert(200, "Ta saindo da jaula o monstro porra");
-//	TableEntry entry = table->select(200);
-//	std::cout << "selecting element " << entry.getCode() << " - " << entry.getDescription() << std::endl;
-//
-//	table->update(200, "Ja saiu da jaula o monstro porra");
-//	entry = table->select(200);
-//	std::cout << "selecting element " << entry.getCode() << " - " << entry.getDescription() << std::endl;
+////	table->insert(200, "Ta saindo da jaula o monstro porra");
+////	TableEntry entry = table->select(200);
+////	std::cout << "selecting element " << entry.getCode() << " - " << entry.getDescription() << std::endl;
+////
+////	table->update(200, "Ja saiu da jaula o monstro porra");
+////	entry = table->select(200);
+////	std::cout << "selecting element " << entry.getCode() << " - " << entry.getDescription() << std::endl;
 
-	int max = 5;
+	//int max = 5;
 
-	for (int i = 0; i < max; i++) {
-		std::cout << "=========" << std::endl;
-		std::cout << "Insert " << i <<  std::endl;
-		std::cout << "---------" << std::endl;
-		table->insert(i, "Ta saindo da jaula o monstro porra");
-		table->printBTree();
-		std::cout << "=========" << std::endl;
-	}
+	//for (int i = 0; i < max; i++) {
+		//std::cout << "=========" << std::endl;
+		//std::cout << "Insert " << i <<  std::endl;
+		//std::cout << "---------" << std::endl;
+		//table->insert(i, "Ta saindo da jaula o monstro porra");
+		//table->printBTree();
+		//std::cout << "=========" << std::endl;
+	//}
 
-	for (int i = 0; i < max; i++) {
-		std::cout << "=========" << std::endl;
-		std::cout << "Select " << i <<  std::endl;
-		std::cout << "---------" << std::endl;
-		TableEntry entry = table->select(i);
-		std::cout << "selecting element " << entry.getCode() << " - " << entry.getDescription() << std::endl;
-		std::cout << "=========" << std::endl;
-	}
+	//for (int i = 0; i < max; i++) {
+		//std::cout << "=========" << std::endl;
+		//std::cout << "Select " << i <<  std::endl;
+		//std::cout << "---------" << std::endl;
+		//TableEntry entry = table->select(i);
+		//std::cout << "selecting element " << entry.getCode() << " - " << entry.getDescription() << std::endl;
+		//std::cout << "=========" << std::endl;
+	//}
 
-	table->saveData();
+	//table->saveData();
 
-	return 0;
-}
+	//return 0;
+//}
