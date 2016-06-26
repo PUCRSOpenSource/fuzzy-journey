@@ -45,5 +45,7 @@ int main()
 		std::cout << "=========" << std::endl;
 	}
 
+	table->saveData();
+
 	return 0;
 }
