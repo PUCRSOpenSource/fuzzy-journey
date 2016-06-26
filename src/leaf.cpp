@@ -47,13 +47,13 @@ Node* Leaf::split()
 	vector<LData> left_block(block.begin(), block.begin() + half_size);
 	vector<LData> right_block(block.begin() + half_size, block.end());
 
-	block = left_block;
+	setBlock(left_block);
 
 	Leaf* newLeaf = new Leaf();
 	newLeaf->setBlock(right_block);
+	newLeaf->setParent(parent);
 
 	uint32_t index = right_block.front().getIndex();
-
 	BData bData(index, this, newLeaf);
 
 	Branch* parentBranch;
@@ -83,4 +83,9 @@ void Leaf::print(std::string level) {
 	level += "  ";
 	for (auto &ld : block)
 		std::cout << level << ld.getIndex() << std::endl;
+}
+
+void Leaf::setParent(Node* block)
+{
+	this->parent = parent;
 }
