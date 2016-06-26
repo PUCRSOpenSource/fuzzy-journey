@@ -131,3 +131,16 @@ uint8_t* DataBlock::getData()
 {
 	return data;
 }
+
+std::vector<LData> DataBlock::allEntries()
+{
+	std::vector<LData> entries;
+	for (int i = 0; i < headerSize / 4; i++) {
+		TableEntry entry = getEntry(i);
+		RowID id(address, i);
+		uint32_t index = entry.getCode();
+		LData data(index, id);
+		entries.push_back(data);
+	}
+	return entries;
+}

@@ -7,6 +7,7 @@
 Table::Table(BTree* btree)
 {
 	this->btree = btree;
+	this->loadBTreeData();
 }
 
 Table::~Table()
@@ -57,4 +58,16 @@ void Table::saveData()
 void Table::printBTree()
 {
 	btree->print();
+}
+
+void Table::loadBTreeData()
+{
+	std::vector<LData> entries = buffer.allEntries();
+	for(size_t i = 0; i < entries.size(); i++)
+	{
+		uint32_t index = entries[i].getIndex();
+		RowID id = entries[i].getRowID();
+		btree->insert(index, id);
+	}
+
 }

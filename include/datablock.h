@@ -3,6 +3,8 @@
 
 #include <cstdint>
 #include "table_entry.h"
+#include "ldata.h"
+#include <vector>
 
 #define SIZE 1994 // 2000 - sizeof(address) + sizeof(headerSize);
 
@@ -17,6 +19,7 @@ class DataBlock
 		int16_t getAddress();
 		int getHeaderSize();
 		uint8_t* getData();
+		std::vector<LData> allEntries();
 
 	private:
 		int16_t address;

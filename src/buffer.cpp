@@ -1,4 +1,5 @@
 #include "buffer.h"
+#include <iostream>
 
 Buffer::Buffer()
 {
@@ -119,4 +120,28 @@ bool Buffer::isLoaded(uint16_t index)
 		}
 	}
 	return false;
+}
+
+DataBlock Buffer::getDatablockReadOnly(int16_t index)
+{
+	FILE* ptr_myDataBlock = fopen("datafile.part", "r+b");
+	fseek(ptr_myDataBlock, index * DATABLOCK_SIZE + sizeof(int16_t), SEEK_SET);
+	int header_size_aux;
+	uint8_t* data_aux = static_cast<uint8_t*>(malloc(SIZE));
+	fread(&header_size_aux, sizeof(int), 1, ptr_myDataBlock);
+	fread(data_aux, sizeof(uint8_t), SIZE, ptr_myDataBlock);
+	DataBlock block = DataBlock(index, header_size_aux, data_aux);
+	fclose(ptr_myDataBlock);
+	return block;
+}
+
+std::vector<LData> Buffer::allEntries()
+{
+	std::vector<LData> entries;
+	for (uint16_t i = 0; i < DATABLOCKS_TOTAL; i++) {
+		DataBlock block = getDatablockReadOnly(i);
+		std::vector<LData> datablockEntries = block.allEntries();
+		entries.insert(entries.end(), datablockEntries.begin(), datablockEntries.end());
+	}
+	return entries;
 }

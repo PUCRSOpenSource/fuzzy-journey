@@ -5,6 +5,7 @@
 #include "buffer.h"
 #include "rowid.h"
 #include "btree.h"
+#include "ldata.h"
 #include <cstdint>
 #include <string>
 #include <cstring>
@@ -20,6 +21,7 @@ class Table
 		void remove(uint32_t code);
 		RowID update(uint32_t code, std::string description);
 		void printBTree();
+		void loadBTreeData();
 
 		void saveData();
 
