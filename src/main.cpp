@@ -36,5 +36,10 @@ int main()
 	BTree* btree = new BTree(new Leaf());
 	Table* table = new Table(btree);
 
+	table->newEntry("Ta saindo da jaula o monstro porra!");
+	TableEntry entry = table->getEntry(0);
+
+	std::cout << entry.getDescription() << std::endl;
+
 	return 0;
 }
