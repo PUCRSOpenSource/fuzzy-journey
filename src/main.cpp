@@ -68,20 +68,16 @@ int main()
 	std::ifstream ifile("datafile.part");
 	if (!ifile)
 		Datafile::init();
-	
-	testTable();
 
-	BTree btree(new Leaf());
-
-	RowID rowid1;
+	BTree* btree = new BTree(new Leaf());
+	Table* table = new Table(btree);
 
 	for (int i = 0; i < 20; i++) {
 		std::cout << "=========" << std::endl;
-		std::cout << "=========" << std::endl;
 		std::cout << "Insert " << i <<  std::endl;
 		std::cout << "---------" << std::endl;
-		btree.insert(i, rowid1);
-		btree.print();
+		table->newEntry(i, "udshfusdf");
+		table->printBTree();
 		std::cout << "=========" << std::endl;
 	}
 
