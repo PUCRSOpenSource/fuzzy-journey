@@ -13,6 +13,7 @@ class Leaf : public Node
 		virtual Node* insert(uint32_t index, RowID rowID);
 		virtual RowID select(uint32_t index);
 		virtual bool hasIndex(uint32_t index);
+		virtual bool update(uint32_t index, RowID rowID);
 		virtual int myClass();
 		Node* split();
 		void setBlock(std::vector<LData> block);

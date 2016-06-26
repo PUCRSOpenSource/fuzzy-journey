@@ -11,6 +11,7 @@ class LData
 		~LData();
 		uint32_t getIndex();
 		RowID getRowID();
+		void setRowID(RowID rowID);
 	private:
 		uint32_t index;
 		RowID rowID;

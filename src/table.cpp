@@ -23,7 +23,6 @@ RowID Table::newEntry(uint32_t code, std::string description)
 	TableEntry entry(code, description);
 	RowID rowID = buffer.newEntry(entry);
 	btree->insert(code, rowID);
-	code++;
 	return rowID;
 }
 
@@ -41,13 +40,12 @@ void Table::remove(uint32_t code)
 	buffer.remove(rowID);
 }
 
-RowID Table::update(uint32_t code, std::string description)
+void Table::update(uint32_t code, std::string description)
 {
-	TableEntry entry = getEntry(code);
-	remove(code);
-	entry.setDescription(description);
-	RowID newRowID = buffer.newEntry(entry);
-	return newRowID;
+
+	TableEntry entry(code, description);
+	RowID rowID = buffer.newEntry(entry);
+	btree->update(code, rowID);
 }
 
 void Table::saveData()

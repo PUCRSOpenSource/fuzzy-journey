@@ -36,6 +36,14 @@ int main()
 	BTree* btree = new BTree(new Leaf());
 	Table* table = new Table(btree);
 
+//	table->newEntry(200, "Ta saindo da jaula o monstro porra");
+//	TableEntry entry = table->getEntry(200);
+//	std::cout << "selecting element " << entry.getCode() << " - " << entry.getDescription() << std::endl;
+//
+//	table->update(200, "Ja saiu da jaula o monstro porra");
+//	entry = table->getEntry(200);
+//	std::cout << "selecting element " << entry.getCode() << " - " << entry.getDescription() << std::endl;
+
 	int max = 5;
 
 	for (int i = 0; i < max; i++) {

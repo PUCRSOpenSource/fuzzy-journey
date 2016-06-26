@@ -46,6 +46,18 @@ bool Branch::hasIndex(uint32_t index)
 	return block.front().getRight()->hasIndex(index);
 }
 
+bool Branch::update(uint32_t index, RowID rowID)
+{
+	for (unsigned int i = 0; i < block.size(); i++)
+	{
+		if (index < block[i].getIndex())
+		{
+			return block[i].getLeft()->update(index, rowID);
+		}
+	}
+	return block.front().getRight()->update(index, rowID);
+}
+
 void Branch::addToBlock(BData data)
 {
 

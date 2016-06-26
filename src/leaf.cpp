@@ -51,6 +51,18 @@ bool Leaf::hasIndex(uint32_t index)
 	return false;
 }
 
+bool Leaf::update(uint32_t index, RowID rowID)
+{
+	for(size_t i = 0; i < block.size(); i++)
+	{
+		if (index == block[i].getIndex()) {
+			block[i].setRowID(rowID);
+			return true;
+		}
+	}
+	throw std::runtime_error( "Index not found" );
+}
+
 Node* Leaf::split()
 {
 	size_t const half_size = block.size() / 2;
