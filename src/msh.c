@@ -10,13 +10,15 @@ int msh_help(char** args);
 int msh_exit(char** args);
 int msh_print_tree(char** args);
 int msh_insert(char** args);
+int msh_select(char** args);
 
 char* builtin_str[] = {
 	"cd",
 	"help",
 	"exit",
 	"print_tree",
-	"insert"
+	"insert",
+	"select"
 };
 
 int (*builtin_func[]) (char**) = {
@@ -24,7 +26,8 @@ int (*builtin_func[]) (char**) = {
 	&msh_help,
 	&msh_exit,
 	&msh_print_tree,
-	&msh_insert
+	&msh_insert,
+	&msh_select
 };
 
 int msh_num_builtins(void)
@@ -49,6 +52,20 @@ int msh_insert(char** args)
 	{
 		void* table = getTable();
 		insertTable(table, atoi(args[1]), args[2]);
+	}
+	return 1;
+}
+
+int msh_select(char** args)
+{
+	if (args[1] == NULL)
+	{
+		fprintf(stderr, "msh: expected argument to \"select\"\n");
+	}
+	else
+	{
+		void* table = getTable();
+		selectTable(table, atoi(args[1]));
 	}
 	return 1;
 }

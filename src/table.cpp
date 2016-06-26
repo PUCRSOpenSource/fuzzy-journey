@@ -108,3 +108,10 @@ void saveTableData(void* table)
 {
 	((Table*)table)->saveData();
 }
+
+void selectTable(void* table, uint32_t code)
+{
+	TableEntry te = ((Table*)table)->select(code);
+	std::cout << "Code: " << te.getCode() << std::endl;
+	std::cout << "Description: " << te.getDescription() << std::endl;
+}
