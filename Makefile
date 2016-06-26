@@ -4,7 +4,7 @@ ODIR = ./obj
 
 CC = gcc
 CXX = g++
-CFLAGS = -I$(IDIR) -g
+CFLAGS = -I$(IDIR) -g -Wall -Wpedantic
 CXXFLAGS = -std=c++11 -I$(IDIR) -g -Wall -Wpedantic
 
 _DEPS = datafile.h table_entry.h table.h datablock.h rowid.h buffer.h btree.h node.h bdata.h ldata.h branch.h leaf.h table_c.h

@@ -128,7 +128,6 @@ int msh_exit(char** args)
 int msh_launch(char** args)
 {
 	pid_t pid;
-	pid_t wpid;
 	int status;
 
 	pid = fork();
@@ -150,7 +149,7 @@ int msh_launch(char** args)
 		{
 			do
 			{
-				wpid = waitpid(pid, &status, WUNTRACED);
+				waitpid(pid, &status, WUNTRACED);
 			} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 		}
 	}
@@ -201,7 +200,7 @@ char** msh_split_line(char* line)
 char* msh_read_line(void)
 {
 	char *line = NULL;
-	ssize_t bufsize = 0; // have getline allocate a buffer
+	size_t bufsize = 0; // have getline allocate a buffer
 	getline(&line, &bufsize, stdin);
 	return line;
 }
