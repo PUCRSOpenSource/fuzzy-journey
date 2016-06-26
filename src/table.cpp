@@ -181,3 +181,15 @@ void updateTable(void* table, uint32_t code, char* description)
 		std::cerr << ex.what() << std::endl;
 	}
 }
+
+void selectDTable(void* table, char* description)
+{
+	try {
+		std::string str(description);
+		TableEntry te = ((Table*)table)->select(str);
+		std::cout << "Code: " << te.getCode() << std::endl;
+		std::cout << "Description: " << te.getDescription() << std::endl;
+	} catch(const std::exception & ex) {
+		std::cerr << ex.what() << std::endl;
+	}
+}

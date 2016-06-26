@@ -12,6 +12,7 @@ int msh_print_tree(char** args);
 int msh_insert(char** args);
 int msh_insert_n(char** args);
 int msh_select(char** args);
+int msh_select_d(char** args);
 int msh_update(char** args);
 int msh_arruda(char** args);
 
@@ -23,6 +24,7 @@ char* builtin_str[] = {
 	"insert",
 	"insertn",
 	"select",
+	"selectd",
 	"update",
 	"arruda"
 };
@@ -35,6 +37,7 @@ int (*builtin_func[]) (char**) = {
 	&msh_insert,
 	&msh_insert_n,
 	&msh_select,
+	&msh_select_d,
 	&msh_update,
 	&msh_arruda
 };
@@ -117,6 +120,20 @@ int msh_select(char** args)
 	{
 		void* table = getTable();
 		selectTable(table, atoi(args[1]));
+	}
+	return 1;
+}
+
+int msh_select_d(char** args)
+{
+	if (args[1] == NULL)
+	{
+		fprintf(stderr, "msh: expected argument to \"selectd\"\n");
+	}
+	else
+	{
+		void* table = getTable();
+		selectDTable(table, args[1]);
 	}
 	return 1;
 }
