@@ -33,3 +33,4 @@ datafile.part
 tabledata.bin
 
 *.xml
+main.dSYM
