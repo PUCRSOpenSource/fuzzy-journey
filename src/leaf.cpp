@@ -9,7 +9,7 @@ Node* Leaf::insert(uint32_t index, RowID rowID)
 	for(size_t i = 0; i < block.size(); i++)
 	{
 		if (index == block[i].getIndex())
-			throw std::runtime_error( "Index already exists" );
+			throw std::runtime_error( "Index already exists." );
 
 		if (index < block[i].getIndex())
 		{
@@ -37,7 +37,7 @@ RowID Leaf::select(uint32_t index)
 			return block[i].getRowID();
 		}
 	}
-	throw std::runtime_error( "Index not found" );
+	throw std::runtime_error( "Index not found." );
 }
 
 bool Leaf::hasIndex(uint32_t index)
@@ -60,7 +60,7 @@ bool Leaf::update(uint32_t index, RowID rowID)
 			return true;
 		}
 	}
-	throw std::runtime_error( "Index not found" );
+	throw std::runtime_error( "Index not found." );
 }
 
 Node* Leaf::split()

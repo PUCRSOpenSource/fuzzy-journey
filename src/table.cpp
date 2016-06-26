@@ -36,7 +36,7 @@ Table::~Table()
 RowID Table::insert(uint32_t code, std::string description)
 {
 	if (btree->hasIndex(code)) {
-		throw std::runtime_error( "Primary key already exists" );
+		throw std::runtime_error( "Primary key already exists." );
 	}
 	TableEntry entry(code, description);
 	RowID rowID = buffer.newEntry(entry);
@@ -98,7 +98,7 @@ TableEntry Table::select(std::string description)
 		if (entry.getDescription().compare(description) == 0)
 			return entry;
 	}
-	throw std::runtime_error( "Not found" );
+	throw std::runtime_error( "Not found." );
 }
 
 void* getTable()
