@@ -68,6 +68,15 @@ Node* Leaf::split()
 	return this;
 }
 
-int Leaf::myClass() {
+int Leaf::myClass()
+{
 	return 2;
+}
+
+void Leaf::print(std::string level)
+{
+	std::cout << level << "Leaf" << std::endl;
+	level += "  ";
+	for (auto &ld : block)
+		std::cout << level << ld.getIndex() << std::endl;
 }

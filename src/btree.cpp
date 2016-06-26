@@ -25,3 +25,8 @@ Node* BTree::getRoot()
 {
 	return root;
 }
+
+void BTree::print()
+{
+	root->print("");
+}

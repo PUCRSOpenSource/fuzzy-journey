@@ -12,6 +12,7 @@ class BTree
 		bool insert(uint32_t index, RowID rowID);
 		RowID select(uint32_t index);
 		Node* getRoot();
+		void print();
 	private:
 		Node* root;
 };

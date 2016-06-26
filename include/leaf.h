@@ -14,6 +14,7 @@ class Leaf : public Node
 		virtual RowID select(uint32_t index);
 		Node* split();
 		virtual int myClass();
+		virtual void print(std::string level);
 
 	private:
 		std::vector<LData> block;

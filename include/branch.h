@@ -14,6 +14,7 @@ class Branch : public Node
 		virtual RowID select(uint32_t index);
 		void addToBlock(BData data);
 		virtual int myClass();
+		virtual void print(std::string level);
 
 	private:
 		std::vector<BData> block;

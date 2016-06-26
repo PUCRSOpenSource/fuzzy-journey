@@ -45,12 +45,21 @@ int main()
 	l.insert(32, rowid1);
 
 	BTree btree(new Leaf());
+	std::cout << "Insert 32" << std::endl;
+	std::cout << "---------" << std::endl;
 	btree.insert(32, rowid1);
-	std::cout << btree.getRoot()->myClass() << std::endl;
+	btree.print();
+	std::cout << "=========" << std::endl;
+	std::cout << "Insert 33" << std::endl;
+	std::cout << "---------" << std::endl;
 	btree.insert(33, rowid1);
-	std::cout << btree.getRoot()->myClass() << std::endl;
+	btree.print();
+	std::cout << "=========" << std::endl;
+	std::cout << "Insert 34" << std::endl;
+	std::cout << "---------" << std::endl;
 	btree.insert(34, rowid1);
-	std::cout << btree.getRoot()->myClass() << std::endl;
+	btree.print();
+	std::cout << "=========" << std::endl;
 
 	return 0;
 }

@@ -25,6 +25,21 @@ void Branch::addToBlock(BData data)
 	block.push_back(data);
 }
 
-int Branch::myClass() {
+int Branch::myClass()
+{
 	return 1;
+}
+
+void Branch::print(std::string level)
+{
+	std::cout << level << "Branch" << std::endl;
+	level += "  ";
+	for (unsigned int i = 0; i < block.size(); i++)
+	{
+		std::cout << level << block[i].getIndex() << std::endl;
+		block[i].getLeft()->print(level);
+
+		if (i == block.size() - 1) // If last call right
+			block[i].getRight()->print(level);
+	}
 }
