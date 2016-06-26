@@ -81,3 +81,13 @@ void Table::loadBTreeData()
 	}
 
 }
+
+void* getTable()
+{
+	return (void*) Table::getInstance();
+}
+
+void printTableTree(void* table)
+{
+	((Table*)table)->printBTree();
+}

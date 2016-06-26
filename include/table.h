@@ -11,6 +11,8 @@
 #include <cstring>
 #include <vector>
 
+#ifdef __cplusplus
+
 class Table
 {
 	public:
@@ -31,5 +33,15 @@ class Table
 		static Table* t_Instance;
 };
 
+#endif
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+void* getTable();
+void printTableTree(void* table);
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* TABLE_H */
