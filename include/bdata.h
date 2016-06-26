@@ -11,7 +11,9 @@ class BData
 		~BData();
 		uint32_t getIndex();
 		Node* getLeft();
+		void setLeft(Node* node);
 		Node* getRight();
+		void setRight(Node* node);
 	private:
 		uint32_t index;
 		Node* left;
