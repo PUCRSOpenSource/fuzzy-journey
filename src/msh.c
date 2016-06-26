@@ -5,16 +5,16 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-int msh_cd(char** args);
-int msh_help(char** args);
-int msh_exit(char** args);
-int msh_print_tree(char** args);
-int msh_insert(char** args);
-int msh_insert_n(char** args);
-int msh_select(char** args);
-int msh_select_d(char** args);
-int msh_update(char** args);
-int msh_arruda(char** args);
+int sif_cd(char** args);
+int sif_help(char** args);
+int sif_exit(char** args);
+int sif_print_tree(char** args);
+int sif_insert(char** args);
+int sif_insert_n(char** args);
+int sif_select(char** args);
+int sif_select_d(char** args);
+int sif_update(char** args);
+int sif_arruda(char** args);
 
 char* builtin_str[] = {
 	"cd",
@@ -30,28 +30,28 @@ char* builtin_str[] = {
 };
 
 int (*builtin_func[]) (char**) = {
-	&msh_cd,
-	&msh_help,
-	&msh_exit,
-	&msh_print_tree,
-	&msh_insert,
-	&msh_insert_n,
-	&msh_select,
-	&msh_select_d,
-	&msh_update,
-	&msh_arruda
+	&sif_cd,
+	&sif_help,
+	&sif_exit,
+	&sif_print_tree,
+	&sif_insert,
+	&sif_insert_n,
+	&sif_select,
+	&sif_select_d,
+	&sif_update,
+	&sif_arruda
 };
 
-int msh_num_builtins(void)
+int sif_num_builtins(void)
 {
 	return sizeof(builtin_str) / sizeof(char*);
 }
 
-int msh_update(char** args)
+int sif_update(char** args)
 {
 	if (args[1] == NULL)
 	{
-		fprintf(stderr, "msh: expected argument to \"insert\"\n");
+		fprintf(stderr, "sif: expected argument to \"insert\"\n");
 	}
 	else
 	{
@@ -61,11 +61,11 @@ int msh_update(char** args)
 	return 1;
 }
 
-int msh_insert_n(char** args)
+int sif_insert_n(char** args)
 {
 	if (args[1] == NULL)
 	{
-		fprintf(stderr, "msh: expected argument to \"insertn\"\n");
+		fprintf(stderr, "sif: expected argument to \"insertn\"\n");
 	}
 	else
 	{
@@ -75,7 +75,7 @@ int msh_insert_n(char** args)
 	return 1;
 }
 
-int msh_arruda(char** args)
+int sif_arruda(char** args)
 {
 	char const* const fileName = "data/arruda.txt";
 	FILE* file = fopen(fileName, "r");
@@ -89,18 +89,18 @@ int msh_arruda(char** args)
 	return 1;
 }
 
-int msh_print_tree(char** args)
+int sif_print_tree(char** args)
 {
 	void* table = getTable();
 	printTableTree(table);
 	return 1;
 }
 
-int msh_insert(char** args)
+int sif_insert(char** args)
 {
 	if (args[1] == NULL)
 	{
-		fprintf(stderr, "msh: expected argument to \"insert\"\n");
+		fprintf(stderr, "sif: expected argument to \"insert\"\n");
 	}
 	else
 	{
@@ -110,11 +110,11 @@ int msh_insert(char** args)
 	return 1;
 }
 
-int msh_select(char** args)
+int sif_select(char** args)
 {
 	if (args[1] == NULL)
 	{
-		fprintf(stderr, "msh: expected argument to \"select\"\n");
+		fprintf(stderr, "sif: expected argument to \"select\"\n");
 	}
 	else
 	{
@@ -124,11 +124,11 @@ int msh_select(char** args)
 	return 1;
 }
 
-int msh_select_d(char** args)
+int sif_select_d(char** args)
 {
 	if (args[1] == NULL)
 	{
-		fprintf(stderr, "msh: expected argument to \"selectd\"\n");
+		fprintf(stderr, "sif: expected argument to \"selectd\"\n");
 	}
 	else
 	{
@@ -138,29 +138,29 @@ int msh_select_d(char** args)
 	return 1;
 }
 
-int msh_cd(char** args)
+int sif_cd(char** args)
 {
 	if (args[1] == NULL)
 	{
-		fprintf(stderr, "msh: expected argument to \"cd\"\n");
+		fprintf(stderr, "sif: expected argument to \"cd\"\n");
 	}
 	else
 	{
 		if (chdir(args[1]) != 0)
 		{
-			perror("msh");
+			perror("sif");
 		}
 	}
 	return 1;
 }
 
-int msh_help(char** args)
+int sif_help(char** args)
 {
 	int i;
-	printf("msh - matth_shell\n");
-	printf("A simple and minimal shell\n");
+	printf("sif - Sif Shell\n");
+	printf("A simple and minimal shell design to work with the database implementations final project.\n");
 	printf("The following are built in:\n");
-	for (i = 0; i < msh_num_builtins(); i++)
+	for (i = 0; i < sif_num_builtins(); i++)
 	{
 		printf("  %s\n", builtin_str[i]);
 	}
@@ -169,14 +169,14 @@ int msh_help(char** args)
 	return 1;
 }
 
-int msh_exit(char** args)
+int sif_exit(char** args)
 {
 	void* table = getTable();
 	saveTableData(table);
 	return 0;
 }
 
-int msh_launch(char** args)
+int sif_launch(char** args)
 {
 	pid_t pid;
 	int status;
@@ -186,7 +186,7 @@ int msh_launch(char** args)
 	{
 		if (execvp(args[0], args) == -1)
 		{
-			perror("msh");
+			perror("sif");
 		}
 		exit(EXIT_FAILURE);
 	}
@@ -194,7 +194,7 @@ int msh_launch(char** args)
 	{
 		if (pid < 0)
 		{
-			perror("msh");
+			perror("sif");
 		}
 		else
 		{
@@ -208,22 +208,22 @@ int msh_launch(char** args)
 	return 1;
 }
 
-#define MSH_TOK_BUFSIZE 64
-#define MSH_TOK_DELIM " \t\r\n\a"
-char** msh_split_line(char* line)
+#define SIF_TOK_BUFSIZE 64
+#define SIF_TOK_DELIM " \t\r\n\a"
+char** sif_split_line(char* line)
 {
-	int bufsize = MSH_TOK_BUFSIZE;
+	int bufsize = SIF_TOK_BUFSIZE;
 	int position = 0;
 	char** tokens = malloc(bufsize * sizeof(char));
 	char* token;
 
 	if (!tokens)
 	{
-		fprintf(stderr, "msh: allocation error\n");
+		fprintf(stderr, "sif: allocation error\n");
 		exit(EXIT_FAILURE);
 	}
 
-	token = strtok(line, MSH_TOK_DELIM);
+	token = strtok(line, SIF_TOK_DELIM);
 	while (token != NULL)
 	{
 		tokens[position] = token;
@@ -231,16 +231,16 @@ char** msh_split_line(char* line)
 
 		if (position >= bufsize)
 		{
-			bufsize += MSH_TOK_BUFSIZE;
+			bufsize += SIF_TOK_BUFSIZE;
 			tokens = realloc(tokens, bufsize * sizeof(char));
 			if (!tokens)
 			{
-				fprintf(stderr, "msh: allocation error\n");
+				fprintf(stderr, "sif: allocation error\n");
 				exit(EXIT_FAILURE);
 			}
 		}
 
-		token = strtok(NULL, MSH_TOK_DELIM);
+		token = strtok(NULL, SIF_TOK_DELIM);
 	}
 
 	tokens[position] = NULL;
@@ -248,7 +248,7 @@ char** msh_split_line(char* line)
 	return tokens;
 }
 
-char* msh_read_line(void)
+char* sif_read_line(void)
 {
 	char *line = NULL;
 	size_t bufsize = 0; // have getline allocate a buffer
@@ -256,7 +256,7 @@ char* msh_read_line(void)
 	return line;
 }
 
-int msh_execute(char** args)
+int sif_execute(char** args)
 {
 	int i;
 
@@ -265,7 +265,7 @@ int msh_execute(char** args)
 		return 1;
 	}
 
-	for (i = 0; i < msh_num_builtins(); i++)
+	for (i = 0; i < sif_num_builtins(); i++)
 	{
 		if (strcmp(args[0], builtin_str[i]) == 0)
 		{
@@ -273,10 +273,10 @@ int msh_execute(char** args)
 		}
 	}
 
-	return msh_launch(args);
+	return sif_launch(args);
 }
 
-void msh_loop(void)
+void sif_loop(void)
 {
 	char* line;
 	char** args;
@@ -285,9 +285,9 @@ void msh_loop(void)
 	do
 	{
 		printf("> ");
-		line = msh_read_line();
-		args = msh_split_line(line);
-		status = msh_execute(args);
+		line = sif_read_line();
+		args = sif_split_line(line);
+		status = sif_execute(args);
 
 		free(line);
 		free(args);
@@ -296,6 +296,6 @@ void msh_loop(void)
 
 int main(int argc, const char* argv[])
 {
-	msh_loop();
+	sif_loop();
 	return EXIT_SUCCESS;
 }
