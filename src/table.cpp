@@ -3,12 +3,13 @@
 #include <iostream>
 #include <fstream>
 
-Table::Table()
+Table::Table(BTree* btree)
 {
 	std::ifstream ifile("tabledata.bin");
 	if (!ifile)
 		initCode();
 	loadCode();
+	this->btree = btree;
 }
 
 Table::~Table()
@@ -20,12 +21,7 @@ RowID Table::newEntry(std::string description)
 {
 	TableEntry entry(code, description);
 	RowID rowID = buffer.newEntry(entry);
-	std::cout <<
-			"Now I would add to the tree an object with rowID = " <<
-			rowID.getBlockNumber() <<
-			";" <<
-			rowID.getPosition() <<
-			std::endl;
+	btree->insert(code, rowID);
 	code++;
 	return rowID;
 }

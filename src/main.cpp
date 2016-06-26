@@ -32,29 +32,9 @@ int main()
 	std::ifstream ifile("datafile.part");
 	if (!ifile)
 		Datafile::init();
-
-	Table table;
-
-	RowID rowid1 = table.newEntry("matthias gay");
-
-	table.saveData();
-
-	Branch b;
-	Leaf l;
-	b.insert(32, rowid1);
-	l.insert(32, rowid1);
-
-	BTree btree(new Leaf());
-
-	for (int i = 0; i < 15; i++) {
-		std::cout << "=========" << std::endl;
-		std::cout << "=========" << std::endl;
-		std::cout << "Insert " << i <<  std::endl;
-		std::cout << "---------" << std::endl;
-		btree.insert(i, rowid1);
-		btree.print();
-		std::cout << "=========" << std::endl;
-	}
+	
+	BTree* btree = new BTree(new Leaf());
+	Table* table = new Table(btree);
 
 	return 0;
 }
