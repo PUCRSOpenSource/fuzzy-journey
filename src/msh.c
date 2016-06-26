@@ -11,6 +11,7 @@ int msh_exit(char** args);
 int msh_print_tree(char** args);
 int msh_insert(char** args);
 int msh_select(char** args);
+int msh_arruda(char** args);
 
 char* builtin_str[] = {
 	"cd",
@@ -18,7 +19,8 @@ char* builtin_str[] = {
 	"exit",
 	"print_tree",
 	"insert",
-	"select"
+	"select",
+	"arruda"
 };
 
 int (*builtin_func[]) (char**) = {
@@ -27,12 +29,27 @@ int (*builtin_func[]) (char**) = {
 	&msh_exit,
 	&msh_print_tree,
 	&msh_insert,
-	&msh_select
+	&msh_select,
+	&msh_arruda
 };
 
 int msh_num_builtins(void)
 {
 	return sizeof(builtin_str) / sizeof(char*);
+}
+
+int msh_arruda(char** args)
+{
+	char const* const fileName = "data/arruda.txt";
+	FILE* file = fopen(fileName, "r");
+	char line[256];
+
+	while (fgets(line, sizeof(line), file))
+		printf("%s", line);
+
+	fclose(file);
+
+	return 1;
 }
 
 int msh_print_tree(char** args)
