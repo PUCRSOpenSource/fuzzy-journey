@@ -46,10 +46,62 @@ void Branch::addToBlock(BData data)
 	}
 }
 
-Node* Branch::split()
+void Branch::split()
 {
 	std::cout << "PRECISO DE SPLIT SCORR" << std::endl;
-	return nullptr;
+	size_t const half_size = block.size() / 2;
+	std::vector<BData> left_block(block.begin(), block.begin() + half_size);
+	std::vector<BData> right_block(block.begin() + half_size, block.end());
+
+	BData bData = right_block[0];
+	right_block.erase(right_block.begin());
+
+
+	Branch* newBranchLeft = new Branch();
+	newBranchLeft->setBlock(left_block);
+
+	Branch* newBranchRight = new Branch();
+	newBranchRight->setBlock(right_block);
+
+	if (!parent)
+	{
+		newBranchLeft->setParent(this);
+		newBranchRight->setParent(this);
+
+		bData.setLeft(newBranchLeft);
+		bData.setRight(newBranchRight);
+
+		std::vector<BData> my_block;
+		my_block.push_back(bData);
+		setBlock(my_block);
+	}
+	else
+	{
+		newBranchLeft->setParent(parent);
+		newBranchRight->setParent(parent);
+
+		bData.setLeft(newBranchLeft);
+		bData.setRight(newBranchRight);
+
+		Branch* p = (Branch*) parent;
+		p->addToBlock(bData);
+	}
+
+}
+
+void Branch::setParent(Node* parent)
+{
+	this->parent = parent;
+}
+
+Node* Branch::getParent()
+{
+	return parent;
+}
+
+void Branch::setBlock(std::vector<BData> block)
+{
+	this->block = block;
 }
 
 int Branch::myClass()
