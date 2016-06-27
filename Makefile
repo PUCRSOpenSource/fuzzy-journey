@@ -34,6 +34,8 @@ run: main
 doc: Doxyfile
 	doxygen $^
 clean:
+	rm -rf gt.png
+	rm -rf graphTree
 	rm -f datafile.part
 	rm -f $(ODIR)/*.o 
 	rm -f doc/xml/*

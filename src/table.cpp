@@ -201,5 +201,9 @@ void selectDTable(void* table, char* description)
 
 void printTableGraph(void* table)
 {
-	std::cout << ((Table*)table)->printGraph() << std::endl;;
+	std::ofstream out("graphTree");
+	out << ((Table*)table)->printGraph();
+	out.close();
+	system("dot -T png graphTree -o gt.png; feh gt.png");
+	//system("feh gt.png");
 }
