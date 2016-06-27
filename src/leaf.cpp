@@ -111,6 +111,31 @@ void Leaf::print(std::string level) {
 		std::cout << level << ld.getIndex() << std::endl;
 }
 
+std::string Leaf::graphPrint()
+{
+	std::ostringstream ss("");
+	ss << "node";
+	ss << getName();
+	ss << "[label = \"";
+
+	unsigned int i = 0;
+	for (auto &ld : block)
+	{
+		ss << "<f" << i << "> |" << ld.getIndex() << "|";
+		i++;
+	}
+	ss << "<f" << i << ">\"];" << std::endl;
+
+	return ss.str();
+}
+
+std::string Leaf::getName()
+{
+	std::ostringstream ss("");
+	ss << block[0].getIndex() << "l";
+	return ss.str();
+}
+
 void Leaf::setParent(Node* parent)
 {
 	this->parent = parent;

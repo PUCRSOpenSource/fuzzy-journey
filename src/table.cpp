@@ -79,6 +79,11 @@ void Table::printBTree()
 	btree->print();
 }
 
+std::string Table:: printGraph()
+{
+	return btree->graphPrint();
+}
+
 void Table::loadBTreeData()
 {
 	std::vector<LData> entries = buffer.allEntries();
@@ -192,4 +197,9 @@ void selectDTable(void* table, char* description)
 	} catch(const std::exception & ex) {
 		std::cerr << ex.what() << std::endl;
 	}
+}
+
+void printTableGraph(void* table)
+{
+	std::cout << ((Table*)table)->printGraph() << std::endl;;
 }

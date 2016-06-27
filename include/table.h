@@ -21,6 +21,7 @@ class Table
 		void remove(uint32_t code);
 		void update(uint32_t code, std::string description);
 		void printBTree();
+		std::string printGraph();
 		void loadBTreeData();
 		void saveData();
 		static Table* getInstance();

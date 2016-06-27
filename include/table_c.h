@@ -5,6 +5,7 @@ extern "C" {
 #endif
 void* getTable();
 void printTableTree(void* table);
+void printTableGraph(void* table);
 void insertTable(void* table, uint32_t code, char* description);
 void insertNTable(void* table, uint32_t n);
 void updateTable(void* table, uint32_t code, char* description);

@@ -9,6 +9,7 @@ int sif_cd(char** args);
 int sif_help(char** args);
 int sif_exit(char** args);
 int sif_print_tree(char** args);
+int sif_graph_print(char** args);
 int sif_insert(char** args);
 int sif_insert_n(char** args);
 int sif_select(char** args);
@@ -21,6 +22,7 @@ char* builtin_str[] = {
 	"help",
 	"exit",
 	"print_tree",
+	"graph_print",
 	"insert",
 	"insertn",
 	"select",
@@ -34,6 +36,7 @@ int (*builtin_func[]) (char**) = {
 	&sif_help,
 	&sif_exit,
 	&sif_print_tree,
+	&sif_graph_print,
 	&sif_insert,
 	&sif_insert_n,
 	&sif_select,
@@ -45,6 +48,13 @@ int (*builtin_func[]) (char**) = {
 int sif_num_builtins(void)
 {
 	return sizeof(builtin_str) / sizeof(char*);
+}
+
+int sif_graph_print(char** args)
+{
+	void* table = getTable();
+	printTableGraph(table);
+	return 1;
 }
 
 int sif_update(char** args)

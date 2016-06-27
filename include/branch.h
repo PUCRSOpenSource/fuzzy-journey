@@ -19,10 +19,12 @@ class Branch : public Node
 		virtual int myClass();
 		void split();
 		virtual void print(std::string level);
+		virtual std::string graphPrint();
 		virtual void setParent(Node *parent);
 		virtual Node* getParent();
 		void changeChildParent(Node* parent);
 		virtual std::vector<RowID> selectAll();
+		virtual std::string getName();
 
 	private:
 		std::vector<BData> block;

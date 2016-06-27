@@ -168,6 +168,48 @@ void Branch::print(std::string level)
 	}
 }
 
+std::string Branch::graphPrint()
+{
+	std::ostringstream ss("");
+	ss << "node";
+	ss << getName();
+	ss << "[label = \"";
+
+	unsigned int i = 0;
+	for (auto &bd : block)
+	{
+		ss << "<f" << i << "> |" << bd.getIndex() << "|";
+		i++;
+	}
+	ss << "<f" << i << ">\"];" << std::endl;
+
+
+	for (i = 0; i < block.size(); i++)
+	{
+		ss << block[i].getLeft()->graphPrint();
+		ss << "\"node" << getName() << "\"";
+		ss << ":f" << i << " -> " << "\"node";
+		ss << block[i].getLeft()->getName() << "\"" << std::endl;
+
+		if (i == block.size() - 1) // If last call right
+		{
+			ss << block[i].getRight()->graphPrint();
+			ss << "\"node" << getName() << "\"";
+			ss << ":f" << i + 1 << " -> " << "\"node";
+			ss << block[i].getRight()->getName() << "\"" << std::endl;
+		}
+	}
+
+	return ss.str();
+}
+
+std::string Branch::getName()
+{
+	std::ostringstream ss("");
+	ss << block[0].getIndex() << "b";
+	return ss.str();
+}
+
 std::vector<RowID> Branch::selectAll()
 {
 	std::vector<RowID> rowIds;

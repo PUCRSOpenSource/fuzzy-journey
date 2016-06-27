@@ -3,6 +3,8 @@
 
 #include "node.h"
 #include "rowid.h"
+#include <string>
+#include <sstream>
 #include <vector>
 
 class BTree
@@ -16,6 +18,7 @@ class BTree
 		std::vector<RowID> selectAll();
 		Node* getRoot();
 		void print();
+		std::string graphPrint();
 		bool update(uint32_t index, RowID rowID);
 	private:
 		Node* root;

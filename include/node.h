@@ -4,6 +4,7 @@
 #include "rowid.h"
 #include <cstdint>
 #include <string>
+#include <sstream>
 #include <vector>
 
 class Node
@@ -16,13 +17,15 @@ class Node
 		virtual bool update(uint32_t index, RowID rowID) = 0;
 		virtual int myClass() = 0;
 		virtual void print(std::string level) = 0;
+		virtual std::string graphPrint() = 0;
 		virtual void setParent(Node *parent) = 0;
 		virtual Node* getParent() = 0;
 		virtual std::vector<RowID> selectAll() = 0;
+		virtual std::string getName() = 0;
 
 	protected:
 		Node* parent = nullptr;
-		uint32_t max_size = 250;
+		uint32_t max_size = 4;
 };
 
 #endif /* NODE_H */

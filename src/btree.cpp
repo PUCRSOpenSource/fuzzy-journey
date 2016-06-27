@@ -1,4 +1,5 @@
 #include "btree.h"
+#include <iostream>
 
 BTree::BTree(Node* root)
 {
@@ -39,6 +40,16 @@ Node* BTree::getRoot()
 void BTree::print()
 {
 	root->print("");
+}
+
+std::string BTree::graphPrint()
+{
+	std::ostringstream ss("");
+	ss << "digraph g {\n";
+	ss << "node [shape = record,height=.1];\n";
+	ss << root->graphPrint();
+	ss << "}\n" << std::endl;
+	return ss.str();
 }
 
 std::vector<RowID> BTree::selectAll()
