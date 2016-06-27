@@ -26,11 +26,13 @@ main: $(OBJ)
 obj/sif.o: src/sif.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-.PHONY: clean run
+.PHONY: clean run doc
 
 run: main
 	./main
 
+doc: Doxyfile
+	doxygen $^
 clean:
 	rm -f datafile.part
 	rm -f $(ODIR)/*.o 
