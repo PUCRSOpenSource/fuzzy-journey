@@ -34,4 +34,5 @@ run: main
 clean:
 	rm -f datafile.part
 	rm -f $(ODIR)/*.o 
+	rm -f doc/xml/*
 	rm -f main
