@@ -284,7 +284,10 @@ void sif_loop(void)
 
 	do
 	{
-		printf("> ");
+		char cwd[1024];
+		getcwd(cwd, sizeof(cwd));
+		printf("\033[0;32m%s\033[0m\n", cwd);
+		printf("\033[0;35msif>\033[0m ");
 		line = sif_read_line();
 		args = sif_split_line(line);
 		status = sif_execute(args);
