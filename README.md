@@ -5,9 +5,96 @@ Grupo:
 * [Giovanni Cupertino](https://github.com/GiovanniCuper)
 * [Matthias Nunes](https://github.com/execb5)
 
+#### Como compilar:
+
+Apenas execute `make` no diretório raiz para compilar o projeto inteiro, `make
+run` para compilar e já executar direto.
+
+Para vizualização da *BTree*, é necessário ter o `graphviz` instalado junto com
+o visualizador de imagens `feh`. Para trocar o visualizador é só substituir na
+chamada de sistema no `src/table.cpp:207`, trocar `feh` pelo seu visualizador de
+escolha.
+
+#### Como utilizar:
+
+Quando o simulador começa, ele já entra no **Sif** (shell desenvolvido para o
+programa). Ele é um shell como qualquer outro, mas suas funções *built-in*
+interagem com a nossa estrutura de banco.
+
+***Built-ins***:
+
+* `cd` - mudar de diretório
+
+```sh
+cd ~/fuzzy/journey
+```
+
+* `help` - comando de ajuda
+
+```sh
+help
+```
+
+* `exit` - sai do **Sif** shell
+
+```sh
+exit
+```
+
+* `print_tree` - imprime a *Btree* no terminal na vertical
+
+```sh
+print_tree
+```
+
+* `graph_print` - abre um *.png* que representa  *BTree*
+
+```sh
+graph_print
+```
+
+* `insert` - insere um registro na *BTree*
+
+```sh
+insert 1 Inseri_essa_descrição_na_chave_1
+```
+
+* `insertn` - insere *n* registros na *BTree* com descrições aleatórias
+
+```sh
+insertn 15
+```
+
+* `select` - seleciona um registro utilizando seu código
+
+```sh
+select 1 
+```
+
+* `selectd` - seleciona um registro utilizando sua descrição
+
+```sh
+selectd Inseri_essa_descrição_na_chave_1
+```
+
+* `update` - atualiza um registro
+
+```sh
+update 1 Agora_troquei_a_descrição_da_chave_1
+```
+
+* `arruda` - imprime a cara do professor **Arruda** no terminal
+
+```sh
+arruda
+```
+
+
 ---
 
-# Simulador de B\*
+# Enunciado
+
+## Simulador de B\*
 
 ### Objetivo
 
