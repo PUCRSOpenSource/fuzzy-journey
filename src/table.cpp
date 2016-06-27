@@ -205,5 +205,4 @@ void printTableGraph(void* table)
 	out << ((Table*)table)->printGraph();
 	out.close();
 	system("dot -T png graphTree -o gt.png; feh gt.png");
-	//system("feh gt.png");
 }
