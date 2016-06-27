@@ -14,7 +14,7 @@ Table* Table::t_Instance;
 Table* Table::getInstance()
 {
 	if (!t_Instance)
-		t_Instance = new Table;
+		t_Instance = new Table();
 
 	return t_Instance;
 }
